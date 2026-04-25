@@ -1,0 +1,33 @@
+#!/bin/bash
+# Post-commit hook: runs Claude Code agents for visual and SEO review
+# Triggered automatically after each git commit
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  Connectea Web — Post-Commit Review"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+# Run agents in sequence so they don't conflict
+echo "🎨 Running visual design review..."
+claude --dangerously-skip-permissions -p \
+  "You are the visual-reviewer agent for the Connectea landing page. \
+  A new commit was just made. Run your full review process as defined in \
+  .claude/agents/visual-reviewer.md — read the current src/layouts/LandingPage.astro, \
+  identify the top visual improvements, and apply them directly." \
+  2>&1
+
+echo ""
+echo "🔍 Running SEO review..."
+claude --dangerously-skip-permissions -p \
+  "You are the seo-reviewer agent for the Connectea landing page. \
+  A new commit was just made. Run your full review process as defined in \
+  .claude/agents/seo-reviewer.md — read src/layouts/LandingPage.astro and \
+  src/i18n/translations.ts, identify SEO improvements, and apply them directly." \
+  2>&1
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  Review complete. Check 'git status' for changes."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""

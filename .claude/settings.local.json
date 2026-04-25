@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(chmod +x .githooks/post-commit)",
+      "Bash(curl -s http://localhost:4321/en/)",
+      "Bash(git add *)"
+    ]
+  }
+}

@@ -50,22 +50,23 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Connectea",
-    "applicationCategory": "BusinessApplication",
+    "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "FileSharing",
     "operatingSystem": "Windows 10, Windows 11",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "description": t.meta.description,
     "url": "https://connectea.net",
     "downloadUrl": "https://connectea.net/downloads/connectea-setup.exe",
-    "featureList": "End-to-end encryption, Real-time collaboration, File sharing, Access control, Plugin ecosystem",
+    "featureList": "One-click Minecraft server plugin, Instant file sharing with friends, No account required, AES-256-GCM end-to-end encryption, PBKDF2 key derivation, SHA-256 integrity verification, Code-based rooms, Drag-and-drop folders, Streamed ZIP download, READ/WRITE allowlist, English/Spanish/Chinese UI",
     "softwareVersion": "1.0",
-    "author": { "@type": "Organization", "name": "Connectea" },
+    "author": { "@type": "Organization", "name": "Connectea", "email": "contact@connectea.net" },
     "inLanguage": lang === 'zh' ? 'zh-Hans' : lang === 'es' ? 'es' : 'en',
   })} />
 </head>
@@ -96,8 +97,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
 
       <div class="nav-links" role="list">
         <a href="#features" role="listitem">{t.nav.features}</a>
-        <a href="#security" role="listitem">{t.nav.security}</a>
         <a href="#plugins" role="listitem">{t.nav.plugins}</a>
+        <a href="#security" role="listitem">{t.nav.security}</a>
         <a href="#pricing" role="listitem">{t.nav.pricing}</a>
       </div>
 
@@ -118,8 +119,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu" role="menu">
       <a href="#features" role="menuitem">{t.nav.features}</a>
-      <a href="#security" role="menuitem">{t.nav.security}</a>
       <a href="#plugins" role="menuitem">{t.nav.plugins}</a>
+      <a href="#security" role="menuitem">{t.nav.security}</a>
       <a href="#pricing" role="menuitem">{t.nav.pricing}</a>
       <div class="mobile-lang">
         {(['en', 'es', 'zh'] as Lang[]).map(l => (
@@ -136,7 +137,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <section id="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-content" data-reveal>
-        <div class="badge badge-primary">{t.hero.badge}</div>
+        <div class="badge badge-primary"><span class="badge-dot" aria-hidden="true"></span>{t.hero.badge}</div>
         <h1 id="hero-title" class="hero-title">
           {lang === 'zh'
             ? <><span>{t.hero.headline.slice(0, -4)}</span><span class="gradient-text">{t.hero.headline.slice(-4)}</span></>
@@ -149,7 +150,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             {t.hero.cta_primary}
           </a>
-          <a href="#features" class="btn btn-outline btn-lg">
+          <a href="#plugins" class="btn btn-outline btn-lg">
             {t.hero.cta_secondary}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
@@ -178,61 +179,73 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
           </div>
           <div class="app-body">
             <div class="app-sidebar">
-              <div class="sidebar-label">ROOMS</div>
+              <div class="sidebar-label">RECENT</div>
               <div class="room-item active">
                 <span class="room-dot"></span>
-                <span>ABC-1234</span>
+                <span>mc-server</span>
               </div>
               <div class="room-item">
                 <span class="room-dot dim"></span>
-                <span>DEF-5678</span>
+                <span>a0ff89ee</span>
               </div>
               <div class="room-item">
                 <span class="room-dot dim"></span>
-                <span>GHI-9012</span>
+                <span>d5e76346</span>
               </div>
-              <div class="room-add">+ New Room</div>
+              <div class="room-add">+ Create Room</div>
             </div>
             <div class="app-main">
               <div class="app-header-bar">
-                <span class="room-code-badge">ABC-1234</span>
+                <span class="room-code-badge">mc-server</span>
                 <span class="owner-badge">Owner</span>
               </div>
               <div class="file-list">
                 <div class="file-row">
-                  <span class="file-icon">📄</span>
-                  <span class="file-name">report_q4.pdf</span>
-                  <span class="file-size">2.3 MB</span>
-                  <span class="enc-badge">🔒</span>
-                </div>
-                <div class="file-row">
                   <span class="file-icon">📁</span>
-                  <span class="file-name">assets/</span>
-                  <span class="file-size">12 MB</span>
+                  <span class="file-name">world/</span>
+                  <span class="file-size">1.2 GB</span>
                   <span class="enc-badge">&nbsp;</span>
                 </div>
                 <div class="file-row">
-                  <span class="file-icon">🎵</span>
-                  <span class="file-name">audio_master.mp3</span>
-                  <span class="file-size">8.1 MB</span>
-                  <span class="enc-badge">🔒</span>
+                  <span class="file-icon">📄</span>
+                  <span class="file-name">server.properties</span>
+                  <span class="file-size">3 KB</span>
+                  <span class="enc-badge">&nbsp;</span>
+                </div>
+                <div class="file-row">
+                  <span class="file-icon">📦</span>
+                  <span class="file-name">server.jar</span>
+                  <span class="file-size">48 MB</span>
+                  <span class="enc-badge">&nbsp;</span>
                 </div>
                 <div class="file-row">
                   <span class="file-icon">📝</span>
-                  <span class="file-name">notes.txt</span>
-                  <span class="file-size">12 KB</span>
+                  <span class="file-name">ops.json</span>
+                  <span class="file-size">1 KB</span>
                   <span class="enc-badge">&nbsp;</span>
                 </div>
               </div>
               <div class="app-toolbar">
                 <button class="tool-btn tool-btn-primary">↑ Upload</button>
-                <button class="tool-btn tool-btn-ghost">↓ Download All</button>
-                <button class="tool-btn tool-btn-ghost">🔌 Plugins</button>
+                <button class="tool-btn tool-btn-ghost">↓ ZIP All</button>
+                <button class="tool-btn tool-btn-active">🔌 Plugins ●</button>
               </div>
             </div>
           </div>
         </div>
         <div class="window-glow"></div>
+        <div class="float-badge float-badge-tl" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          AES-256-GCM
+        </div>
+        <div class="float-badge float-badge-tr" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          No account
+        </div>
+        <div class="float-badge float-badge-br" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Instant
+        </div>
       </div>
     </div>
   </section>
@@ -252,6 +265,50 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
             <p class="feature-desc">{item.desc}</p>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLUGINS ============ -->
+  <section id="plugins" aria-labelledby="plugins-title">
+    <div class="container">
+      <div class="plugins-grid">
+        <div class="plugins-content" data-reveal>
+          <div class="badge badge-amber">{t.plugins.badge}</div>
+          <h2 id="plugins-title" class="section-title">{t.plugins.title}</h2>
+          <p class="section-subtitle">{t.plugins.subtitle}</p>
+          <ul class="plugins-features" role="list">
+            {t.plugins.features.map(feat => (
+              <li role="listitem">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                {feat}
+              </li>
+            ))}
+          </ul>
+          <a href="#download" class="btn btn-primary" style="margin-top: 32px;">{t.plugins.cta}</a>
+        </div>
+        <div class="plugin-terminal" data-reveal aria-hidden="true">
+          <div class="terminal-header">
+            <div class="titlebar-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">Minecraft Server</span>
+            <div style="width:52px"></div>
+          </div>
+          <div class="terminal-body">
+            <div><span class="t-muted">$</span> <span class="t-blue">connectea</span> plugin start minecraft-server</div>
+            <div><span class="t-green">✓</span> World files loaded from room</div>
+            <div><span class="t-amber">→</span> Starting server on :25565...</div>
+            <div class="t-muted">&nbsp;&nbsp;[████████████████] 100%</div>
+            <div><span class="t-green">✓</span> Server online · 0/20 players</div>
+            <div><span class="t-amber">→</span> Player <span class="t-blue">Alex</span> joined the game</div>
+            <div><span class="t-amber">→</span> Player <span class="t-blue">Steve</span> joined the game</div>
+            <div><span class="t-green">✓</span> 2/20 players online</div>
+            <div><span class="t-muted">$</span> <span class="cursor"></span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -312,50 +369,6 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     </div>
   </section>
 
-  <!-- ============ PLUGINS ============ -->
-  <section id="plugins" aria-labelledby="plugins-title">
-    <div class="container">
-      <div class="plugins-grid">
-        <div class="plugins-content" data-reveal>
-          <div class="badge badge-amber">{t.plugins.badge}</div>
-          <h2 id="plugins-title" class="section-title">{t.plugins.title}</h2>
-          <p class="section-subtitle">{t.plugins.subtitle}</p>
-          <ul class="plugins-features" role="list">
-            {t.plugins.features.map(feat => (
-              <li role="listitem">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-                {feat}
-              </li>
-            ))}
-          </ul>
-          <a href="#download" class="btn btn-outline" style="margin-top: 32px;">{t.plugins.cta}</a>
-        </div>
-        <div class="plugin-terminal" data-reveal aria-hidden="true">
-          <div class="terminal-header">
-            <div class="titlebar-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <span class="terminal-title">Plugin Output</span>
-            <div style="width:52px"></div>
-          </div>
-          <div class="terminal-body">
-            <div><span class="t-muted">$</span> <span class="t-blue">connectea</span> plugin start data-processor</div>
-            <div><span class="t-green">✓</span> Plugin initialized</div>
-            <div><span class="t-amber">→</span> Processing room files...</div>
-            <div class="t-muted">&nbsp;&nbsp;[████████████████] 100% (12/12)</div>
-            <div><span class="t-green">✓</span> Analysis complete</div>
-            <div class="t-muted">&nbsp;&nbsp;Found: 3 duplicates · 45.2 MB freed</div>
-            <div><span class="t-amber">→</span> Generating report...</div>
-            <div><span class="t-green">✓</span> report.json saved to /outputs/</div>
-            <div><span class="t-muted">$</span> <span class="cursor"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ PRICING ============ -->
   <section id="pricing" aria-labelledby="pricing-title">
     <div class="container">
@@ -377,7 +390,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
               </li>
             ))}
           </ul>
-          <a href="#download" class="btn btn-outline btn-full">{t.pricing.free.cta}</a>
+          <a href="#download" class="btn btn-outline btn-full pricing-cta">{t.download.cta}</a>
         </article>
 
         <article class="pricing-card pricing-card-featured" data-reveal style="--delay: 0.1s">
@@ -396,7 +409,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
               </li>
             ))}
           </ul>
-          <a href="#download" class="btn btn-primary btn-full">{t.pricing.pro.cta}</a>
+          <a href="#download" class="btn btn-primary btn-full pricing-cta">{t.download.cta}</a>
         </article>
       </div>
     </div>
@@ -414,6 +427,67 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       <p class="download-note">{t.download.note}</p>
     </div>
   </section>
+
+  <!-- ============ ROOM JOIN OVERLAY ============ -->
+  <!-- Shown when the URL contains #download?room-id=xxx (deep link from the app's Share button) -->
+  <div id="room-join-overlay" class="rjo-backdrop" hidden aria-modal="true" role="dialog" aria-labelledby="rjo-title">
+    <div class="rjo-card">
+      <div class="rjo-glow" aria-hidden="true"></div>
+
+      <div class="rjo-logo" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="10" cy="16" r="4" fill="white"/>
+          <circle cx="24" cy="9" r="3" fill="white" opacity="0.85"/>
+          <circle cx="24" cy="23" r="3" fill="white" opacity="0.85"/>
+          <line x1="10" y1="16" x2="24" y2="9" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          <line x1="10" y1="16" x2="24" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+      </div>
+
+      <p class="rjo-eyebrow" id="rjo-eyebrow-text"></p>
+      <h2 class="rjo-title" id="rjo-title"></h2>
+
+      <div class="rjo-room-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span id="rjo-room-id"></span>
+      </div>
+
+      <div class="rjo-username-wrapper">
+        <label class="rjo-label" id="rjo-label-text" for="rjo-username-input"></label>
+        <div class="rjo-input-row">
+          <input id="rjo-username-input" type="text" class="rjo-input" maxlength="32" autocomplete="off" />
+        </div>
+        <p class="rjo-error" id="rjo-error" hidden></p>
+      </div>
+
+      <a id="rjo-open-btn" class="rjo-btn rjo-btn-primary" href="#" role="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        <span id="rjo-open-btn-text"></span>
+      </a>
+
+      <a href="#download" class="rjo-btn rjo-btn-secondary" id="rjo-download-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span id="rjo-download-btn-text"></span>
+      </a>
+
+      <button class="rjo-dismiss" id="rjo-dismiss-btn" aria-label="Dismiss">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <!-- ============ FOOTER ============ -->
   <footer role="contentinfo">
@@ -448,9 +522,9 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
         <div class="footer-links-col">
           <h4 class="footer-links-title">{t.footer.legal}</h4>
           <ul class="footer-links" role="list">
-            <li><a href="#">{t.footer.links.privacy}</a></li>
-            <li><a href="#">{t.footer.links.terms}</a></li>
-            <li><a href="#">{t.footer.links.contact}</a></li>
+            <li><a href="mailto:bug-report@connectea.net?subject=Bug%20Report%20-%20Connectea">{t.footer.links.privacy}</a></li>
+            <li><a href="mailto:contact@connectea.net?subject=Connectea%20Inquiry">{t.footer.links.terms}</a></li>
+            <li><a href="mailto:contact@connectea.net">{t.footer.links.contact}</a></li>
           </ul>
         </div>
       </div>
@@ -505,7 +579,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     --shadow-glow: 0 0 48px rgba(99, 102, 241, 0.15);
 
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --container: 1200px;
+
+    --teal: #22d3ee;
+    --teal-light: #67e8f9;
   }
 
   /* ===== RESET ===== */
@@ -521,8 +599,16 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
   .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
-  .section-title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .section-title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; font-family: var(--font-display); }
   .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; }
+  .section-header .section-title::after {
+    content: '';
+    display: block;
+    width: 36px; height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+    margin: 12px auto 0;
+  }
 
   /* ===== BADGES ===== */
   .badge {
@@ -534,6 +620,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .badge-primary { background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.35); color: var(--primary-light); }
   .badge-green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: var(--green-light); }
   .badge-amber { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; animation: badgePulse 2.5s ease-in-out infinite; }
+  @keyframes badgePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
   /* ===== BUTTONS ===== */
   .btn {
@@ -561,6 +649,13 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(25px, -20px) scale(1.05); }
     66% { transform: translate(-15px, 15px) scale(0.95); }
+  }
+  .bg-deco::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
   }
 
   /* ===== SCROLL REVEAL ===== */
@@ -600,10 +695,12 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   }
   .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
   .hero-content { position: relative; }
-  .hero-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .hero-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; font-family: var(--font-display); }
   .hero-subtitle { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 52px; }
   .hero-stats { display: flex; gap: 36px; }
+  .stat { position: relative; }
+  .stat:not(:last-child)::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: var(--border-subtle); }
   .stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
   .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
@@ -678,6 +775,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .tool-btn-primary { background: var(--gradient); color: white; }
   .tool-btn-ghost { background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.06); }
   .tool-btn-ghost:hover { background: rgba(255,255,255,0.07); }
+  .tool-btn-active { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
 
   /* ===== FEATURES ===== */
   #features { padding: 100px 0; position: relative; z-index: 1; }
@@ -687,6 +785,13 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: 28px; transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--primary-light), transparent);
+    opacity: 0; transition: opacity 0.3s;
   }
   .feature-card:hover {
     border-color: var(--border);
@@ -694,7 +799,15 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     box-shadow: var(--shadow), var(--shadow-glow);
     background: var(--bg-card-hover);
   }
-  .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+  .feature-card:hover::before { opacity: 1; }
+  .feature-icon {
+    font-size: 1.75rem; margin-bottom: 18px;
+    width: 54px; height: 54px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.12);
+    border-radius: var(--radius); transition: all 0.3s;
+  }
+  .feature-card:hover .feature-icon { background: rgba(99,102,241,0.13); border-color: rgba(99,102,241,0.22); transform: scale(1.06); }
   .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
   .feature-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
 
@@ -716,7 +829,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     background: var(--gradient);
     font-size: 1.25rem; font-weight: 800; color: white;
     margin: 0 auto 24px; position: relative; z-index: 1;
-    box-shadow: 0 8px 28px rgba(99,102,241,0.45);
+    box-shadow: 0 8px 28px rgba(99,102,241,0.45), 0 0 0 8px rgba(99,102,241,0.1), 0 0 0 16px rgba(99,102,241,0.04);
+    font-family: var(--font-display);
   }
   .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
   .step-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
@@ -801,6 +915,13 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
     border-color: var(--border);
     box-shadow: var(--shadow-glow);
+    position: relative; overflow: hidden;
+  }
+  .pricing-card-featured::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gradient);
+    box-shadow: 0 0 18px rgba(99,102,241,0.6);
   }
   .pricing-card-featured:hover { box-shadow: var(--shadow), 0 0 64px rgba(99,102,241,0.2); }
   .pricing-header { margin-bottom: 28px; }
@@ -808,7 +929,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .pricing-badge { font-size: 0.65rem; padding: 3px 9px; border-radius: 100px; background: var(--gradient); color: white; font-weight: 600; letter-spacing: 0.04em; }
   .pricing-price { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
   .pricing-price span { font-size: 0.95rem; font-weight: 400; color: var(--text-muted); }
-  .pricing-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .pricing-features { display: flex; flex-direction: column; gap: 12px; }
   .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-secondary); }
   .pricing-features li svg { color: var(--green-light); flex-shrink: 0; margin-top: 3px; }
 
@@ -819,7 +940,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     border-top: 1px solid var(--border-subtle);
   }
   .download-inner { text-align: center; }
-  .download-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+  .download-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; font-family: var(--font-display); }
   .download-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; }
   .download-note { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
 
@@ -881,6 +1002,158 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     .app-window { transform: none; animation: none; }
     .pricing-card { padding: 24px; }
   }
+
+  /* ===== ROOM JOIN OVERLAY ===== */
+  .rjo-backdrop {
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(9, 9, 15, 0.85);
+    backdrop-filter: blur(12px) saturate(1.4);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    animation: rjo-fade-in 0.25s ease;
+  }
+  .rjo-backdrop[hidden] { display: none; }
+
+  @keyframes rjo-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .rjo-card {
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 40px 36px 32px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), var(--shadow-glow);
+    animation: rjo-slide-up 0.3s ease;
+  }
+
+  @keyframes rjo-slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  .rjo-glow {
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 65%);
+  }
+
+  .rjo-logo {
+    width: 56px; height: 56px;
+    background: var(--gradient);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+  }
+
+  .rjo-eyebrow {
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--primary-light); margin-bottom: 8px;
+  }
+
+  .rjo-title {
+    font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.2; margin-bottom: 16px;
+  }
+
+  .rjo-room-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 8px; padding: 6px 14px; margin-bottom: 24px;
+    font-size: 0.82rem; font-weight: 600; font-family: monospace;
+    color: var(--primary-light);
+  }
+
+  .rjo-username-wrapper { margin-bottom: 20px; text-align: left; }
+
+  .rjo-label {
+    display: block; font-size: 0.8rem; font-weight: 600;
+    color: var(--text-secondary); margin-bottom: 8px;
+  }
+
+  .rjo-input-row { display: flex; }
+
+  .rjo-input {
+    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm); padding: 10px 14px;
+    font-size: 0.92rem; color: var(--text); font-family: var(--font);
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .rjo-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.2); }
+
+  .rjo-error {
+    margin-top: 6px; font-size: 0.78rem; color: var(--red);
+  }
+  .rjo-error[hidden] { display: none; }
+
+  .rjo-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 12px 20px; border-radius: var(--radius-sm);
+    font-size: 0.95rem; font-weight: 600; font-family: var(--font);
+    cursor: pointer; border: none; transition: all 0.2s ease;
+    text-decoration: none; margin-bottom: 10px;
+  }
+  .rjo-btn-primary {
+    background: var(--gradient); color: white;
+  }
+  .rjo-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.45); }
+
+  .rjo-btn-secondary {
+    background: transparent; color: var(--text-secondary);
+    border: 1px solid var(--border-subtle) !important;
+  }
+  .rjo-btn-secondary:hover { background: var(--bg-card-hover); color: var(--text); }
+
+  .rjo-dismiss {
+    position: absolute; top: 14px; right: 14px;
+    background: transparent; border: none; cursor: pointer;
+    color: var(--text-muted); padding: 6px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, color 0.15s;
+  }
+  .rjo-dismiss:hover { background: var(--bg-card); color: var(--text); }
+
+  /* ===== PRICING CTA ===== */
+  .pricing-cta { margin-top: 24px; }
+
+  /* ===== FLOATING HERO BADGES ===== */
+  .float-badge {
+    position: absolute;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 13px; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 600;
+    backdrop-filter: blur(16px) saturate(1.4);
+    white-space: nowrap; pointer-events: none; z-index: 10;
+  }
+  .float-badge svg { flex-shrink: 0; }
+  .float-badge-tl {
+    top: -14px; left: 18px;
+    background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3);
+    color: var(--primary-light);
+    animation: floatBadge 5s ease-in-out infinite;
+  }
+  .float-badge-tr {
+    top: 70px; right: -40px;
+    background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25);
+    color: var(--teal-light);
+    animation: floatBadge 6.5s ease-in-out infinite 0.9s;
+  }
+  .float-badge-br {
+    bottom: 80px; right: -40px;
+    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+    color: var(--green-light);
+    animation: floatBadge 7s ease-in-out infinite 1.8s;
+  }
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+  @media (max-width: 900px) { .float-badge { display: none; } }
 </style>
 
 <script>
@@ -907,4 +1180,109 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   mobileMenu?.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => { mobileMenu.classList.remove('open'); menuBtn?.setAttribute('aria-expanded', 'false'); });
   });
+
+  // ── Room join overlay ──────────────────────────────────────
+  // Activated when the URL hash is #download?room-id=xxx
+  // (the link format generated by the app's Share > Copy Link button)
+  (() => {
+    const hash = window.location.hash; // e.g. "#download?room-id=abc123"
+    if (!hash.startsWith('#download?')) return;
+
+    const queryPart = hash.slice('#download?'.length);
+    const params = new URLSearchParams(queryPart);
+    const roomId = params.get('room-id');
+    if (!roomId) return;
+
+    const lang = document.documentElement.lang || 'en';
+
+    const i18n = {
+      en: {
+        eyebrow: "You've been invited",
+        title: "Join this Connectea room",
+        label: "Your name",
+        openBtn: "Open in Connectea",
+        downloadBtn: "Download Connectea first",
+        errorEmpty: "Please enter your name.",
+        errorInvalid: "Use 2–32 letters, numbers, dashes, dots, underscores or spaces.",
+      },
+      es: {
+        eyebrow: "Has sido invitado",
+        title: "Unirse a esta sala de Connectea",
+        label: "Tu nombre",
+        openBtn: "Abrir en Connectea",
+        downloadBtn: "Descargar Connectea primero",
+        errorEmpty: "Por favor ingresa tu nombre.",
+        errorInvalid: "Usa 2–32 letras, números, guiones, puntos, guiones bajos o espacios.",
+      },
+      zh: {
+        eyebrow: "您收到了邀请",
+        title: "加入此 Connectea 房间",
+        label: "你的名字",
+        openBtn: "在 Connectea 中打开",
+        downloadBtn: "先下载 Connectea",
+        errorEmpty: "请输入您的名字。",
+        errorInvalid: "使用 2–32 个字母、数字、连字符、点、下划线或空格。",
+      },
+    };
+
+    const tx = i18n[lang] || i18n.en;
+    const USERNAME_RE = /^[\p{L}\p{N}][\p{L}\p{N}_\-. ]{1,31}$/u;
+    const STORAGE_KEY = 'connectea-web-user';
+
+    const overlay   = document.getElementById('room-join-overlay');
+    const roomIdEl  = document.getElementById('rjo-room-id');
+    const eyebrowEl = document.getElementById('rjo-eyebrow-text');
+    const titleEl   = document.getElementById('rjo-title');
+    const labelEl   = document.getElementById('rjo-label-text');
+    const input     = document.getElementById('rjo-username-input');
+    const openBtn   = document.getElementById('rjo-open-btn');
+    const openBtnTx = document.getElementById('rjo-open-btn-text');
+    const dlBtnTx   = document.getElementById('rjo-download-btn-text');
+    const errorEl   = document.getElementById('rjo-error');
+    const dismissBtn = document.getElementById('rjo-dismiss-btn');
+
+    eyebrowEl.textContent  = tx.eyebrow;
+    titleEl.textContent    = tx.title;
+    labelEl.textContent    = tx.label;
+    openBtnTx.textContent  = tx.openBtn;
+    dlBtnTx.textContent    = tx.downloadBtn;
+
+    // Show (truncated) room ID
+    roomIdEl.textContent = roomId.length > 20 ? roomId.slice(0, 20) + '…' : roomId;
+
+    // Pre-fill stored username
+    const storedUser = localStorage.getItem(STORAGE_KEY) || '';
+    input.value = storedUser;
+    input.placeholder = tx.label;
+
+    const buildDeepLink = (user) =>
+      `connectea://join?room-id=${encodeURIComponent(roomId)}&user=${encodeURIComponent(user)}`;
+
+    const showError = (msg) => {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+    };
+
+    const hideError = () => { errorEl.hidden = true; };
+
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = input.value.trim();
+      if (!name) { showError(tx.errorEmpty); return; }
+      if (!USERNAME_RE.test(name)) { showError(tx.errorInvalid); return; }
+      hideError();
+      localStorage.setItem(STORAGE_KEY, name);
+      window.location.href = buildDeepLink(name);
+    });
+
+    input.addEventListener('input', hideError);
+
+    dismissBtn.addEventListener('click', () => {
+      overlay.hidden = true;
+      // Clear the hash without reloading so the page stays put
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    });
+
+    overlay.hidden = false;
+  })();
 </script>

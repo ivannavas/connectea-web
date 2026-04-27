@@ -1,3 +1,14 @@
 ---
-return Astro.redirect('/en/', 302);
 ---
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8" />
+  <script is:inline>
+    var supported = ['en', 'es', 'zh'];
+    var lang = (navigator.language || 'en').split('-')[0].toLowerCase();
+    var target = supported.includes(lang) ? lang : 'en';
+    window.location.replace('/' + target + '/');
+  </script>
+</head>
+<body></body>
+</html>

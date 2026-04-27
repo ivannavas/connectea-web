@@ -7,7 +7,9 @@
       "Bash(git config *)",
       "Bash(chmod +x .githooks/post-commit)",
       "Bash(curl -s http://localhost:4321/en/)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(curl -s http://localhost:4321/ -I)"
     ]
   }
 }

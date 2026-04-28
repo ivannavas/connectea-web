@@ -905,10 +905,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     font-size: 1.75rem; margin-bottom: 18px;
     width: 54px; height: 54px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.12);
+    background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.22);
     border-radius: var(--radius); transition: all 0.3s;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.1);
   }
-  .feature-card:hover .feature-icon { background: rgba(99,102,241,0.18); border-color: rgba(99,102,241,0.35); transform: scale(1.1); box-shadow: 0 0 20px rgba(99,102,241,0.2); }
+  .feature-card:hover .feature-icon { background: rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.4); transform: scale(1.1); box-shadow: 0 0 24px rgba(99,102,241,0.28); }
   .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
   .feature-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
 
@@ -962,6 +963,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     border: 1px solid rgba(34,197,94,0.25);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     position: relative; z-index: 1;
+    animation: shieldPulse 3.5s ease-in-out infinite;
+  }
+  @keyframes shieldPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.15); }
+    50% { box-shadow: 0 0 0 18px rgba(34,197,94,0); }
   }
   .shield-inner {
     width: 80px; height: 80px;
@@ -1283,6 +1289,17 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     50% { transform: translateY(-7px); }
   }
   @media (max-width: 900px) { .float-badge { display: none; } }
+
+  /* ===== REDUCED MOTION ===== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+    .app-window { transform: none; }
+  }
 </style>
 
 <script>

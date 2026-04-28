@@ -42,6 +42,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta property="og:image:alt" content="Connectea — Share files with friends, no account needed. One-click Minecraft server." />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:site_name" content="Connectea" />
   <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : lang === 'es' ? 'es_ES' : 'en_US'} />
 
@@ -91,6 +92,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     "featureList": "One-click Minecraft server plugin, Instant file sharing with friends, No account required, AES-256-GCM end-to-end encryption, PBKDF2 key derivation, SHA-256 integrity verification, Code-based rooms, Drag-and-drop folders, Streamed ZIP download, READ/WRITE allowlist, English/Spanish/Chinese UI",
     "softwareVersion": "1.0",
     "author": { "@type": "Organization", "name": "Connectea", "email": "contact@connectea.net" },
+    "publisher": { "@type": "Organization", "name": "Connectea", "url": "https://connectea.net" },
     "inLanguage": lang === 'zh' ? 'zh-Hans' : lang === 'es' ? 'es' : 'en',
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -115,12 +117,12 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     ] : lang === 'zh' ? [
       {
         "@type": "Question",
-        "name": "如何使用Connectea创建Minecraft服务器？",
+        "name": "如何使用Connectea创建Minecraft（我的世界）服务器？",
         "acceptedAnswer": { "@type": "Answer", "text": "下载Connectea，创建房间，添加Minecraft插件，点击启动——服务器自动启动，世界文件同步到房间。无需配置。" }
       },
       {
         "@type": "Question",
-        "name": "Minecraft服务器功能免费吗？",
+        "name": "Minecraft（我的世界）服务器功能免费吗？",
         "acceptedAnswer": { "@type": "Answer", "text": "是的，Minecraft服务器插件包含在免费计划中。创建临时房间，添加插件即可开始游戏。如需服务器在断线后保持在线，可升级为永久房间（5€/月）。" }
       },
       {
@@ -910,6 +912,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     box-shadow: 0 2px 12px rgba(99,102,241,0.1);
   }
   .feature-card:hover .feature-icon { background: rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.4); transform: scale(1.1); box-shadow: 0 0 24px rgba(99,102,241,0.28); }
+  .feature-card:nth-child(3n+2) .feature-icon { background: rgba(34,211,238,0.1); border-color: rgba(34,211,238,0.2); box-shadow: 0 2px 12px rgba(34,211,238,0.08); }
+  .feature-card:nth-child(3n) .feature-icon { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2); box-shadow: 0 2px 12px rgba(34,197,94,0.08); }
+  .feature-card:nth-child(3n+2):hover .feature-icon { background: rgba(34,211,238,0.2); border-color: rgba(34,211,238,0.4); box-shadow: 0 0 24px rgba(34,211,238,0.28); }
+  .feature-card:nth-child(3n):hover .feature-icon { background: rgba(34,197,94,0.2); border-color: rgba(34,197,94,0.35); box-shadow: 0 0 24px rgba(34,197,94,0.25); }
   .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
   .feature-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
 
@@ -1032,6 +1038,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     box-shadow: 0 0 18px rgba(99,102,241,0.6);
   }
   .pricing-card-featured:hover { box-shadow: var(--shadow), 0 0 64px rgba(99,102,241,0.2); }
+  @media (min-width: 769px) {
+    .pricing-card-featured { transform: scale(1.04); z-index: 1; }
+    .pricing-card-featured:hover { transform: scale(1.04) translateY(-4px); }
+  }
   .pricing-header { margin-bottom: 28px; }
   .pricing-tier { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
   .pricing-badge { font-size: 0.65rem; padding: 3px 9px; border-radius: 100px; background: var(--gradient); color: white; font-weight: 600; letter-spacing: 0.04em; }
@@ -1273,13 +1283,13 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     animation: floatBadge 5s ease-in-out infinite;
   }
   .float-badge-tr {
-    top: 70px; right: -40px;
+    top: 70px; right: -18px;
     background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25);
     color: var(--teal-light);
     animation: floatBadge 6.5s ease-in-out infinite 0.9s;
   }
   .float-badge-br {
-    bottom: 80px; right: -40px;
+    bottom: 80px; right: -18px;
     background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
     color: var(--green-light);
     animation: floatBadge 7s ease-in-out infinite 1.8s;

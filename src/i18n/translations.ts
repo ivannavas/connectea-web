@@ -66,7 +66,7 @@ export interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea — Comparte archivos con amigos | Servidor Minecraft',
+      title: 'Connectea — Comparte archivos con amigos, Servidor Minecraft',
       description: 'Comparte archivos con amigos sin registro. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
       keywords: 'compartir archivos sin cuenta, compartir archivos gratis, compartir archivos cifrados, compartir archivos con amigos, plugin servidor minecraft, crear servidor minecraft fácil, servidor minecraft un clic, transferencia archivos instantánea, compartir archivos Windows',
     },
@@ -530,7 +530,7 @@ export const translations: Record<Lang, Translation> = {
     meta: {
       title: 'Connectea — 与朋友分享文件 | 一键 Minecraft 服务器插件',
       description: '与朋友分享文件，无需账号。创建房间，分享代码，拖入文件 — 几秒搞定。内置 Minecraft 服务器插件，一键启动。免费支持 Windows 10/11。',
-      keywords: '无账号文件分享, 免费文件分享, 加密文件传输, 与朋友分享文件, Minecraft服务器插件, 一键Minecraft服务器, 即时文件传输, Windows文件分享, 无需注册文件分享',
+      keywords: '无账号文件分享, 免费文件分享, 加密文件传输, 与朋友分享文件, Minecraft服务器插件, 一键Minecraft服务器, 我的世界服务器插件, 一键我的世界服务器, 即时文件传输, Windows文件分享, 无需注册文件分享',
     },
     nav: {
       features: '功能',

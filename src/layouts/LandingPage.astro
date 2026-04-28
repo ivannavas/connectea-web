@@ -26,6 +26,9 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#6366f1" />
 
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
   <!-- Canonical & hreflang -->
   <link rel="canonical" href={`https://connectea.net/${lang}/`} />
   <link rel="alternate" hreflang="en" href="https://connectea.net/en/" />
@@ -39,19 +42,22 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta property="og:title" content={t.meta.title} />
   <meta property="og:description" content={t.meta.description} />
   <meta property="og:image" content="https://connectea.net/og-image.png" />
-  <meta property="og:image:alt" content="Connectea — Share files with friends, no account needed. One-click Minecraft server." />
+  <meta property="og:image:alt" content={lang === 'zh' ? 'Connectea — 与朋友分享文件，无需账号。一键 Minecraft 服务器。' : lang === 'es' ? 'Connectea — Comparte archivos con amigos, sin cuenta. Servidor Minecraft en un clic.' : 'Connectea — Share files with friends, no account needed. One-click Minecraft server.'} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:site_name" content="Connectea" />
   <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : lang === 'es' ? 'es_ES' : 'en_US'} />
+  {otherLangs.map(l => (
+    <meta property="og:locale:alternate" content={l === 'zh' ? 'zh_CN' : l === 'es' ? 'es_ES' : 'en_US'} />
+  ))}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={t.meta.title} />
   <meta name="twitter:description" content={t.meta.description} />
   <meta name="twitter:image" content="https://connectea.net/og-image.png" />
-  <meta name="twitter:image:alt" content="Connectea — Share files with friends, no account needed. One-click Minecraft server." />
+  <meta name="twitter:image:alt" content={lang === 'zh' ? 'Connectea — 与朋友分享文件，无需账号。一键 Minecraft 服务器。' : lang === 'es' ? 'Connectea — Comparte archivos con amigos, sin cuenta. Servidor Minecraft en un clic.' : 'Connectea — Share files with friends, no account needed. One-click Minecraft server.'} />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -803,7 +809,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 52px; }
   .hero-stats { display: flex; gap: 36px; }
   .stat { position: relative; }
-  .stat:not(:last-child)::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: var(--border-subtle); }
+  .stat:not(:last-child)::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: rgba(255,255,255,0.12); }
   .stat-value { font-size: 1.4rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3px; letter-spacing: -0.02em; }
   .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
@@ -813,6 +819,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     position: absolute; inset: -32px; z-index: -1;
     background: radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 70%);
     border-radius: 48px;
+    animation: glowPulse 5s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
   }
   .app-window {
     background: #0d0d1a;
@@ -895,6 +906,12 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, transparent, var(--primary), var(--primary-light), transparent);
     opacity: 0; transition: opacity 0.3s;
+  }
+  .feature-card:nth-child(3n+2)::before {
+    background: linear-gradient(90deg, transparent, var(--teal), var(--teal-light), transparent);
+  }
+  .feature-card:nth-child(3n)::before {
+    background: linear-gradient(90deg, transparent, var(--green), var(--green-light), transparent);
   }
   .feature-card:hover {
     border-color: var(--border);
@@ -1309,6 +1326,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     }
     [data-reveal] { opacity: 1; transform: none; transition: none; }
     .app-window { transform: none; }
+    .window-glow { animation: none; opacity: 1; }
   }
 </style>
 

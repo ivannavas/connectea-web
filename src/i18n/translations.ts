@@ -210,7 +210,7 @@ export const translations: Record<Lang, Translation> = {
       smartscreenNote: 'Windows puede mostrar un aviso de seguridad al abrir el instalador. Esto es completamente normal en aplicaciones nuevas de desarrolladores independientes — Connectea es seguro. Haz clic en «Más información» → «Ejecutar de todas formas» para continuar.',
     },
     footer: {
-      tagline: 'Comparte archivos cifrados en salas. Sin otra cuenta que crear.',
+      tagline: 'Comparte archivos con amigos en segundos, sin cuenta. Plugin de servidor Minecraft incluido.',
       product: 'Producto',
       legal: 'Legal',
       links: {
@@ -441,7 +441,7 @@ export const translations: Record<Lang, Translation> = {
       smartscreenNote: 'Windows may show a security warning when opening the installer. This is completely normal for new apps from independent developers — Connectea is safe. Click «More info» → «Run anyway» to continue.',
     },
     footer: {
-      tagline: 'Encrypted file sharing in rooms. For people who don\'t want another account.',
+      tagline: 'Share files with friends in seconds, no account needed. Minecraft server plugin included.',
       product: 'Product',
       legal: 'Legal',
       links: {
@@ -529,7 +529,7 @@ export const translations: Record<Lang, Translation> = {
   zh: {
     meta: {
       title: 'Connectea — 与朋友分享文件 | 一键 Minecraft 服务器插件',
-      description: '与朋友分享文件，无需账号。创建房间，分享代码，拖入文件 — 几秒搞定。内置 Minecraft 服务器插件，一键启动。免费支持 Windows 10/11。',
+      description: '与朋友分享文件，无需账号注册。创建房间，分享代码，拖入文件，几秒搞定。内置 Minecraft（我的世界）服务器插件，一键启动，存档自动同步。端到端加密。免费，支持 Windows 10/11。',
       keywords: '无账号文件分享, 免费文件分享, 加密文件传输, 与朋友分享文件, Minecraft服务器插件, 一键Minecraft服务器, 我的世界服务器插件, 一键我的世界服务器, 即时文件传输, Windows文件分享, 无需注册文件分享',
     },
     nav: {
@@ -672,7 +672,7 @@ export const translations: Record<Lang, Translation> = {
       smartscreenNote: '打开安装包时 Windows 可能会显示安全提示。这对独立开发者发布的新应用来说完全正常——Connectea 安全可靠，请放心使用。点击「更多信息」→「仍然运行」即可继续安装。',
     },
     footer: {
-      tagline: '在房间里加密分享文件。为不想再注册账号的人而生。',
+      tagline: '与朋友即时分享文件，无需账号。内置 Minecraft 服务器插件。',
       product: '产品',
       legal: '法律',
       links: {

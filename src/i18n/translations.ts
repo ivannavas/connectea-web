@@ -66,8 +66,8 @@ export interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea — Compartir archivos cifrados sin cuenta | Servidor Minecraft | Windows',
-      description: 'Comparte archivos cifrados sin registrarte. Crea una sala, comparte el código y suelta archivos en segundos. Plugin de Minecraft integrado. Gratis para Windows 10/11.',
+      title: 'Connectea — Comparte archivos con amigos | Plugin Minecraft',
+      description: 'Comparte archivos con amigos sin registro. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
       keywords: 'compartir archivos sin cuenta, compartir archivos gratis, compartir archivos cifrados, compartir archivos con amigos, plugin servidor minecraft, crear servidor minecraft fácil, servidor minecraft un clic, transferencia archivos instantánea, compartir archivos Windows',
     },
     nav: {
@@ -297,8 +297,8 @@ export const translations: Record<Lang, Translation> = {
 
   en: {
     meta: {
-      title: 'Connectea — Encrypted File Sharing Without an Account | Minecraft Server | Free for Windows',
-      description: 'Share encrypted files without signing up. Create a room, share the code, drop your files — done in seconds. Built-in Minecraft server plugin. Free for Windows 10 / 11.',
+      title: 'Connectea — Share Files with Friends | Minecraft Server Plugin',
+      description: 'Share files with friends, no account needed. Create a room, share the code, drop files — done in seconds. Built-in Minecraft server plugin. Free for Windows.',
       keywords: 'share files without account, free file sharing, encrypted file sharing, share files with friends, minecraft server plugin, one-click minecraft server, instant file transfer, no signup file sharing, share files Windows',
     },
     nav: {
@@ -528,8 +528,8 @@ export const translations: Record<Lang, Translation> = {
 
   zh: {
     meta: {
-      title: 'Connectea — 无需注册即可加密分享文件 | Minecraft 服务器 | Windows 免费',
-      description: '无需账号即可加密分享文件。创建房间，分享代码，拖入文件 — 几秒搞定。内置 Minecraft 服务器插件，一键启动。免费支持 Windows 10/11。',
+      title: 'Connectea — 与朋友分享文件 | 一键 Minecraft 服务器插件',
+      description: '与朋友分享文件，无需账号。创建房间，分享代码，拖入文件 — 几秒搞定。内置 Minecraft 服务器插件，一键启动。免费支持 Windows 10/11。',
       keywords: '无账号文件分享, 免费文件分享, 加密文件传输, 与朋友分享文件, Minecraft服务器插件, 一键Minecraft服务器, 即时文件传输, Windows文件分享, 无需注册文件分享',
     },
     nav: {

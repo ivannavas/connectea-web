@@ -53,9 +53,18 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" as="style" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Connectea",
+    "url": "https://connectea.net",
+    "email": "contact@connectea.net",
+    "description": "Connectea provides instant file sharing with friends and one-click Minecraft server hosting — no account required.",
+  })} />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -74,6 +83,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   })} />
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Background decoration -->
   <div class="bg-deco" aria-hidden="true">
@@ -135,6 +146,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       <a href="#download" class="btn btn-primary">{t.nav.download}</a>
     </div>
   </nav>
+
+  <main id="main-content">
 
   <!-- ============ HERO ============ -->
   <section id="hero" aria-labelledby="hero-title">
@@ -435,6 +448,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     </div>
   </section>
 
+  </main>
+
   <!-- ============ ROOM JOIN OVERLAY ============ -->
   <!-- Shown when the URL contains #download?room-id=xxx (deep link from the app's Share button) -->
   <div id="room-join-overlay" class="rjo-backdrop" hidden aria-modal="true" role="dialog" aria-labelledby="rjo-title">
@@ -602,6 +617,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   button { cursor: pointer; border: none; background: none; font-family: inherit; }
   ul { list-style: none; }
 
+  /* ===== ACCESSIBILITY ===== */
+  :focus-visible { outline: 2px solid var(--primary-light); outline-offset: 3px; border-radius: 4px; }
+  .skip-link { position: absolute; top: -100%; left: 16px; z-index: 999; background: var(--primary); color: white; padding: 8px 16px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.9rem; transition: top 0.2s; }
+  .skip-link:focus { top: 8px; }
+
   /* ===== UTILS ===== */
   .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
   .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -708,7 +728,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .hero-stats { display: flex; gap: 36px; }
   .stat { position: relative; }
   .stat:not(:last-child)::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: var(--border-subtle); }
-  .stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .stat-value { font-size: 1.4rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3px; letter-spacing: -0.02em; }
   .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
   /* ===== APP WINDOW MOCKUP ===== */
@@ -786,7 +806,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
 
   /* ===== FEATURES ===== */
   #features { padding: 100px 0; position: relative; z-index: 1; }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .feature-card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
@@ -814,7 +834,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.12);
     border-radius: var(--radius); transition: all 0.3s;
   }
-  .feature-card:hover .feature-icon { background: rgba(99,102,241,0.13); border-color: rgba(99,102,241,0.22); transform: scale(1.06); }
+  .feature-card:hover .feature-icon { background: rgba(99,102,241,0.18); border-color: rgba(99,102,241,0.35); transform: scale(1.1); box-shadow: 0 0 20px rgba(99,102,241,0.2); }
   .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
   .feature-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
 
@@ -916,6 +936,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .pricing-card {
     background: var(--bg-card); border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg); padding: 36px; transition: all 0.3s;
+    display: flex; flex-direction: column;
   }
   .pricing-card:hover { border-color: var(--border); transform: translateY(-4px); box-shadow: var(--shadow); }
   .pricing-card-featured {
@@ -936,7 +957,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .pricing-badge { font-size: 0.65rem; padding: 3px 9px; border-radius: 100px; background: var(--gradient); color: white; font-weight: 600; letter-spacing: 0.04em; }
   .pricing-price { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
   .pricing-price span { font-size: 0.95rem; font-weight: 400; color: var(--text-muted); }
-  .pricing-features { display: flex; flex-direction: column; gap: 12px; }
+  .pricing-features { display: flex; flex-direction: column; gap: 12px; flex: 1; }
   .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-secondary); }
   .pricing-features li svg { color: var(--green-light); flex-shrink: 0; margin-top: 3px; }
 

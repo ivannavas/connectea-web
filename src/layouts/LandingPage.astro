@@ -8,6 +8,9 @@ interface Props {
 
 const { t, lang } = Astro.props;
 
+// DO Spaces URL — update bucket/region to match your Space configuration
+const DOWNLOAD_URL = 'https://connectea-releases.lon1.cdn.digitaloceanspaces.com/connectea-setup-latest.exe';
+
 const langLabels: Record<Lang, string> = { en: 'EN', es: 'ES', zh: '中文' };
 const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
 ---
@@ -63,7 +66,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "description": t.meta.description,
     "url": "https://connectea.net",
-    "downloadUrl": "https://connectea.net/downloads/connectea-setup.exe",
+    "downloadUrl": DOWNLOAD_URL,
     "featureList": "One-click Minecraft server plugin, Instant file sharing with friends, No account required, AES-256-GCM end-to-end encryption, PBKDF2 key derivation, SHA-256 integrity verification, Code-based rooms, Drag-and-drop folders, Streamed ZIP download, READ/WRITE allowlist, English/Spanish/Chinese UI",
     "softwareVersion": "1.0",
     "author": { "@type": "Organization", "name": "Connectea", "email": "contact@connectea.net" },
@@ -420,11 +423,15 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     <div class="container download-inner" data-reveal>
       <h2 id="download-title" class="download-title">{t.download.title}</h2>
       <p class="download-subtitle">{t.download.subtitle}</p>
-      <a href="/downloads/connectea-setup.exe" class="btn btn-primary btn-download" download>
+      <a href={DOWNLOAD_URL} class="btn btn-primary btn-download" download>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         {t.download.cta}
       </a>
       <p class="download-note">{t.download.note}</p>
+      <div class="smartscreen-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>{t.download.smartscreenNote}</span>
+      </div>
     </div>
   </section>
 
@@ -523,7 +530,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
           <h4 class="footer-links-title">{t.footer.legal}</h4>
           <ul class="footer-links" role="list">
             <li><a href="mailto:bug-report@connectea.net?subject=Bug%20Report%20-%20Connectea">{t.footer.links.privacy}</a></li>
-            <li><a href="mailto:contact@connectea.net?subject=Connectea%20Inquiry">{t.footer.links.terms}</a></li>
+            <li><a href={`/${lang}/terms/`}>{t.footer.links.terms}</a></li>
             <li><a href="mailto:contact@connectea.net">{t.footer.links.contact}</a></li>
           </ul>
         </div>
@@ -943,6 +950,22 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .download-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; font-family: var(--font-display); }
   .download-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; }
   .download-note { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+  .smartscreen-note {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 16px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .smartscreen-note svg { flex-shrink: 0; margin-top: 1px; color: #818cf8; }
 
   /* ===== FOOTER ===== */
   footer { padding: 64px 0 32px; border-top: 1px solid var(--border-subtle); position: relative; z-index: 1; }

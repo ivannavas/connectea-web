@@ -40,13 +40,26 @@ export interface Translation {
     free: { title: string; price: string; period: string; cta: string; features: string[] };
     pro: { title: string; badge: string; price: string; period: string; cta: string; features: string[] };
   };
-  download: { title: string; subtitle: string; cta: string; note: string };
+  download: { title: string; subtitle: string; cta: string; note: string; smartscreenNote: string };
   footer: {
     tagline: string;
     product: string;
     legal: string;
     links: { features: string; security: string; pricing: string; download: string; privacy: string; terms: string; contact: string };
     copyright: string;
+  };
+  termsPage: {
+    pageTitle: string;
+    metaDescription: string;
+    heading: string;
+    lastUpdated: string;
+    backHome: string;
+    sections: Array<{
+      title: string;
+      paragraphs: string[];
+      items?: string[];
+      warning?: string;
+    }>;
   };
 }
 
@@ -194,21 +207,91 @@ export const translations: Record<Lang, Translation> = {
       subtitle: 'Gratis para Windows. Sin email, sin contraseñas, sin complicaciones.',
       cta: 'Descargar para Windows',
       note: 'Windows 10 / 11 · Gratis · Sin cuenta · Doble clic en el instalador y listo',
+      smartscreenNote: 'Windows puede mostrar un aviso de seguridad al abrir el instalador. Esto es completamente normal en aplicaciones nuevas de desarrolladores independientes — Connectea es seguro. Haz clic en «Más información» → «Ejecutar de todas formas» para continuar.',
     },
     footer: {
       tagline: 'Comparte archivos cifrados en salas. Sin otra cuenta que crear.',
       product: 'Producto',
-      legal: 'Contacto',
+      legal: 'Legal',
       links: {
         features: 'Funciones',
         security: 'Seguridad',
         pricing: 'Precios',
         download: 'Descargar',
         privacy: 'Reportar un bug',
-        terms: 'Contacto general',
+        terms: 'Términos y condiciones',
         contact: 'Escríbenos',
       },
       copyright: '© 2026 Connectea. Todos los derechos reservados.',
+    },
+    termsPage: {
+      pageTitle: 'Términos y condiciones | Connectea',
+      metaDescription: 'Lee los términos y condiciones de uso de Connectea. Información sobre la responsabilidad del usuario, el cifrado de extremo a extremo y la política de contenidos.',
+      heading: 'Términos y condiciones',
+      lastUpdated: 'Última actualización: abril de 2026',
+      backHome: 'Volver al inicio',
+      sections: [
+        {
+          title: '1. Aceptación de los términos',
+          paragraphs: [
+            'Al descargar, instalar o utilizar Connectea («el Servicio»), aceptas quedar vinculado por estos Términos de Servicio. Si no estás de acuerdo con alguno de estos términos, no utilices el Servicio.',
+          ],
+        },
+        {
+          title: '2. Responsabilidad del usuario sobre el contenido',
+          paragraphs: [
+            'Eres el único responsable de todos los archivos, datos y contenidos que subas a las salas de Connectea. Connectea no reclama la propiedad de tu contenido y no revisa ni monitoriza de manera proactiva los archivos subidos al Servicio.',
+            'Al subir contenido, declaras y garantizas que tienes el derecho legal de subir, compartir y distribuir dicho contenido, que no infringe ninguna ley ni normativa aplicable y que no vulnera derechos de propiedad intelectual de terceros.',
+            'Connectea no se hace responsable de ningún contenido subido por los usuarios. Eres el único responsable de asegurarte de que tu uso del Servicio cumple con todas las leyes aplicables en tu jurisdicción.',
+          ],
+        },
+        {
+          title: '3. Contenido prohibido',
+          paragraphs: [
+            'No puedes utilizar Connectea para subir, compartir o distribuir ninguno de los siguientes tipos de contenido:',
+          ],
+          items: [
+            'Contenido ilegal conforme a cualquier ley aplicable.',
+            'Contenido que infrinja derechos de autor, marcas registradas u otros derechos de propiedad intelectual.',
+            'Material de abuso sexual infantil (CSAM) o cualquier contenido que explote sexualmente a menores.',
+            'Software malicioso, virus u otro código dañino.',
+            'Contenido que facilite, promueva o incite a realizar actividades ilegales.',
+          ],
+        },
+        {
+          title: '4. Moderación y eliminación de contenido',
+          paragraphs: [
+            'Connectea no revisa ni monitoriza de manera proactiva archivos individuales ni la actividad de usuarios concretos. Respetamos la privacidad y minimizamos la recopilación de datos.',
+            'No obstante, Connectea se reserva el derecho de eliminar cualquier contenido — incluyendo archivos, salas o accesos de usuarios — que nos sea denunciado o respecto al cual tengamos indicios fundados de que infringe estos términos o la ley aplicable. Podemos actuar en respuesta a denuncias de usuarios o terceros, requerimientos legales (como órdenes judiciales o solicitudes de autoridades competentes) o sospechas razonables de actividad ilegal.',
+          ],
+        },
+        {
+          title: '5. Cifrado de extremo a extremo',
+          paragraphs: [
+            'Cuando cifras un archivo con contraseña, el proceso de cifrado ocurre íntegramente en tu dispositivo antes de que el archivo sea transmitido a nuestros servidores. Connectea utiliza cifrado AES-256-GCM con derivación de clave PBKDF2-SHA-256.',
+            'Tu contraseña de cifrado nunca se envía a los servidores de Connectea; la clave se genera localmente y jamás abandona tu dispositivo. Esto significa que Connectea no puede descifrar tus archivos — es una imposibilidad técnica. Ningún empleado, administrador ni sistema de Connectea puede acceder al contenido de tus archivos cifrados, incluso en respuesta a requerimientos legales, ya que simplemente no disponemos de esa capacidad técnica.',
+          ],
+          warning: 'Si pierdes la contraseña de cifrado, el contenido de los archivos cifrados no podrá ser recuperado por nadie, incluido Connectea.',
+        },
+        {
+          title: '6. Limitación de responsabilidad',
+          paragraphs: [
+            'El Servicio se proporciona «tal cual», sin garantías de ningún tipo. Connectea no será responsable de ningún contenido subido por los usuarios, de ninguna pérdida de datos — incluidos archivos cifrados cuya contraseña se haya perdido — ni de ningún daño indirecto, incidental o consecuente derivado del uso del Servicio.',
+          ],
+        },
+        {
+          title: '7. Modificaciones a estos términos',
+          paragraphs: [
+            'Connectea se reserva el derecho de modificar estos términos en cualquier momento. Los cambios se publicarán en esta página. El uso continuado del Servicio tras la publicación de los cambios constituye la aceptación de los nuevos términos.',
+          ],
+        },
+        {
+          title: '8. Contacto',
+          paragraphs: [
+            'Para consultas legales o para reportar una infracción, escríbenos a legal@connectea.net. Para preguntas generales: contact@connectea.net.',
+          ],
+        },
+      ],
     },
   },
 
@@ -355,21 +438,91 @@ export const translations: Record<Lang, Translation> = {
       subtitle: 'Free for Windows. No email, no passwords, no hassle.',
       cta: 'Download for Windows',
       note: 'Windows 10 / 11 · Free · No account · Double-click the installer and you\'re done',
+      smartscreenNote: 'Windows may show a security warning when opening the installer. This is completely normal for new apps from independent developers — Connectea is safe. Click «More info» → «Run anyway» to continue.',
     },
     footer: {
       tagline: 'Encrypted file sharing in rooms. For people who don\'t want another account.',
       product: 'Product',
-      legal: 'Contact',
+      legal: 'Legal',
       links: {
         features: 'Features',
         security: 'Security',
         pricing: 'Pricing',
         download: 'Download',
         privacy: 'Report a bug',
-        terms: 'General contact',
+        terms: 'Terms & Conditions',
         contact: 'Write to us',
       },
       copyright: '© 2026 Connectea. All rights reserved.',
+    },
+    termsPage: {
+      pageTitle: 'Terms & Conditions | Connectea',
+      metaDescription: 'Read Connectea\'s Terms & Conditions. Information on user responsibility, end-to-end encryption, and content policy.',
+      heading: 'Terms & Conditions',
+      lastUpdated: 'Last updated: April 2026',
+      backHome: 'Back to home',
+      sections: [
+        {
+          title: '1. Acceptance of Terms',
+          paragraphs: [
+            'By downloading, installing, or using Connectea ("the Service"), you agree to be bound by these Terms of Service. If you do not agree with any of these terms, do not use the Service.',
+          ],
+        },
+        {
+          title: '2. User Responsibility for Content',
+          paragraphs: [
+            'You are solely responsible for all files, data, and content you upload to Connectea rooms. Connectea does not claim ownership of your content and does not proactively review or monitor files uploaded to the Service.',
+            'By uploading content, you represent and warrant that you have the legal right to upload, share, and distribute that content, that it does not violate any applicable law or regulation, and that it does not infringe any third-party intellectual property rights.',
+            'Connectea is not liable for any content uploaded by users. You are solely responsible for ensuring your use of the Service complies with all applicable laws in your jurisdiction.',
+          ],
+        },
+        {
+          title: '3. Prohibited Content',
+          paragraphs: [
+            'You may not use Connectea to upload, share, or distribute any of the following:',
+          ],
+          items: [
+            'Content that is illegal under any applicable law.',
+            'Content that infringes copyright, trademark, or other intellectual property rights.',
+            'Child sexual abuse material (CSAM) or any content that sexually exploits minors.',
+            'Malware, viruses, or other malicious code.',
+            'Content that facilitates, promotes, or incites illegal activity.',
+          ],
+        },
+        {
+          title: '4. Content Moderation and Removal',
+          paragraphs: [
+            'Connectea does not proactively review or monitor individual files or specific user activity. We respect privacy and minimize data collection.',
+            'However, Connectea reserves the right to remove any content — including files, rooms, or user access — that is reported to us or for which we have reasonable grounds to suspect a violation of these terms or applicable law. We may act in response to reports from users or third parties, legal notices (such as court orders or law enforcement requests), or reasonable suspicion of illegal activity.',
+          ],
+        },
+        {
+          title: '5. End-to-End Encryption',
+          paragraphs: [
+            'When you encrypt a file with a password, the encryption process happens entirely on your device before the file is transmitted to our servers. Connectea uses AES-256-GCM encryption with PBKDF2-SHA-256 key derivation.',
+            'Your encryption password is never sent to Connectea\'s servers; the key is derived locally and never leaves your device. This means Connectea cannot decrypt your files — it is technically impossible. No Connectea employee, administrator, or system can access the content of your encrypted files, even in response to legal requests, because we simply do not have that technical capability.',
+          ],
+          warning: 'If you lose your encryption password, the content of your encrypted files cannot be recovered by anyone, including Connectea.',
+        },
+        {
+          title: '6. Disclaimer',
+          paragraphs: [
+            'The Service is provided "as is" without warranties of any kind. Connectea is not liable for any content uploaded by users, any loss of data — including encrypted files whose password has been lost — or any indirect, incidental, or consequential damages arising from use of the Service.',
+          ],
+        },
+        {
+          title: '7. Changes to These Terms',
+          paragraphs: [
+            'Connectea reserves the right to modify these terms at any time. Changes will be posted on this page. Continued use of the Service after changes are posted constitutes acceptance of the updated terms.',
+          ],
+        },
+        {
+          title: '8. Contact',
+          paragraphs: [
+            'For legal inquiries or to report a violation, contact us at legal@connectea.net. For general questions: contact@connectea.net.',
+          ],
+        },
+      ],
     },
   },
 
@@ -516,21 +669,91 @@ export const translations: Record<Lang, Translation> = {
       subtitle: 'Windows 免费使用。无需邮箱、无需密码、无繁琐步骤。',
       cta: '下载 Windows 版',
       note: 'Windows 10 / 11 · 免费 · 无需账号 · 双击安装包即可完成',
+      smartscreenNote: '打开安装包时 Windows 可能会显示安全提示。这对独立开发者发布的新应用来说完全正常——Connectea 安全可靠，请放心使用。点击「更多信息」→「仍然运行」即可继续安装。',
     },
     footer: {
       tagline: '在房间里加密分享文件。为不想再注册账号的人而生。',
       product: '产品',
-      legal: '联系我们',
+      legal: '法律',
       links: {
         features: '功能',
         security: '安全',
         pricing: '定价',
         download: '下载',
         privacy: '报告问题',
-        terms: '一般联系',
+        terms: '服务条款',
         contact: '联系我们',
       },
       copyright: '© 2026 Connectea. 保留所有权利。',
+    },
+    termsPage: {
+      pageTitle: '服务条款 | Connectea',
+      metaDescription: '阅读 Connectea 的服务条款。了解用户责任、端到端加密和内容政策。',
+      heading: '服务条款',
+      lastUpdated: '最后更新：2026 年 4 月',
+      backHome: '返回首页',
+      sections: [
+        {
+          title: '1. 条款接受',
+          paragraphs: [
+            '下载、安装或使用 Connectea（"服务"）即表示您同意受本服务条款约束。如果您不同意任何条款，请勿使用本服务。',
+          ],
+        },
+        {
+          title: '2. 用户内容责任',
+          paragraphs: [
+            '您对上传至 Connectea 房间的所有文件、数据和内容承担全部责任。Connectea 不主张对您内容的所有权，也不主动审查或监控上传至服务的文件。',
+            '上传内容即表示您声明并保证：您拥有上传、分享和分发该内容的合法权利，该内容不违反任何适用法律法规，且不侵犯任何第三方的知识产权。',
+            'Connectea 对用户上传的任何内容不承担责任。您有责任确保您对本服务的使用符合您所在地区的所有适用法律。',
+          ],
+        },
+        {
+          title: '3. 禁止内容',
+          paragraphs: [
+            '您不得使用 Connectea 上传、分享或分发以下任何内容：',
+          ],
+          items: [
+            '依据任何适用法律属于非法的内容。',
+            '侵犯版权、商标或其他知识产权的内容。',
+            '儿童性虐待材料（CSAM）或任何对未成年人进行性剥削的内容。',
+            '恶意软件、病毒或其他有害代码。',
+            '助长、推广或煽动非法活动的内容。',
+          ],
+        },
+        {
+          title: '4. 内容监管与删除',
+          paragraphs: [
+            'Connectea 不主动审查或监控个别文件或特定用户的活动。我们尊重隐私并尽量减少数据收集。',
+            '但是，Connectea 保留删除任何内容的权利——包括文件、房间或用户访问权——无论是经用户或第三方举报，还是我们有合理理由怀疑其违反本条款或适用法律。我们可能依据用户或第三方的举报、法律通知（如法院命令或执法机构请求）或对非法活动的合理怀疑采取行动。',
+          ],
+        },
+        {
+          title: '5. 端到端加密',
+          paragraphs: [
+            '当您使用密码加密文件时，加密过程完全在您的设备上完成，然后文件才会传输到我们的服务器。Connectea 使用 AES-256-GCM 加密和 PBKDF2-SHA-256 密钥派生。',
+            '您的加密密码永远不会发送到 Connectea 的服务器；密钥在本地生成，永远不会离开您的设备。这意味着 Connectea 无法解密您的文件——这在技术上是不可能的。任何 Connectea 员工、管理员或系统都无法访问您加密文件的内容，即使面对法律要求也是如此，因为我们根本不具备这种技术能力。',
+          ],
+          warning: '如果您丢失了加密密码，包括 Connectea 在内的任何人都无法恢复加密文件的内容。',
+        },
+        {
+          title: '6. 免责声明',
+          paragraphs: [
+            '本服务按"原样"提供，不附带任何形式的保证。Connectea 对用户上传的任何内容、任何数据丢失（包括密码丢失的加密文件）或因使用本服务而产生的任何间接、附带或后果性损害不承担责任。',
+          ],
+        },
+        {
+          title: '7. 条款变更',
+          paragraphs: [
+            'Connectea 保留随时修改本条款的权利。修改内容将发布在本页面。在变更发布后继续使用本服务即表示接受更新后的条款。',
+          ],
+        },
+        {
+          title: '8. 联系我们',
+          paragraphs: [
+            '如有法律咨询或举报违规行为，请联系 legal@connectea.net。一般问题请发送至 contact@connectea.net。',
+          ],
+        },
+      ],
     },
   },
 };

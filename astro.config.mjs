@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://connectea.net',
@@ -6,4 +7,8 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
 });

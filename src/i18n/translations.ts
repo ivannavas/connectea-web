@@ -66,7 +66,7 @@ export interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea — Comparte archivos con amigos | Plugin Minecraft',
+      title: 'Connectea — Comparte archivos con amigos | Servidor Minecraft',
       description: 'Comparte archivos con amigos sin registro. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
       keywords: 'compartir archivos sin cuenta, compartir archivos gratis, compartir archivos cifrados, compartir archivos con amigos, plugin servidor minecraft, crear servidor minecraft fácil, servidor minecraft un clic, transferencia archivos instantánea, compartir archivos Windows',
     },
@@ -79,7 +79,7 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: 'Disponible para Windows 10 / 11',
-      headline: 'Comparte archivos con amigos. Sin cuenta, sin complicaciones.',
+      headline: 'Comparte archivos con amigos. Levanta tu servidor Minecraft. Sin cuenta, sin complicaciones.',
       subheadline: 'Crea una sala, comparte el código y suelta los archivos. Listo en segundos. Solo escribe tu nombre — sin email ni contraseña. Cifrado de extremo a extremo. Levanta un servidor de Minecraft en un clic.',
       cta_primary: 'Descargar Gratis',
       cta_secondary: 'Servidor de Minecraft',
@@ -297,7 +297,7 @@ export const translations: Record<Lang, Translation> = {
 
   en: {
     meta: {
-      title: 'Connectea — Share Files with Friends | Minecraft Server Plugin',
+      title: 'Connectea — Share Files with Friends | Minecraft Server',
       description: 'Share files with friends, no account needed. Create a room, share the code, drop files — done in seconds. Built-in Minecraft server plugin. Free for Windows.',
       keywords: 'share files without account, free file sharing, encrypted file sharing, share files with friends, minecraft server plugin, one-click minecraft server, instant file transfer, no signup file sharing, share files Windows',
     },
@@ -310,7 +310,7 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: 'Available for Windows 10 / 11',
-      headline: 'Share files with friends. No account, no friction.',
+      headline: 'Share files with friends. Run your Minecraft server. No account, no friction.',
       subheadline: 'Create a room, share the code, and drop your files. Done in seconds. Just a name — no email, no password. End-to-end encrypted. Spin up a Minecraft server in one click.',
       cta_primary: 'Download Free',
       cta_secondary: 'Minecraft Server',
@@ -541,7 +541,7 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: '支持 Windows 10 / 11',
-      headline: '与朋友分享文件，无需账号，零门槛',
+      headline: '与朋友分享文件，一键Minecraft服务器，零门槛',
       subheadline: '创建房间，分享代码，拖入文件，完成。几秒搞定。只需一个名字 — 无需邮箱和密码。端到端加密。一键启动 Minecraft 服务器。',
       cta_primary: '免费下载',
       cta_secondary: 'Minecraft 服务器',

@@ -24,6 +24,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta name="description" content={t.meta.description} />
   <meta name="keywords" content={t.meta.keywords} />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#6366f1" />
 
   <!-- Canonical & hreflang -->
   <link rel="canonical" href={`https://connectea.net/${lang}/`} />
@@ -38,6 +39,9 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta property="og:title" content={t.meta.title} />
   <meta property="og:description" content={t.meta.description} />
   <meta property="og:image" content="https://connectea.net/og-image.png" />
+  <meta property="og:image:alt" content="Connectea — Share files with friends, no account needed. One-click Minecraft server." />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Connectea" />
   <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : lang === 'es' ? 'es_ES' : 'en_US'} />
 
@@ -46,6 +50,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta name="twitter:title" content={t.meta.title} />
   <meta name="twitter:description" content={t.meta.description} />
   <meta name="twitter:image" content="https://connectea.net/og-image.png" />
+  <meta name="twitter:image:alt" content="Connectea — Share files with friends, no account needed. One-click Minecraft server." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -60,9 +65,16 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://connectea.net",
     "name": "Connectea",
     "url": "https://connectea.net",
     "email": "contact@connectea.net",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://connectea.net/og-image.png",
+      "width": 1200,
+      "height": 630,
+    },
     "description": "Connectea provides instant file sharing with friends and one-click Minecraft server hosting — no account required.",
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -80,6 +92,59 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     "softwareVersion": "1.0",
     "author": { "@type": "Organization", "name": "Connectea", "email": "contact@connectea.net" },
     "inLanguage": lang === 'zh' ? 'zh-Hans' : lang === 'es' ? 'es' : 'en',
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": lang === 'es' ? [
+      {
+        "@type": "Question",
+        "name": "¿Cómo creo un servidor de Minecraft con Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Descarga Connectea, crea una sala y añade el plugin de Minecraft. Pulsa Iniciar — el servidor arranca automáticamente y los archivos del mundo se sincronizan con la sala. Sin configuración." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El servidor de Minecraft es gratis?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. El plugin de servidor Minecraft está incluido en el plan gratuito. Crea una sala temporal, añade el plugin y empieza a jugar. Actualiza a sala permanente (5 €/mes) si quieres que el servidor siga activo cuando te desconectes." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito cuenta para usar Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No hace falta cuenta. Solo escribe un nombre, crea una sala o únete con un código, y empieza a compartir archivos o a levantar tu servidor de Minecraft al instante." }
+      }
+    ] : lang === 'zh' ? [
+      {
+        "@type": "Question",
+        "name": "如何使用Connectea创建Minecraft服务器？",
+        "acceptedAnswer": { "@type": "Answer", "text": "下载Connectea，创建房间，添加Minecraft插件，点击启动——服务器自动启动，世界文件同步到房间。无需配置。" }
+      },
+      {
+        "@type": "Question",
+        "name": "Minecraft服务器功能免费吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "是的，Minecraft服务器插件包含在免费计划中。创建临时房间，添加插件即可开始游戏。如需服务器在断线后保持在线，可升级为永久房间（5€/月）。" }
+      },
+      {
+        "@type": "Question",
+        "name": "使用Connectea需要账号吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不需要账号。只需输入名字，创建或加入房间，即可立即开始分享文件或运行Minecraft服务器。" }
+      }
+    ] : [
+      {
+        "@type": "Question",
+        "name": "How do I create a Minecraft server with Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Download Connectea, create a room, and add the Minecraft plugin. Hit Start — the server boots automatically and world files sync to the room. No configuration required." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Minecraft server feature free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Minecraft server plugin is included in the free plan. Create a temporary room, add the plugin, and start playing. Upgrade to a persistent room (€5/month) if you want the server to stay online when you disconnect." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an account to use Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No account needed. Just enter a name, create a room or join with a code, and start sharing files or running your Minecraft server immediately." }
+      }
+    ],
   })} />
 </head>
 <body>
@@ -628,13 +693,22 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
   .section-title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; font-family: var(--font-display); }
   .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; }
-  .section-header .section-title::after {
+  .section-title::after {
     content: '';
     display: block;
     width: 36px; height: 3px;
     background: var(--gradient);
     border-radius: 2px;
+    margin: 12px 0 0;
+  }
+  .section-header .section-title::after {
     margin: 12px auto 0;
+  }
+  .security-content .section-title::after {
+    background: linear-gradient(135deg, var(--green-light), var(--teal));
+  }
+  .plugins-content .section-title::after {
+    background: linear-gradient(135deg, var(--amber), #fbbf24);
   }
 
   /* ===== BADGES ===== */
@@ -966,9 +1040,19 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     padding: 100px 0; position: relative; z-index: 1;
     background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.06));
     border-top: 1px solid var(--border-subtle);
+    overflow: hidden;
   }
-  .download-inner { text-align: center; }
-  .download-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; font-family: var(--font-display); }
+  #download::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(99,102,241,0.14) 0%, transparent 70%);
+  }
+  .download-inner { text-align: center; position: relative; z-index: 1; }
+  .download-title {
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; font-family: var(--font-display);
+    background: linear-gradient(135deg, #f1f5f9 0%, #c084fc 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
   .download-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; }
   .download-note { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
   .smartscreen-note {
@@ -1031,6 +1115,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     .mobile-menu .btn { justify-content: center; margin-top: 8px; }
     .hero-title { font-size: clamp(2rem, 7vw, 3rem); }
     .hero-stats { flex-wrap: wrap; gap: 24px; }
+    .stat::after { display: none; }
     .features-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: 1fr; gap: 40px; }
     .steps-grid::before { display: none; }

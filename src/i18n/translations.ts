@@ -85,8 +85,8 @@ export interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea — Comparte archivos con amigos, Servidor Minecraft',
-      description: 'Comparte archivos con amigos sin cuenta. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
+      title: 'Connectea — Comparte archivos sin cuenta | Plugin Minecraft gratis',
+      description: 'Comparte archivos con amigos sin cuenta. Cifrado AES-256, salas por código, hasta 50 GB. Plugin de Minecraft en un clic. Gratis para Windows 10/11.',
       keywords: 'compartir archivos sin cuenta, compartir archivos gratis, compartir archivos cifrados, compartir archivos con amigos, plugin servidor minecraft, crear servidor minecraft fácil, servidor minecraft un clic, transferencia archivos instantánea, compartir archivos Windows',
     },
     nav: {
@@ -245,7 +245,7 @@ export const translations: Record<Lang, Translation> = {
     },
     termsPage: {
       pageTitle: 'Términos y condiciones | Connectea',
-      metaDescription: 'Lee los términos y condiciones de uso de Connectea. Información sobre la responsabilidad del usuario, el cifrado de extremo a extremo y la política de contenidos.',
+      metaDescription: 'Consulta los términos de uso de Connectea: responsabilidad del usuario, política de contenidos y cifrado de extremo a extremo AES-256.',
       heading: 'Términos y condiciones',
       lastUpdated: 'Última actualización: abril de 2026',
       backHome: 'Volver al inicio',
@@ -314,7 +314,7 @@ export const translations: Record<Lang, Translation> = {
     },
     recoverPage: {
       pageTitle: 'Recuperar contraseña de propiedad | Connectea',
-      metaDescription: 'Establece una nueva contraseña de propiedad para tu sala permanente de Connectea.',
+      metaDescription: 'Recupera el acceso a tu sala permanente de Connectea. Establece una nueva contraseña de propiedad y reclámala desde la app.',
       heading: 'Nueva contraseña de propiedad',
       subtitle: 'Elige una nueva contraseña para tu sala permanente. Usa una contraseña segura — cualquiera que la tenga puede reclamar la propiedad.',
       emailLabel: 'Correo electrónico',
@@ -335,8 +335,8 @@ export const translations: Record<Lang, Translation> = {
 
   en: {
     meta: {
-      title: 'Connectea — Share Files with Friends | Minecraft Server',
-      description: 'Share files with friends, no account needed. Create a room, share the code, drop files — done in seconds. Built-in Minecraft server plugin. Free for Windows.',
+      title: 'Connectea — Free File Sharing, No Account | Minecraft Server',
+      description: 'Share files with friends, no account needed. AES-256 encrypted, code-based rooms, up to 50 GB. One-click Minecraft server plugin. Free for Windows 10/11.',
       keywords: 'share files without account, free file sharing, encrypted file sharing, share files with friends, minecraft server plugin, one-click minecraft server, instant file transfer, no signup file sharing, share files Windows',
     },
     nav: {
@@ -495,7 +495,7 @@ export const translations: Record<Lang, Translation> = {
     },
     termsPage: {
       pageTitle: 'Terms & Conditions | Connectea',
-      metaDescription: 'Read Connectea\'s Terms & Conditions. Information on user responsibility, end-to-end encryption, and content policy.',
+      metaDescription: 'Read Connectea\'s Terms & Conditions: user responsibilities, end-to-end AES-256 encryption, and prohibited content policy.',
       heading: 'Terms & Conditions',
       lastUpdated: 'Last updated: April 2026',
       backHome: 'Back to home',
@@ -564,7 +564,7 @@ export const translations: Record<Lang, Translation> = {
     },
     recoverPage: {
       pageTitle: 'Recover Ownership Password | Connectea',
-      metaDescription: 'Set a new ownership password for your Connectea permanent room.',
+      metaDescription: 'Recover access to your Connectea permanent room. Set a new ownership password and reclaim your room from the app.',
       heading: 'Set New Ownership Password',
       subtitle: 'Enter a new password for your permanent room. Make sure it\'s strong — anyone with it can claim ownership.',
       emailLabel: 'Email address',
@@ -585,8 +585,8 @@ export const translations: Record<Lang, Translation> = {
 
   zh: {
     meta: {
-      title: 'Connectea — 与朋友分享文件 | 一键 Minecraft 服务器插件',
-      description: '与朋友分享文件，无需账号注册。创建房间，分享代码，拖入文件，几秒搞定。内置 Minecraft（我的世界）服务器插件，一键启动，存档自动同步。端到端加密。免费，支持 Windows 10/11。',
+      title: 'Connectea — 无需账号免费分享文件 | 一键 Minecraft 服务器',
+      description: '与朋友分享文件，无需注册账号。端到端 AES-256 加密，每个房间最大 50 GB。一键启动 Minecraft 服务器，存档自动同步。免费，支持 Windows 10/11。',
       keywords: '无账号文件分享, 免费文件分享, 加密文件传输, 与朋友分享文件, Minecraft服务器插件, 一键Minecraft服务器, 我的世界服务器插件, 一键我的世界服务器, 即时文件传输, Windows文件分享, 无需注册文件分享',
     },
     nav: {
@@ -745,7 +745,7 @@ export const translations: Record<Lang, Translation> = {
     },
     termsPage: {
       pageTitle: '服务条款 | Connectea',
-      metaDescription: '阅读 Connectea 的服务条款。了解用户责任、端到端加密和内容政策。',
+      metaDescription: '阅读 Connectea 服务条款：用户内容责任、端到端 AES-256 加密机制以及禁止内容的相关规定。',
       heading: '服务条款',
       lastUpdated: '最后更新：2026 年 4 月',
       backHome: '返回首页',
@@ -814,7 +814,7 @@ export const translations: Record<Lang, Translation> = {
     },
     recoverPage: {
       pageTitle: '找回所有权密码 | Connectea',
-      metaDescription: '为你的 Connectea 永久房间设置新的所有权密码。',
+      metaDescription: '找回你的 Connectea 永久房间访问权限。设置新的所有权密码后，在应用中重新认领你的房间。',
       heading: '设置新所有权密码',
       subtitle: '为你的永久房间设置新密码。请使用强密码——任何人拥有该密码都可以认领房间所有权。',
       emailLabel: '邮箱地址',

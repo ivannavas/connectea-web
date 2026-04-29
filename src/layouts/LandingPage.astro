@@ -563,14 +563,6 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
         <span id="rjo-room-id"></span>
       </div>
 
-      <div class="rjo-username-wrapper">
-        <label class="rjo-label" id="rjo-label-text" for="rjo-username-input"></label>
-        <div class="rjo-input-row">
-          <input id="rjo-username-input" type="text" class="rjo-input" maxlength="32" autocomplete="off" />
-        </div>
-        <p class="rjo-error" id="rjo-error" hidden></p>
-      </div>
-
       <a id="rjo-open-btn" class="rjo-btn rjo-btn-primary" href="#" role="button">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -1249,28 +1241,6 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     color: var(--primary-light);
   }
 
-  .rjo-username-wrapper { margin-bottom: 20px; text-align: left; }
-
-  .rjo-label {
-    display: block; font-size: 0.8rem; font-weight: 600;
-    color: var(--text-secondary); margin-bottom: 8px;
-  }
-
-  .rjo-input-row { display: flex; }
-
-  .rjo-input {
-    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm); padding: 10px 14px;
-    font-size: 0.92rem; color: var(--text); font-family: var(--font);
-    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .rjo-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.2); }
-
-  .rjo-error {
-    margin-top: 6px; font-size: 0.78rem; color: var(--red);
-  }
-  .rjo-error[hidden] { display: none; }
-
   .rjo-btn {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     width: 100%; padding: 12px 20px; border-radius: var(--radius-sm);
@@ -1392,87 +1362,49 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       en: {
         eyebrow: "You've been invited",
         title: "Join this Connectea room",
-        label: "Your name",
         openBtn: "Open in Connectea",
         downloadBtn: "Download Connectea first",
-        errorEmpty: "Please enter your name.",
-        errorInvalid: "Use 2–32 letters, numbers, dashes, dots, underscores or spaces.",
       },
       es: {
         eyebrow: "Has sido invitado",
         title: "Unirse a esta sala de Connectea",
-        label: "Tu nombre",
         openBtn: "Abrir en Connectea",
         downloadBtn: "Descargar Connectea primero",
-        errorEmpty: "Por favor ingresa tu nombre.",
-        errorInvalid: "Usa 2–32 letras, números, guiones, puntos, guiones bajos o espacios.",
       },
       zh: {
         eyebrow: "您收到了邀请",
         title: "加入此 Connectea 房间",
-        label: "你的名字",
         openBtn: "在 Connectea 中打开",
         downloadBtn: "先下载 Connectea",
-        errorEmpty: "请输入您的名字。",
-        errorInvalid: "使用 2–32 个字母、数字、连字符、点、下划线或空格。",
       },
     };
 
     const tx = i18n[lang] || i18n.en;
-    const USERNAME_RE = /^[\p{L}\p{N}][\p{L}\p{N}_\-. ]{1,31}$/u;
-    const STORAGE_KEY = 'connectea-web-user';
 
     const overlay   = document.getElementById('room-join-overlay');
     const roomIdEl  = document.getElementById('rjo-room-id');
     const eyebrowEl = document.getElementById('rjo-eyebrow-text');
     const titleEl   = document.getElementById('rjo-title');
-    const labelEl   = document.getElementById('rjo-label-text');
-    const input     = document.getElementById('rjo-username-input');
     const openBtn   = document.getElementById('rjo-open-btn');
     const openBtnTx = document.getElementById('rjo-open-btn-text');
     const dlBtnTx   = document.getElementById('rjo-download-btn-text');
-    const errorEl   = document.getElementById('rjo-error');
     const dismissBtn = document.getElementById('rjo-dismiss-btn');
 
     eyebrowEl.textContent  = tx.eyebrow;
     titleEl.textContent    = tx.title;
-    labelEl.textContent    = tx.label;
     openBtnTx.textContent  = tx.openBtn;
     dlBtnTx.textContent    = tx.downloadBtn;
 
     // Show (truncated) room ID
     roomIdEl.textContent = roomId.length > 20 ? roomId.slice(0, 20) + '…' : roomId;
 
-    // Pre-fill stored username
-    const storedUser = localStorage.getItem(STORAGE_KEY) || '';
-    input.value = storedUser;
-    input.placeholder = tx.label;
-
-    const buildDeepLink = (user) =>
-      `connectea://join?room-id=${encodeURIComponent(roomId)}&user=${encodeURIComponent(user)}`;
-
-    const showError = (msg) => {
-      errorEl.textContent = msg;
-      errorEl.hidden = false;
-    };
-
-    const hideError = () => { errorEl.hidden = true; };
-
     openBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const name = input.value.trim();
-      if (!name) { showError(tx.errorEmpty); return; }
-      if (!USERNAME_RE.test(name)) { showError(tx.errorInvalid); return; }
-      hideError();
-      localStorage.setItem(STORAGE_KEY, name);
-      window.location.href = buildDeepLink(name);
+      window.location.href = `connectea://join?room-id=${encodeURIComponent(roomId)}`;
     });
-
-    input.addEventListener('input', hideError);
 
     dismissBtn.addEventListener('click', () => {
       overlay.hidden = true;
-      // Clear the hash without reloading so the page stays put
       history.replaceState(null, '', window.location.pathname + window.location.search);
     });
 

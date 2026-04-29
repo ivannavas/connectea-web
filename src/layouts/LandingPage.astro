@@ -42,6 +42,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta property="og:title" content={t.meta.title} />
   <meta property="og:description" content={t.meta.description} />
   <meta property="og:image" content="https://connectea.net/og-image.png" />
+  <meta property="og:image:secure_url" content="https://connectea.net/og-image.png" />
   <meta property="og:image:alt" content={lang === 'zh' ? 'Connectea — 与朋友分享文件，无需账号。一键 Minecraft 服务器。' : lang === 'es' ? 'Connectea — Comparte archivos con amigos, sin cuenta. Servidor Minecraft en un clic.' : 'Connectea — Share files with friends, no account needed. One-click Minecraft server.'} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -72,7 +73,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://connectea.net",
+    "@id": "https://connectea.net/#organization",
     "name": "Connectea",
     "url": "https://connectea.net",
     "email": "contact@connectea.net",
@@ -83,6 +84,16 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       "height": 630,
     },
     "description": "Connectea provides instant file sharing with friends and one-click Minecraft server hosting — no account required.",
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://connectea.net/#website",
+    "url": "https://connectea.net",
+    "name": "Connectea",
+    "description": "Share files with friends instantly. No account, no email. One-click Minecraft server.",
+    "publisher": { "@id": "https://connectea.net/#organization" },
+    "inLanguage": ["en", "es", "zh-Hans"],
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -97,8 +108,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     "downloadUrl": DOWNLOAD_URL,
     "featureList": "One-click Minecraft server plugin, Instant file sharing with friends, No account required, AES-256-GCM end-to-end encryption, PBKDF2 key derivation, SHA-256 integrity verification, Code-based rooms, Drag-and-drop folders, Streamed ZIP download, READ/WRITE allowlist, English/Spanish/Chinese UI",
     "softwareVersion": "1.0",
-    "author": { "@type": "Organization", "name": "Connectea", "email": "contact@connectea.net" },
-    "publisher": { "@type": "Organization", "name": "Connectea", "url": "https://connectea.net" },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-29",
+    "author": { "@id": "https://connectea.net/#organization" },
+    "publisher": { "@id": "https://connectea.net/#organization" },
     "inLanguage": lang === 'zh' ? 'zh-Hans' : lang === 'es' ? 'es' : 'en',
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -704,11 +717,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .section-title::after {
     content: '';
     display: block;
-    width: 48px; height: 3px;
+    width: 60px; height: 3px;
     background: var(--gradient);
     border-radius: 2px;
     margin: 12px 0 0;
-    box-shadow: 0 0 10px rgba(99,102,241,0.5);
+    box-shadow: 0 0 14px rgba(99,102,241,0.65);
   }
   .section-header .section-title::after {
     margin: 12px auto 0;
@@ -813,7 +826,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .hero-stats { display: flex; gap: 36px; }
   .stat { position: relative; }
   .stat:not(:last-child)::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: rgba(255,255,255,0.12); }
-  .stat-value { font-size: 1.4rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3px; letter-spacing: -0.02em; }
+  .stat-value { font-size: 1.6rem; font-weight: 800; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 3px; letter-spacing: -0.02em; }
   .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
   /* ===== APP WINDOW MOCKUP ===== */
@@ -1048,9 +1061,9 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   }
   .pricing-card:hover { border-color: var(--border); transform: translateY(-4px); box-shadow: var(--shadow); }
   .pricing-card-featured {
-    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
-    border-color: var(--border);
-    box-shadow: var(--shadow-glow);
+    background: linear-gradient(135deg, rgba(99,102,241,0.14), rgba(139,92,246,0.12));
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 64px rgba(99, 102, 241, 0.25);
     position: relative; overflow: hidden;
   }
   .pricing-card-featured::before {
@@ -1059,10 +1072,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     background: var(--gradient);
     box-shadow: 0 0 18px rgba(99,102,241,0.6);
   }
-  .pricing-card-featured:hover { box-shadow: var(--shadow), 0 0 64px rgba(99,102,241,0.2); }
+  .pricing-card-featured:hover { box-shadow: var(--shadow), 0 0 80px rgba(99,102,241,0.35); }
   @media (min-width: 769px) {
-    .pricing-card-featured { transform: scale(1.04); z-index: 1; }
-    .pricing-card-featured:hover { transform: scale(1.04) translateY(-4px); }
+    .pricing-card-featured { transform: scale(1.06); z-index: 1; }
+    .pricing-card-featured:hover { transform: scale(1.06) translateY(-4px); }
   }
   .pricing-header { margin-bottom: 28px; }
   .pricing-tier { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }

@@ -61,13 +61,32 @@ export interface Translation {
       warning?: string;
     }>;
   };
+  recoverPage: {
+    pageTitle: string;
+    metaDescription: string;
+    heading: string;
+    subtitle: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    passwordLabel: string;
+    passwordPlaceholder: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successMessage: string;
+    errorInvalid: string;
+    errorGeneric: string;
+    backHome: string;
+    invalidLink: string;
+    invalidLinkDesc: string;
+  };
 }
 
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
       title: 'Connectea — Comparte archivos con amigos, Servidor Minecraft',
-      description: 'Comparte archivos con amigos sin registro. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
+      description: 'Comparte archivos con amigos sin cuenta. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
       keywords: 'compartir archivos sin cuenta, compartir archivos gratis, compartir archivos cifrados, compartir archivos con amigos, plugin servidor minecraft, crear servidor minecraft fácil, servidor minecraft un clic, transferencia archivos instantánea, compartir archivos Windows',
     },
     nav: {
@@ -292,6 +311,25 @@ export const translations: Record<Lang, Translation> = {
           ],
         },
       ],
+    },
+    recoverPage: {
+      pageTitle: 'Recuperar contraseña de propiedad | Connectea',
+      metaDescription: 'Establece una nueva contraseña de propiedad para tu sala permanente de Connectea.',
+      heading: 'Nueva contraseña de propiedad',
+      subtitle: 'Elige una nueva contraseña para tu sala permanente. Usa una contraseña segura — cualquiera que la tenga puede reclamar la propiedad.',
+      emailLabel: 'Correo electrónico',
+      emailPlaceholder: 'tu@email.com',
+      passwordLabel: 'Nueva contraseña de propiedad',
+      passwordPlaceholder: 'Mínimo 8 caracteres',
+      submit: 'Actualizar contraseña',
+      submitting: 'Actualizando…',
+      successTitle: '¡Contraseña actualizada!',
+      successMessage: 'Tu contraseña de propiedad ha sido actualizada. Abre la app de Connectea y reclama la propiedad de tu sala.',
+      errorInvalid: 'Este enlace no es válido o ha caducado. Solicita un nuevo email de recuperación desde la app.',
+      errorGeneric: 'Algo ha ido mal. Inténtalo de nuevo o solicita un nuevo email de recuperación.',
+      backHome: 'Volver al inicio',
+      invalidLink: 'Enlace no válido o caducado',
+      invalidLinkDesc: 'Este enlace de recuperación no es válido o ha caducado. Vuelve a la app y solicita uno nuevo.',
     },
   },
 
@@ -524,6 +562,25 @@ export const translations: Record<Lang, Translation> = {
         },
       ],
     },
+    recoverPage: {
+      pageTitle: 'Recover Ownership Password | Connectea',
+      metaDescription: 'Set a new ownership password for your Connectea permanent room.',
+      heading: 'Set New Ownership Password',
+      subtitle: 'Enter a new password for your permanent room. Make sure it\'s strong — anyone with it can claim ownership.',
+      emailLabel: 'Email address',
+      emailPlaceholder: 'your@email.com',
+      passwordLabel: 'New ownership password',
+      passwordPlaceholder: 'At least 8 characters',
+      submit: 'Update Password',
+      submitting: 'Updating…',
+      successTitle: 'Password updated!',
+      successMessage: 'Your ownership password has been updated. Open the Connectea app and claim ownership of your room.',
+      errorInvalid: 'This link is invalid or has expired. Request a new recovery email from the app.',
+      errorGeneric: 'Something went wrong. Try again or request a new recovery email.',
+      backHome: 'Back to home',
+      invalidLink: 'Invalid or expired link',
+      invalidLinkDesc: 'This recovery link is invalid or has expired. Go back to the app and request a new one.',
+    },
   },
 
   zh: {
@@ -754,6 +811,25 @@ export const translations: Record<Lang, Translation> = {
           ],
         },
       ],
+    },
+    recoverPage: {
+      pageTitle: '找回所有权密码 | Connectea',
+      metaDescription: '为你的 Connectea 永久房间设置新的所有权密码。',
+      heading: '设置新所有权密码',
+      subtitle: '为你的永久房间设置新密码。请使用强密码——任何人拥有该密码都可以认领房间所有权。',
+      emailLabel: '邮箱地址',
+      emailPlaceholder: 'your@email.com',
+      passwordLabel: '新所有权密码',
+      passwordPlaceholder: '至少 8 个字符',
+      submit: '更新密码',
+      submitting: '更新中…',
+      successTitle: '密码已更新！',
+      successMessage: '你的所有权密码已更新。请打开 Connectea 应用并认领你的房间所有权。',
+      errorInvalid: '此链接无效或已过期，请在应用中重新申请找回邮件。',
+      errorGeneric: '出了点问题，请重试或重新申请找回邮件。',
+      backHome: '返回首页',
+      invalidLink: '链接无效或已过期',
+      invalidLinkDesc: '此找回链接无效或已过期，请返回应用并重新申请。',
     },
   },
 };

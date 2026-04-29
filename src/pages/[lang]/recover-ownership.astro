@@ -165,10 +165,10 @@ const API_BASE = 'https://api.connectea.net/api/v1/rooms';
 </body>
 </html>
 
-<script define:vars={{ API_BASE, strings: { errorInvalid: rp.errorInvalid, errorGeneric: rp.errorGeneric } }}>
+<script is:inline define:vars={{ API_BASE, strings: { errorInvalid: rp.errorInvalid, errorGeneric: rp.errorGeneric } }}>
   (function () {
     const params = new URLSearchParams(window.location.search);
-    const roomId = params.get('room');
+    const roomId = params.get('roomId');
     const token = params.get('token');
 
     const stateInvalid = document.getElementById('state-invalid');

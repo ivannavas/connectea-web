@@ -704,19 +704,22 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .section-title::after {
     content: '';
     display: block;
-    width: 36px; height: 3px;
+    width: 48px; height: 3px;
     background: var(--gradient);
     border-radius: 2px;
     margin: 12px 0 0;
+    box-shadow: 0 0 10px rgba(99,102,241,0.5);
   }
   .section-header .section-title::after {
     margin: 12px auto 0;
   }
   .security-content .section-title::after {
     background: linear-gradient(135deg, var(--green-light), var(--teal));
+    box-shadow: 0 0 10px rgba(34,197,94,0.45);
   }
   .plugins-content .section-title::after {
     background: linear-gradient(135deg, var(--amber), #fbbf24);
+    box-shadow: 0 0 10px rgba(245,158,11,0.45);
   }
 
   /* ===== BADGES ===== */
@@ -919,6 +922,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     box-shadow: var(--shadow), var(--shadow-glow);
     background: var(--bg-card-hover);
   }
+  .feature-card:nth-child(3n+2):hover { box-shadow: var(--shadow), 0 0 48px rgba(34,211,238,0.13); }
+  .feature-card:nth-child(3n):hover { box-shadow: var(--shadow), 0 0 48px rgba(34,197,94,0.13); }
   .feature-card:hover::before { opacity: 1; }
   .feature-icon {
     font-size: 1.75rem; margin-bottom: 18px;
@@ -1291,6 +1296,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     font-size: 0.72rem; font-weight: 600;
     backdrop-filter: blur(16px) saturate(1.4);
     white-space: nowrap; pointer-events: none; z-index: 10;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.06) inset;
   }
   .float-badge svg { flex-shrink: 0; }
   .float-badge-tl {

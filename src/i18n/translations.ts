@@ -85,9 +85,9 @@ export interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea — Comparte archivos con amigos, Servidor Minecraft',
-      description: 'Comparte archivos con amigos sin cuenta. Crea una sala, comparte el código, suelta archivos — listo. Plugin Minecraft incluido. Gratis para Windows 10/11.',
-      keywords: 'compartir archivos sin cuenta, compartir archivos gratis, compartir archivos cifrados, compartir archivos con amigos, plugin servidor minecraft, crear servidor minecraft fácil, servidor minecraft un clic, transferencia archivos instantánea, compartir archivos Windows',
+      title: 'Connectea · Transferir archivos y servidor Minecraft gratis',
+      description: 'Transferencia de archivos fácil y rápida y servidor de Minecraft gratis en un clic. Sin cuenta, sin instalaciones complicadas, cifrado E2E. Windows 10/11.',
+      keywords: 'transferencia de archivos, transferir archivos fácil, enviar archivos grandes gratis, compartir archivos sin cuenta, servidor minecraft gratis, crear servidor minecraft fácil, servidor minecraft un clic, montar servidor minecraft gratis, hosting minecraft gratis, alternativa wetransfer',
     },
     nav: {
       features: 'Funciones',
@@ -335,9 +335,9 @@ export const translations: Record<Lang, Translation> = {
 
   en: {
     meta: {
-      title: 'Connectea — Share Files with Friends | Minecraft Server',
-      description: 'Share files with friends, no account needed. Create a room, share the code, drop files — done in seconds. Built-in Minecraft server plugin. Free for Windows.',
-      keywords: 'share files without account, free file sharing, encrypted file sharing, share files with friends, minecraft server plugin, one-click minecraft server, instant file transfer, no signup file sharing, share files Windows',
+      title: 'Connectea — Easy file transfer & free Minecraft server',
+      description: 'Easy file transfer and a free one-click Minecraft server hosting. No account, no installs, end-to-end encrypted. Free download for Windows 10 / 11.',
+      keywords: 'easy file transfer, send large files free, file sharing no account, free minecraft server, easy minecraft server, one-click minecraft server, free minecraft hosting, create minecraft server free, host minecraft server free, wetransfer alternative',
     },
     nav: {
       features: 'Features',
@@ -585,9 +585,9 @@ export const translations: Record<Lang, Translation> = {
 
   zh: {
     meta: {
-      title: 'Connectea — 与朋友分享文件 | 一键 Minecraft 服务器插件',
-      description: '与朋友分享文件，无需账号注册。创建房间，分享代码，拖入文件，几秒搞定。内置 Minecraft（我的世界）服务器插件，一键启动，存档自动同步。端到端加密。免费，支持 Windows 10/11。',
-      keywords: '无账号文件分享, 免费文件分享, 加密文件传输, 与朋友分享文件, Minecraft服务器插件, 一键Minecraft服务器, 我的世界服务器插件, 一键我的世界服务器, 即时文件传输, Windows文件分享, 无需注册文件分享',
+      title: 'Connectea · 轻松传输文件与免费 Minecraft 服务器',
+      description: '轻松传输文件，一键免费搭建 Minecraft（我的世界）服务器。无需注册账号，端到端加密，大文件随便传。免费，支持 Windows 10/11。',
+      keywords: '文件传输, 免费文件传输, 大文件传输, 文件分享免费, 免费 Minecraft 服务器, 一键搭建 Minecraft 服务器, 我的世界服务器搭建, 免费我的世界服务器, 一键我的世界服务器, Minecraft 服务器免费搭建',
     },
     nav: {
       features: '功能',

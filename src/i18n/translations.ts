@@ -61,6 +61,14 @@ export interface Translation {
       warning?: string;
     }>;
   };
+  mobileGate: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    emailPlaceholder: string;
+    submitText: string;
+    successText: string;
+  };
   recoverPage: {
     pageTitle: string;
     metaDescription: string;
@@ -312,6 +320,14 @@ export const translations: Record<Lang, Translation> = {
         },
       ],
     },
+    mobileGate: {
+      eyebrow: 'Solo para Windows',
+      title: 'Connectea es una app de Windows',
+      subtitle: 'Connectea funciona en Windows 10 / 11. Introduce tu email y te enviamos el enlace de descarga para instalarlo en tu PC más tarde.',
+      emailPlaceholder: 'tu@email.com',
+      submitText: 'Enviarme el enlace de descarga',
+      successText: '¡Listo! Revisa tu bandeja de entrada — el enlace está en camino.',
+    },
     recoverPage: {
       pageTitle: 'Recuperar contraseña de propiedad | Connectea',
       metaDescription: 'Establece una nueva contraseña de propiedad para tu sala permanente de Connectea.',
@@ -562,6 +578,14 @@ export const translations: Record<Lang, Translation> = {
         },
       ],
     },
+    mobileGate: {
+      eyebrow: 'Windows only',
+      title: 'Connectea is a Windows app',
+      subtitle: 'Connectea runs on Windows 10 / 11. Enter your email and we\'ll send you the download link so you can install it on your PC later.',
+      emailPlaceholder: 'your@email.com',
+      submitText: 'Send me the download link',
+      successText: 'Done! Check your inbox — the link is on its way.',
+    },
     recoverPage: {
       pageTitle: 'Recover Ownership Password | Connectea',
       metaDescription: 'Set a new ownership password for your Connectea permanent room.',
@@ -811,6 +835,14 @@ export const translations: Record<Lang, Translation> = {
           ],
         },
       ],
+    },
+    mobileGate: {
+      eyebrow: '仅支持 Windows',
+      title: 'Connectea 是 Windows 应用',
+      subtitle: 'Connectea 运行于 Windows 10 / 11。输入你的邮箱，我们将发送下载链接，方便你之后在 PC 上安装。',
+      emailPlaceholder: 'your@email.com',
+      submitText: '发送下载链接',
+      successText: '完成！请查收邮件，下载链接已发送。',
     },
     recoverPage: {
       pageTitle: '找回所有权密码 | Connectea',

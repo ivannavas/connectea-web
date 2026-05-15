@@ -43,7 +43,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta property="og:description" content={t.meta.description} />
   <meta property="og:image" content="https://connectea.net/icon.png" />
   <meta property="og:image:secure_url" content="https://connectea.net/icon.png" />
-  <meta property="og:image:alt" content={lang === 'zh' ? 'Connectea — 与朋友分享文件，无需账号。一键 Minecraft 服务器。' : lang === 'es' ? 'Connectea — Comparte archivos con amigos, sin cuenta. Servidor Minecraft en un clic.' : 'Connectea — Share files with friends, no account needed. One-click Minecraft server.'} />
+  <meta property="og:image:alt" content={lang === 'zh' ? 'Connectea — 传输任意大小文件，公开链接分享，一键 Minecraft 服务器。无需账号。' : lang === 'es' ? 'Connectea — Envía archivos grandes, comparte con enlace público. Servidor Minecraft en un clic. Sin cuenta.' : 'Connectea — Send large files, share with a public link. One-click Minecraft server. No account needed.'} />
   <meta property="og:image:width" content="1080" />
   <meta property="og:image:height" content="1080" />
   <meta property="og:image:type" content="image/png" />
@@ -58,7 +58,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta name="twitter:title" content={t.meta.title} />
   <meta name="twitter:description" content={t.meta.description} />
   <meta name="twitter:image" content="https://connectea.net/icon.png" />
-  <meta name="twitter:image:alt" content={lang === 'zh' ? 'Connectea — 与朋友分享文件，无需账号。一键 Minecraft 服务器。' : lang === 'es' ? 'Connectea — Comparte archivos con amigos, sin cuenta. Servidor Minecraft en un clic.' : 'Connectea — Share files with friends, no account needed. One-click Minecraft server.'} />
+  <meta name="twitter:image:alt" content={lang === 'zh' ? 'Connectea — 传输任意大小文件，公开链接分享，一键 Minecraft 服务器。无需账号。' : lang === 'es' ? 'Connectea — Envía archivos grandes, comparte con enlace público. Servidor Minecraft en un clic. Sin cuenta.' : 'Connectea — Send large files, share with a public link. One-click Minecraft server. No account needed.'} />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -87,7 +87,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       "width": 1200,
       "height": 630,
     },
-    "description": "Connectea provides instant file sharing with friends and one-click Minecraft server hosting — no account required.",
+    "description": "Connectea provides large file transfers with no per-file size limit, one-click public sharing links, and free one-click Minecraft server hosting — no account required.",
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -110,10 +110,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     "description": t.meta.description,
     "url": "https://connectea.net",
     "downloadUrl": DOWNLOAD_URL,
-    "featureList": "One-click Minecraft server plugin, Instant file sharing with friends, No account required, AES-256-GCM end-to-end encryption, PBKDF2 key derivation, SHA-256 integrity verification, Code-based rooms, Drag-and-drop folders, Streamed ZIP download, READ/WRITE allowlist, English/Spanish/Chinese UI",
-    "softwareVersion": "1.0",
+    "featureList": "No per-file size limit, Public file sharing links, One-click Minecraft server plugin, Instant file sharing with friends, No account required, AES-256-GCM end-to-end encryption, PBKDF2 key derivation, SHA-256 integrity verification, Code-based rooms, Drag-and-drop folders, Streamed ZIP download, READ/WRITE allowlist, English/Spanish/Chinese UI",
+    "softwareVersion": "1.1.1",
     "datePublished": "2025-01-01",
-    "dateModified": "2026-04-29",
+    "dateModified": "2026-05-16",
     "author": { "@id": "https://connectea.net/#organization" },
     "publisher": { "@id": "https://connectea.net/#organization" },
     "inLanguage": lang === 'zh' ? 'zh-Hans' : lang === 'es' ? 'es' : 'en',
@@ -124,20 +124,35 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     "mainEntity": lang === 'es' ? [
       {
         "@type": "Question",
+        "name": "¿Hay límite de tamaño por archivo en Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Connectea no impone ningún límite de tamaño por archivo. Puedes subir archivos de cualquier tamaño — vídeos 4K, backups completos, imágenes ISO. Los archivos se dividen automáticamente en fragmentos de 10 MB y se transfieren sin restricciones." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo comparto un archivo con un enlace público en Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Como propietario de la sala, selecciona cualquier archivo subido, haz clic en «Hacer público» en el panel de detalles y copia el enlace. Quien reciba el enlace puede descargarlo directamente desde el navegador — sin cuenta de Connectea ni necesidad de instalar nada." }
+      },
+      {
+        "@type": "Question",
         "name": "¿Cómo creo un servidor de Minecraft con Connectea?",
         "acceptedAnswer": { "@type": "Answer", "text": "Descarga Connectea, crea una sala y añade el plugin de Minecraft. Pulsa Iniciar — el servidor arranca automáticamente y los archivos del mundo se sincronizan con la sala. Sin configuración." }
       },
       {
         "@type": "Question",
-        "name": "¿El servidor de Minecraft es gratis?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Sí. El plugin de servidor Minecraft está incluido en el plan gratuito. Crea una sala temporal, añade el plugin y empieza a jugar. Actualiza a sala permanente (5 €/mes) si quieres que el servidor siga activo cuando te desconectes." }
+        "name": "¿Necesito cuenta para usar Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No hace falta cuenta. Solo escribe un nombre, crea una sala o únete con un código, y empieza a compartir archivos al instante." }
+      }
+    ] : lang === 'zh' ? [
+      {
+        "@type": "Question",
+        "name": "Connectea有单文件大小限制吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "没有。Connectea不设单文件大小限制。你可以上传任意大小的文件——4K视频、完整游戏存档、ISO镜像。文件会自动分成10MB分块传输，没有人为限制。" }
       },
       {
         "@type": "Question",
-        "name": "¿Necesito cuenta para usar Connectea?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No hace falta cuenta. Solo escribe un nombre, crea una sala o únete con un código, y empieza a compartir archivos o a levantar tu servidor de Minecraft al instante." }
-      }
-    ] : lang === 'zh' ? [
+        "name": "如何用Connectea生成公开分享链接？",
+        "acceptedAnswer": { "@type": "Answer", "text": "作为房主，选择任意已上传的文件，在详情面板中点击「设为公开」并复制链接。收到链接的人可以直接在浏览器下载——无需Connectea账号，无需安装任何软件。" }
+      },
       {
         "@type": "Question",
         "name": "如何使用Connectea创建Minecraft（我的世界）服务器？",
@@ -145,15 +160,20 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       },
       {
         "@type": "Question",
-        "name": "Minecraft（我的世界）服务器功能免费吗？",
-        "acceptedAnswer": { "@type": "Answer", "text": "是的，Minecraft服务器插件包含在免费计划中。创建临时房间，添加插件即可开始游戏。如需服务器在断线后保持在线，可升级为永久房间（5€/月）。" }
+        "name": "使用Connectea需要账号吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不需要账号。只需输入名字，创建或加入房间，即可立即开始分享文件。" }
+      }
+    ] : [
+      {
+        "@type": "Question",
+        "name": "Is there a file size limit in Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Connectea has no per-file size limit. You can upload files of any size — 4K videos, full game backups, ISO images. Files are automatically split into 10 MB chunks and transferred without restrictions." }
       },
       {
         "@type": "Question",
-        "name": "使用Connectea需要账号吗？",
-        "acceptedAnswer": { "@type": "Answer", "text": "不需要账号。只需输入名字，创建或加入房间，即可立即开始分享文件或运行Minecraft服务器。" }
-      }
-    ] : [
+        "name": "How do I share a file with a public link in Connectea?",
+        "acceptedAnswer": { "@type": "Answer", "text": "As the room owner, select any uploaded file, click 'Make Public' in the detail panel, and copy the link. Anyone with the link can download it directly from their browser — no Connectea account or app required." }
+      },
       {
         "@type": "Question",
         "name": "How do I create a Minecraft server with Connectea?",
@@ -161,13 +181,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
       },
       {
         "@type": "Question",
-        "name": "Is the Minecraft server feature free?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Minecraft server plugin is included in the free plan. Create a temporary room, add the plugin, and start playing. Upgrade to a persistent room (€5/month) if you want the server to stay online when you disconnect." }
-      },
-      {
-        "@type": "Question",
         "name": "Do I need an account to use Connectea?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No account needed. Just enter a name, create a room or join with a code, and start sharing files or running your Minecraft server immediately." }
+        "acceptedAnswer": { "@type": "Answer", "text": "No account needed. Just enter a name, create a room or join with a code, and start sharing files immediately." }
       }
     ],
   })} />
@@ -328,6 +343,18 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
                 <span class="owner-badge">Owner</span>
               </div>
               <div class="file-list">
+                <div class="file-row file-row-highlight">
+                  <span class="file-icon">🎬</span>
+                  <span class="file-name">project-final.mp4</span>
+                  <span class="file-size">18.4 GB</span>
+                  <span class="public-link-badge">🔗 Public</span>
+                </div>
+                <div class="file-row">
+                  <span class="file-icon">📦</span>
+                  <span class="file-name">backup-2026.zip</span>
+                  <span class="file-size">7.1 GB</span>
+                  <span class="enc-badge">🔒</span>
+                </div>
                 <div class="file-row">
                   <span class="file-icon">📁</span>
                   <span class="file-name">world/</span>
@@ -336,22 +363,14 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
                 </div>
                 <div class="file-row">
                   <span class="file-icon">📄</span>
-                  <span class="file-name">server.properties</span>
-                  <span class="file-size">3 KB</span>
-                  <span class="enc-badge">&nbsp;</span>
-                </div>
-                <div class="file-row">
-                  <span class="file-icon">📦</span>
                   <span class="file-name">server.jar</span>
                   <span class="file-size">48 MB</span>
                   <span class="enc-badge">&nbsp;</span>
                 </div>
-                <div class="file-row">
-                  <span class="file-icon">📝</span>
-                  <span class="file-name">ops.json</span>
-                  <span class="file-size">1 KB</span>
-                  <span class="enc-badge">&nbsp;</span>
-                </div>
+              </div>
+              <div class="mockup-storage-bar">
+                <div class="mockup-storage-fill"></div>
+                <span class="mockup-storage-text">26.8 GB / 50 GB</span>
               </div>
               <div class="app-toolbar">
                 <button class="tool-btn tool-btn-primary">↑ Upload</button>
@@ -371,8 +390,31 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
           No account
         </div>
         <div class="float-badge float-badge-br" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Instant
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Public links
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHARE HIGHLIGHT ============ -->
+  <section id="share" aria-labelledby="share-title">
+    <div class="container">
+      <div class="share-hl-inner" data-reveal>
+        <div class="badge badge-green" style="margin-bottom:1.1rem">{t.shareHighlight.eyebrow}</div>
+        <h2 id="share-title" class="share-hl-title">{t.shareHighlight.title}</h2>
+        <p class="share-hl-subtitle">{t.shareHighlight.subtitle}</p>
+        <div class="share-hl-cards">
+          <div class="share-hl-card">
+            <div class="share-hl-icon" aria-hidden="true">{t.shareHighlight.card1.icon}</div>
+            <h3 class="share-hl-card-title">{t.shareHighlight.card1.title}</h3>
+            <p class="share-hl-card-desc">{t.shareHighlight.card1.desc}</p>
+          </div>
+          <div class="share-hl-card share-hl-card-accent">
+            <div class="share-hl-icon" aria-hidden="true">{t.shareHighlight.card2.icon}</div>
+            <h3 class="share-hl-card-title">{t.shareHighlight.card2.title}</h3>
+            <p class="share-hl-card-desc">{t.shareHighlight.card2.desc}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -960,6 +1002,22 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .file-name { color: var(--text-secondary); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .file-size { color: var(--text-muted); font-size: 0.65rem; flex-shrink: 0; }
   .enc-badge { font-size: 0.7rem; flex-shrink: 0; width: 16px; text-align: center; }
+  .file-row-highlight { border-color: rgba(52,211,153,0.18) !important; background: rgba(52,211,153,0.04) !important; }
+  .public-link-badge {
+    font-size: 0.6rem; font-weight: 700; flex-shrink: 0;
+    padding: 1px 5px; border-radius: 4px;
+    background: rgba(52,211,153,0.15); color: #34d399;
+    border: 1px solid rgba(52,211,153,0.3);
+    white-space: nowrap;
+  }
+  .mockup-storage-bar {
+    display: flex; align-items: center; gap: 7px; margin: 6px 0 2px;
+  }
+  .mockup-storage-fill {
+    flex: 1; height: 3px; border-radius: 2px;
+    background: linear-gradient(90deg, #6366f1 0%, #6366f1 53.6%, rgba(255,255,255,0.08) 53.6%);
+  }
+  .mockup-storage-text { font-size: 0.6rem; color: var(--text-muted); flex-shrink: 0; }
   .app-toolbar {
     display: flex; gap: 6px; padding-top: 8px;
     border-top: 1px solid rgba(255,255,255,0.05);
@@ -969,6 +1027,61 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .tool-btn-ghost { background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.06); }
   .tool-btn-ghost:hover { background: rgba(255,255,255,0.07); }
   .tool-btn-active { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+
+  /* ===== SHARE HIGHLIGHT ===== */
+  #share { padding: 80px 0; position: relative; z-index: 1; }
+  .share-hl-inner { text-align: center; }
+  .share-hl-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+  .share-hl-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .share-hl-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .share-hl-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    text-align: left;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .share-hl-card:hover { border-color: rgba(52,211,153,0.3); transform: translateY(-3px); }
+  .share-hl-card-accent {
+    border-color: rgba(52,211,153,0.2);
+    background: linear-gradient(135deg, rgba(52,211,153,0.06), rgba(16,185,129,0.03));
+  }
+  .share-hl-card-accent:hover { border-color: rgba(52,211,153,0.45); }
+  .share-hl-icon { font-size: 2.4rem; margin-bottom: 1rem; display: block; }
+  .share-hl-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.6rem;
+  }
+  .share-hl-card-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
 
   /* ===== FEATURES ===== */
   #features { padding: 100px 0; position: relative; z-index: 1; }
@@ -1210,6 +1323,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     .hero-visual { max-width: 600px; margin: 0 auto; }
     .security-grid, .plugins-grid { grid-template-columns: 1fr; gap: 48px; }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .share-hl-cards { gap: 16px; }
     .footer-top { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: 1 / -1; }
   }
@@ -1231,6 +1345,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     .hero-stats { flex-wrap: wrap; gap: 24px; }
     .stat::after { display: none; }
     .features-grid { grid-template-columns: 1fr; }
+    .share-hl-cards { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: 1fr; gap: 40px; }
     .steps-grid::before { display: none; }
     .pricing-grid { grid-template-columns: 1fr; }

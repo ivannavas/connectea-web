@@ -40,6 +40,13 @@ export interface Translation {
     free: { title: string; price: string; period: string; cta: string; features: string[] };
     pro: { title: string; badge: string; price: string; period: string; cta: string; features: string[] };
   };
+  shareHighlight: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    card1: { icon: string; title: string; desc: string };
+    card2: { icon: string; title: string; desc: string };
+  };
   download: { title: string; subtitle: string; cta: string; note: string; smartscreenNote: string };
   footer: {
     tagline: string;
@@ -93,9 +100,9 @@ export interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea · Transferir archivos y servidor Minecraft gratis',
-      description: 'Transferencia de archivos fácil y rápida y servidor de Minecraft gratis en un clic. Sin cuenta, sin instalaciones complicadas, cifrado E2E. Windows 10/11.',
-      keywords: 'transferencia de archivos, transferir archivos fácil, enviar archivos grandes gratis, compartir archivos sin cuenta, servidor minecraft gratis, crear servidor minecraft fácil, servidor minecraft un clic, montar servidor minecraft gratis, hosting minecraft gratis, alternativa wetransfer',
+      title: 'Connectea · Enviar archivos grandes y servidor Minecraft gratis',
+      description: 'Transfiere archivos de cualquier tamaño y comparte con enlace público. Servidor Minecraft gratis en un clic. Sin cuenta, cifrado E2E, sin límite de tamaño. Windows 10/11.',
+      keywords: 'enviar archivos grandes gratis, transferencia archivos grandes, compartir archivos enlace público, compartir archivos sin cuenta, subir archivos grandes sin límite, servidor minecraft gratis, crear servidor minecraft fácil, servidor minecraft un clic, alternativa wetransfer, compartir archivos grandes online',
     },
     nav: {
       features: 'Funciones',
@@ -106,24 +113,34 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: 'Disponible para Windows 10 / 11',
-      headline: 'Comparte archivos con amigos. Levanta tu servidor Minecraft. Sin cuenta, sin complicaciones.',
-      subheadline: 'Crea una sala, comparte el código y suelta los archivos. Listo en segundos. Solo escribe tu nombre — sin email ni contraseña. Cifrado de extremo a extremo. Levanta un servidor de Minecraft en un clic.',
+      headline: 'Envía archivos grandes. Comparte con enlace. Levanta tu servidor Minecraft.',
+      subheadline: 'Sin límite de tamaño por archivo. Haz público cualquier archivo con un clic y comparte el enlace — sin cuenta para descargar. Crea una sala, suelta los archivos y listo. Cifrado E2E opcional. Servidor de Minecraft en un clic.',
       cta_primary: 'Descargar Gratis',
       cta_secondary: 'Servidor de Minecraft',
       stats: [
         { value: '1 Clic', label: 'Servidor Minecraft' },
-        { value: '50 GB', label: 'Por sala' },
-        { value: '5 GB', label: 'Por archivo' },
+        { value: '50 GB+', label: 'Por sala' },
+        { value: 'Sin límite', label: 'Por archivo' },
       ],
     },
     features: {
       title: 'Todo lo que necesitas para compartir archivos, nada más',
-      subtitle: 'Connectea te da justo lo necesario para compartir archivos — sin complicaciones. Los plugins añaden potencia a tu ritmo, no al nuestro.',
+      subtitle: 'Archivos de cualquier tamaño, enlaces públicos, cifrado E2E opcional. Sin cuenta, sin límites artificiales.',
       items: [
+        {
+          icon: '🔗',
+          title: 'Enlace público — un clic',
+          desc: 'Haz público cualquier archivo con un clic y copia el enlace. Cualquiera puede descargarlo directamente desde el navegador, sin cuenta ni app.',
+        },
+        {
+          icon: '📦',
+          title: 'Sin límite de tamaño por archivo',
+          desc: 'Sube archivos de cualquier tamaño. Connectea los divide en fragmentos y los transfiere automáticamente, sin restricciones artificiales de tamaño.',
+        },
         {
           icon: '🔒',
           title: 'Cifrado de extremo a extremo opcional',
-          desc: 'Escribe una contraseña y el archivo se cifra en fragmentos de 10 MB con AES-256-GCM antes de salir de tu equipo. La integridad se verifica con SHA-256 al descargar. Connectea no puede descifrarlo.',
+          desc: 'Escribe una contraseña y el archivo se cifra con AES-256-GCM antes de salir de tu equipo. Connectea no puede descifrarlo.',
         },
         {
           icon: '⚡',
@@ -138,17 +155,7 @@ export const translations: Record<Lang, Translation> = {
         {
           icon: '🛡️',
           title: 'Control de acceso a la sala',
-          desc: 'Como propietario, restringe la sala a una lista curada y define si cada usuario puede leer, escribir o ambas. Si revocas el acceso, el cambio se aplica en segundos.',
-        },
-        {
-          icon: '🔌',
-          title: 'Plugins para funciones extra',
-          desc: 'Añade plugins a cualquier sala para ampliar su funcionalidad — por ejemplo, el plugin de Minecraft levanta un servidor en segundos y sincroniza los archivos del mundo con la sala. Gestiona todo desde la app.',
-        },
-        {
-          icon: '⚙️',
-          title: 'Salas persistentes',
-          desc: 'Mantén la sala activa aunque te desconectes, con todos tus archivos y plugins intactos, por un precio mensual asequible. Ideal para servidores de Minecraft o proyectos colaborativos.',
+          desc: 'Restringe la sala a una lista de usuarios y define si cada uno puede leer, escribir o ambas. Revoca el acceso y el cambio se aplica en segundos.',
         },
       ],
     },
@@ -168,8 +175,8 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           number: '03',
-          title: 'Suelta archivos — cifra si quieres',
-          desc: 'Suelta archivos o carpetas. Añade una contraseña de cifrado si el contenido es sensible — quien descargue necesitará la misma contraseña para descifrarlo.',
+          title: 'Suelta archivos, comparte o cifra',
+          desc: 'Suelta archivos de cualquier tamaño. Haz público cualquier archivo con un clic para generar un enlace de descarga directa. Añade contraseña de cifrado si el contenido es sensible — Connectea nunca la ve.',
         },
       ],
     },
@@ -200,7 +207,7 @@ export const translations: Record<Lang, Translation> = {
     },
     pricing: {
       title: 'Gratis para salas temporales. Solo pagas si necesitas que duren.',
-      subtitle: 'La mayoría no necesitará pagar. El plan gratuito ya incluye cifrado, lista de acceso, plugins y los 50 GB completos por sala.',
+      subtitle: 'La mayoría no necesitará pagar. El plan gratuito incluye cifrado, lista de acceso, plugins, 50 GB por sala y almacenamiento ampliable.',
       free: {
         title: 'Gratis',
         price: '0 €',
@@ -208,10 +215,11 @@ export const translations: Record<Lang, Translation> = {
         cta: 'Descargar Gratis',
         features: [
           'Salas temporales (se cierran al irse el propietario)',
-          'Hasta 5 GB por archivo, 50 GB por sala',
+          'Sin límite de tamaño por archivo · 50 GB base por sala',
+          'Enlace público para compartir archivos con cualquiera',
+          'Ampliar almacenamiento: +10 GB por €1 (pago único por sala)',
           'Cifrado de extremo a extremo AES-256-GCM',
-          'Control de acceso a la sala',
-          'Plugins (Beta)',
+          'Control de acceso · Plugins (Beta)',
         ],
       },
       pro: {
@@ -236,8 +244,23 @@ export const translations: Record<Lang, Translation> = {
       note: 'Windows 10 / 11 · Gratis · Sin cuenta · Doble clic en el instalador y listo',
       smartscreenNote: 'Windows puede mostrar un aviso de seguridad al abrir el instalador. Esto es completamente normal en aplicaciones nuevas de desarrolladores independientes — Connectea es seguro. Haz clic en «Más información» → «Ejecutar de todas formas» para continuar.',
     },
+    shareHighlight: {
+      eyebrow: 'Archivos grandes · Enlace público',
+      title: 'Transfiere cualquier archivo. Comparte al instante.',
+      subtitle: 'Sin límite de tamaño por archivo. Haz público cualquier archivo en un clic y comparte el enlace — quien lo reciba puede descargarlo directamente desde el navegador, sin instalar nada.',
+      card1: {
+        icon: '📦',
+        title: 'Sin límite de tamaño',
+        desc: 'Sube archivos de cualquier tamaño. Connectea los divide en fragmentos de 10 MB y los transfiere automáticamente. Vídeos 4K, backups, archivos ISO — todo vale.',
+      },
+      card2: {
+        icon: '🔗',
+        title: 'Enlace público en un clic',
+        desc: 'Como propietario de la sala, haz público cualquier archivo y copia el enlace. Quien lo reciba puede descargarlo directamente desde el navegador — sin cuenta, sin app.',
+      },
+    },
     footer: {
-      tagline: 'Comparte archivos con amigos en segundos, sin cuenta. Plugin de servidor Minecraft incluido.',
+      tagline: 'Envía archivos de cualquier tamaño, comparte con enlace público. Sin cuenta. Plugin de servidor Minecraft incluido.',
       product: 'Producto',
       legal: 'Legal',
       links: {
@@ -351,9 +374,9 @@ export const translations: Record<Lang, Translation> = {
 
   en: {
     meta: {
-      title: 'Connectea — Easy file transfer & free Minecraft server',
-      description: 'Easy file transfer and a free one-click Minecraft server hosting. No account, no installs, end-to-end encrypted. Free download for Windows 10 / 11.',
-      keywords: 'easy file transfer, send large files free, file sharing no account, free minecraft server, easy minecraft server, one-click minecraft server, free minecraft hosting, create minecraft server free, host minecraft server free, wetransfer alternative',
+      title: 'Connectea — Send large files free & one-click Minecraft server',
+      description: 'Transfer files of any size and share with a public link — no account to download. Free one-click Minecraft server. No file size limit, end-to-end encrypted. Windows 10 / 11.',
+      keywords: 'send large files free, transfer large files no limit, share large files public link, file sharing no account, unlimited file transfer, public file sharing link, free minecraft server, one-click minecraft server, free minecraft hosting, wetransfer alternative large files',
     },
     nav: {
       features: 'Features',
@@ -364,24 +387,34 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: 'Available for Windows 10 / 11',
-      headline: 'Share files with friends. Run your Minecraft server. No account, no friction.',
-      subheadline: 'Create a room, share the code, and drop your files. Done in seconds. Just a name — no email, no password. End-to-end encrypted. Spin up a Minecraft server in one click.',
+      headline: 'Send large files. Share with a link. Run your Minecraft server.',
+      subheadline: 'No per-file size limit. Make any file public with one click and share the link — anyone can download it, no account needed. Create a room, drop your files, done in seconds. Optional E2E encryption. One-click Minecraft server.',
       cta_primary: 'Download Free',
       cta_secondary: 'Minecraft Server',
       stats: [
         { value: '1 Click', label: 'Minecraft Server' },
-        { value: '50 GB', label: 'Per room' },
-        { value: '5 GB', label: 'Per file' },
+        { value: '50 GB+', label: 'Per room' },
+        { value: 'No limit', label: 'Per file' },
       ],
     },
     features: {
       title: 'Everything you need to share files — nothing you don\'t',
-      subtitle: 'Connectea gives you exactly what you need to share files — simple and nothing more. Plugins let you add power on your terms, not ours.',
+      subtitle: 'Any file size, public links, optional E2E encryption. No account, no artificial limits.',
       items: [
+        {
+          icon: '🔗',
+          title: 'Public link — one click',
+          desc: 'Make any file public with one click and copy the link. Anyone can download it straight from their browser — no account, no app required.',
+        },
+        {
+          icon: '📦',
+          title: 'No file size limit',
+          desc: 'Upload files of any size. Connectea chunks them automatically and transfers everything without artificial size restrictions.',
+        },
         {
           icon: '🔒',
           title: 'Optional end-to-end encryption',
-          desc: 'Set a password and your file is encrypted in 10 MB chunks with AES-256-GCM before it ever leaves your machine. Integrity verified with SHA-256 on download. Connectea can\'t decrypt it.',
+          desc: 'Set a password and your file is encrypted with AES-256-GCM before it ever leaves your machine. Connectea can\'t decrypt it.',
         },
         {
           icon: '⚡',
@@ -396,17 +429,7 @@ export const translations: Record<Lang, Translation> = {
         {
           icon: '🛡️',
           title: 'Room access control',
-          desc: 'As owner, lock the room to a curated list and choose whether each user can read, write, or both. Revoke access and the change propagates in seconds.',
-        },
-        {
-          icon: '🔌',
-          title: 'Plugins for extra functionality',
-          desc: 'Add plugins to any room for extra features — the Minecraft plugin spins up a server in seconds and keeps world files in sync with the room. Manage everything from the app.',
-        },
-        {
-          icon: '⚙️',
-          title: 'Persistent rooms',
-          desc: 'Keep your room alive even when you disconnect — files and plugins intact — for a low monthly price. Perfect for Minecraft servers or collaborative projects.',
+          desc: 'Lock the room to a curated list and set read/write permissions per user. Revoke access and the change takes effect in seconds.',
         },
       ],
     },
@@ -426,8 +449,8 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           number: '03',
-          title: 'Drop files — encrypt if you want',
-          desc: 'Drop files or folders. Add an encryption password if the content is sensitive — anyone downloading will need the same password to decrypt.',
+          title: 'Drop files, share or encrypt',
+          desc: 'Drop files of any size. Make any file public with one click to share a direct download link. Add an encryption password if the content is sensitive — Connectea never sees it.',
         },
       ],
     },
@@ -458,7 +481,7 @@ export const translations: Record<Lang, Translation> = {
     },
     pricing: {
       title: 'Free for temporary rooms. Only pay if you need them to last.',
-      subtitle: 'Most people won\'t need to pay. The free plan already includes encryption, allowlist, plugins, and the full 50 GB per room.',
+      subtitle: 'Most people won\'t need to pay. The free plan includes encryption, allowlist, plugins, 50 GB per room, and expandable storage.',
       free: {
         title: 'Free',
         price: '€0',
@@ -466,10 +489,11 @@ export const translations: Record<Lang, Translation> = {
         cta: 'Download Free',
         features: [
           'Temporary rooms (close when the owner leaves)',
-          'Up to 5 GB per file, 50 GB per room',
+          'No per-file size limit · 50 GB base storage per room',
+          'Public links — share files with anyone',
+          'Expand storage: +10 GB for €1 (one-time, per room)',
           'AES-256-GCM end-to-end encryption',
-          'Room access control',
-          'Plugins (Beta)',
+          'Room access control · Plugins (Beta)',
         ],
       },
       pro: {
@@ -481,8 +505,9 @@ export const translations: Record<Lang, Translation> = {
         features: [
           'Everything in the free plan',
           'Room stays alive when you disconnect',
-          'Ownership password — come back and reclaim ownership anytime',
-          'Great for plugin rooms (Minecraft servers, collaborative projects, etc.)',
+          'Ownership password — reclaim ownership anytime',
+          'Expandable storage: +10 GB for €1 per expansion',
+          'Great for plugin rooms (Minecraft servers, collaborative projects)',
           'Cancel from the app whenever you want',
         ],
       },
@@ -494,8 +519,23 @@ export const translations: Record<Lang, Translation> = {
       note: 'Windows 10 / 11 · Free · No account · Double-click the installer and you\'re done',
       smartscreenNote: 'Windows may show a security warning when opening the installer. This is completely normal for new apps from independent developers — Connectea is safe. Click «More info» → «Run anyway» to continue.',
     },
+    shareHighlight: {
+      eyebrow: 'Large files · Public links',
+      title: 'Transfer anything. Share instantly.',
+      subtitle: 'No per-file size limit. Make any file public with one click and share the link — anyone can download it straight from their browser, no account or app needed.',
+      card1: {
+        icon: '📦',
+        title: 'No file size limit',
+        desc: 'Upload files of any size — 4K videos, full game backups, ISO images. Connectea splits them into 10 MB chunks and transfers them automatically.',
+      },
+      card2: {
+        icon: '🔗',
+        title: 'Public link in one click',
+        desc: 'As room owner, mark any file as public and copy the link. Recipients download it directly from their browser — no Connectea account, no app required.',
+      },
+    },
     footer: {
-      tagline: 'Share files with friends in seconds, no account needed. Minecraft server plugin included.',
+      tagline: 'Send files of any size, share with a public link, no account needed. Minecraft server plugin included.',
       product: 'Product',
       legal: 'Legal',
       links: {
@@ -609,9 +649,9 @@ export const translations: Record<Lang, Translation> = {
 
   zh: {
     meta: {
-      title: 'Connectea · 轻松传输文件与免费 Minecraft 服务器',
-      description: '轻松传输文件，一键免费搭建 Minecraft（我的世界）服务器。无需注册账号，端到端加密，大文件随便传。免费，支持 Windows 10/11。',
-      keywords: '文件传输, 免费文件传输, 大文件传输, 文件分享免费, 免费 Minecraft 服务器, 一键搭建 Minecraft 服务器, 我的世界服务器搭建, 免费我的世界服务器, 一键我的世界服务器, Minecraft 服务器免费搭建',
+      title: 'Connectea · 传输大文件·公开链接分享·免费 Minecraft 服务器',
+      description: '无文件大小限制，一键生成公开分享链接，无需账号即可下载。免费一键搭建 Minecraft 服务器。端到端加密。支持 Windows 10/11。',
+      keywords: '大文件传输免费, 传输大文件无限制, 公开链接分享文件, 文件分享链接, 大文件分享, 免费 Minecraft 服务器, 一键搭建 Minecraft 服务器, 我的世界服务器搭建, 免费文件传输, 大文件传输工具',
     },
     nav: {
       features: '功能',
@@ -622,24 +662,34 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: '支持 Windows 10 / 11',
-      headline: '与朋友分享文件，一键Minecraft服务器，零门槛',
-      subheadline: '创建房间，分享代码，拖入文件，完成。几秒搞定。只需一个名字 — 无需邮箱和密码。端到端加密。一键启动 Minecraft 服务器。',
+      headline: '传输大文件，公开链接分享，一键 Minecraft 服务器',
+      subheadline: '无文件大小限制。一键将任意文件设为公开，分享链接 — 对方无需账号即可直接下载。创建房间，拖入文件，几秒搞定。可选端到端加密。一键启动 Minecraft 服务器。',
       cta_primary: '免费下载',
       cta_secondary: 'Minecraft 服务器',
       stats: [
         { value: '1 键', label: 'Minecraft 服务器' },
-        { value: '50 GB', label: '每个房间' },
-        { value: '5 GB', label: '每个文件' },
+        { value: '50 GB+', label: '每个房间' },
+        { value: '无限制', label: '文件大小' },
       ],
     },
     features: {
       title: '文件分享所需的一切，没有多余',
-      subtitle: 'Connectea 只给你分享文件所需的功能 — 简洁，不冗余。插件让你按自己的节奏扩展功能，而不是被强迫接受我们的方式。',
+      subtitle: '任意文件大小，公开链接，可选端到端加密。无账号，无人为限制。',
       items: [
+        {
+          icon: '🔗',
+          title: '公开链接 — 一键搞定',
+          desc: '一键将任意文件设为公开，复制链接。对方直接在浏览器下载 — 无需 Connectea 账号，无需安装任何软件。',
+        },
+        {
+          icon: '📦',
+          title: '无文件大小限制',
+          desc: '上传任意大小的文件。Connectea 自动分成 10 MB 分块传输，无人为大小限制。',
+        },
         {
           icon: '🔒',
           title: '可选端到端加密',
-          desc: '设置密码后，文件在离开你的设备前就被分成 10 MB 的片段，用 AES-256-GCM 加密。下载时用 SHA-256 验证完整性。Connectea 无法解密。',
+          desc: '设置密码后，文件用 AES-256-GCM 加密，离开设备前完成。Connectea 无法解密。',
         },
         {
           icon: '⚡',
@@ -654,17 +704,7 @@ export const translations: Record<Lang, Translation> = {
         {
           icon: '🛡️',
           title: '房间访问控制',
-          desc: '作为房主，你可以将房间限制给特定用户，并为每人设置读写权限。撤销权限后几秒内立即生效。',
-        },
-        {
-          icon: '🔌',
-          title: '插件扩展功能',
-          desc: '为任何房间添加插件以获得额外功能 — Minecraft 插件可以几秒内启动服务器，并自动将存档文件同步到房间。一切都在 app 内管理。更多插件即将上线。',
-        },
-        {
-          icon: '⚙️',
-          title: '持久房间',
-          desc: '即使断线，房间也继续存在 — 文件和插件完好无损 — 每月只需少量费用。适合 Minecraft 服务器或长期协作项目。',
+          desc: '将房间限制给特定用户，为每人设置读写权限。撤销权限后几秒内立即生效。',
         },
       ],
     },
@@ -684,8 +724,8 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           number: '03',
-          title: '拖入文件 — 按需加密',
-          desc: '拖入文件或文件夹。如果内容敏感，设置加密密码 — 下载者需要相同密码才能解密。',
+          title: '拖入文件，分享或加密',
+          desc: '拖入任意大小的文件。一键设为公开，生成直接下载链接。内容敏感时设置加密密码 — Connectea 永远看不到你的密码。',
         },
       ],
     },
@@ -716,7 +756,7 @@ export const translations: Record<Lang, Translation> = {
     },
     pricing: {
       title: '临时房间完全免费。只有需要长期保留时才付费。',
-      subtitle: '大多数人无需付费。免费版已包含加密、访问白名单、插件以及每个房间完整的 50 GB 空间。',
+      subtitle: '大多数人无需付费。免费版包含加密、访问白名单、插件，每个房间 50 GB 基础空间，并支持按需扩容。',
       free: {
         title: '免费',
         price: '€0',
@@ -724,10 +764,11 @@ export const translations: Record<Lang, Translation> = {
         cta: '免费下载',
         features: [
           '临时房间（房主离开即关闭）',
-          '单文件最大 5 GB，每个房间最大 50 GB',
+          '无单文件大小限制 · 每个房间 50 GB 基础空间',
+          '公开链接 — 与任何人分享文件',
+          '扩容存储：+10 GB / €1（按需购买，每个房间）',
           'AES-256-GCM 端到端加密',
-          '房间访问控制',
-          '插件（测试版）',
+          '访问控制 · 插件（测试版）',
         ],
       },
       pro: {
@@ -740,6 +781,7 @@ export const translations: Record<Lang, Translation> = {
           '包含免费版全部功能',
           '断线后房间仍然保持开放',
           '所有权密码 — 随时回来重新认领房间',
+          '扩容存储：+10 GB / €1（同样适用）',
           '适合插件房间（Minecraft 服务器、协作项目等）',
           '随时可在 app 内取消订阅',
         ],
@@ -752,8 +794,23 @@ export const translations: Record<Lang, Translation> = {
       note: 'Windows 10 / 11 · 免费 · 无需账号 · 双击安装包即可完成',
       smartscreenNote: '打开安装包时 Windows 可能会显示安全提示。这对独立开发者发布的新应用来说完全正常——Connectea 安全可靠，请放心使用。点击「更多信息」→「仍然运行」即可继续安装。',
     },
+    shareHighlight: {
+      eyebrow: '大文件 · 公开链接',
+      title: '传输任意文件，即刻分享。',
+      subtitle: '无单文件大小限制。一键设为公开，分享链接 — 对方无需账号，直接在浏览器下载。',
+      card1: {
+        icon: '📦',
+        title: '无文件大小限制',
+        desc: '上传任意大小的文件 — 4K 视频、完整游戏存档、ISO 镜像。Connectea 自动分块，无需手动处理。',
+      },
+      card2: {
+        icon: '🔗',
+        title: '一键生成公开链接',
+        desc: '作为房主，将任意文件设为公开并复制链接。对方直接在浏览器下载 — 无需 Connectea 账号，无需安装任何软件。',
+      },
+    },
     footer: {
-      tagline: '与朋友即时分享文件，无需账号。内置 Minecraft 服务器插件。',
+      tagline: '传输任意大小文件，公开链接分享，无需账号。内置 Minecraft 服务器插件。',
       product: '产品',
       legal: '法律',
       links: {

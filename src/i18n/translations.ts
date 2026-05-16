@@ -119,8 +119,8 @@ export const translations: Record<Lang, Translation> = {
       cta_secondary: 'Servidor de Minecraft',
       stats: [
         { value: '1 Clic', label: 'Servidor Minecraft' },
-        { value: '50 GB+', label: 'Por sala' },
         { value: 'Sin límite', label: 'Por archivo' },
+        { value: 'Ampliable', label: 'Almacenamiento' },
       ],
     },
     features: {
@@ -207,7 +207,7 @@ export const translations: Record<Lang, Translation> = {
     },
     pricing: {
       title: 'Gratis para salas temporales. Solo pagas si necesitas que duren.',
-      subtitle: 'La mayoría no necesitará pagar. El plan gratuito incluye cifrado, lista de acceso, plugins, 50 GB por sala y almacenamiento ampliable.',
+      subtitle: 'La mayoría no necesitará pagar. El plan gratuito incluye cifrado, lista de acceso, plugins y almacenamiento ampliable.',
       free: {
         title: 'Gratis',
         price: '0 €',
@@ -215,7 +215,7 @@ export const translations: Record<Lang, Translation> = {
         cta: 'Descargar Gratis',
         features: [
           'Salas temporales (se cierran al irse el propietario)',
-          'Sin límite de tamaño por archivo · 50 GB base por sala',
+          'Sin límite de tamaño por archivo · sube lo que necesites',
           'Enlace público para compartir archivos con cualquiera',
           'Ampliar almacenamiento: +10 GB por €1 (pago único por sala)',
           'Cifrado de extremo a extremo AES-256-GCM',
@@ -393,8 +393,8 @@ export const translations: Record<Lang, Translation> = {
       cta_secondary: 'Minecraft Server',
       stats: [
         { value: '1 Click', label: 'Minecraft Server' },
-        { value: '50 GB+', label: 'Per room' },
         { value: 'No limit', label: 'Per file' },
+        { value: 'Scalable', label: 'Storage' },
       ],
     },
     features: {
@@ -481,7 +481,7 @@ export const translations: Record<Lang, Translation> = {
     },
     pricing: {
       title: 'Free for temporary rooms. Only pay if you need them to last.',
-      subtitle: 'Most people won\'t need to pay. The free plan includes encryption, allowlist, plugins, 50 GB per room, and expandable storage.',
+      subtitle: 'Most people won\'t need to pay. The free plan includes encryption, allowlist, plugins, and expandable storage.',
       free: {
         title: 'Free',
         price: '€0',
@@ -489,7 +489,7 @@ export const translations: Record<Lang, Translation> = {
         cta: 'Download Free',
         features: [
           'Temporary rooms (close when the owner leaves)',
-          'No per-file size limit · 50 GB base storage per room',
+          'No per-file size limit · upload as much as you need',
           'Public links — share files with anyone',
           'Expand storage: +10 GB for €1 (one-time, per room)',
           'AES-256-GCM end-to-end encryption',
@@ -668,8 +668,8 @@ export const translations: Record<Lang, Translation> = {
       cta_secondary: 'Minecraft 服务器',
       stats: [
         { value: '1 键', label: 'Minecraft 服务器' },
-        { value: '50 GB+', label: '每个房间' },
         { value: '无限制', label: '文件大小' },
+        { value: '可扩容', label: '存储空间' },
       ],
     },
     features: {
@@ -756,7 +756,7 @@ export const translations: Record<Lang, Translation> = {
     },
     pricing: {
       title: '临时房间完全免费。只有需要长期保留时才付费。',
-      subtitle: '大多数人无需付费。免费版包含加密、访问白名单、插件，每个房间 50 GB 基础空间，并支持按需扩容。',
+      subtitle: '大多数人无需付费。免费版包含加密、访问白名单、插件，并支持按需扩容。',
       free: {
         title: '免费',
         price: '€0',
@@ -764,7 +764,7 @@ export const translations: Record<Lang, Translation> = {
         cta: '免费下载',
         features: [
           '临时房间（房主离开即关闭）',
-          '无单文件大小限制 · 每个房间 50 GB 基础空间',
+          '无单文件大小限制 · 按需上传，不设上限',
           '公开链接 — 与任何人分享文件',
           '扩容存储：+10 GB / €1（按需购买，每个房间）',
           'AES-256-GCM 端到端加密',

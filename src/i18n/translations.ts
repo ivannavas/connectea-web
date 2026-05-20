@@ -142,8 +142,8 @@ export const translations: Record<Lang, Translation> = {
       headline: 'Envía archivos grandes. Comparte con un enlace público. Sin cuenta, sin límites.',
       subheadline: 'Crea una sala, suelta tus archivos y comparte el enlace — quien lo reciba descarga directo desde el navegador. Cifrado opcional de extremo a extremo. ¿Lo necesitas siempre online? Convierte la sala en permanente por 5 €/mes.',
       cta_primary: 'Descargar Gratis',
-      cta_secondary: 'Cómo funciona',
-      cta_minecraft: '¿Buscas levantar un servidor de Minecraft? Sigue siendo posible →',
+      cta_secondary: 'Servidor de Minecraft',
+      cta_minecraft: '',
       stats: [
         { value: '1 Clic', label: 'Enlace público' },
         { value: 'Sin límite', label: 'Por archivo' },
@@ -235,7 +235,7 @@ export const translations: Record<Lang, Translation> = {
       ],
     },
     plugins: {
-      badge: 'CASO DE USO · MINECRAFT',
+      badge: 'Plugin de Minecraft',
       title: 'Servidor de Minecraft en un clic',
       subtitle: 'Añade el plugin de Minecraft a una sala, pulsa Iniciar — el servidor arranca y los archivos del mundo se sincronizan automáticamente. Gestiona todo desde la app. Más plugins en camino.',
       cta: 'Inicia ya tu servidor de Minecraft',
@@ -512,8 +512,8 @@ export const translations: Record<Lang, Translation> = {
       headline: 'Send big files. Share them with a public link. No account, no limits.',
       subheadline: 'Create a room, drop your files and share the link — recipients download straight from their browser. Optional end-to-end encryption. Need it always online? Make the room permanent for €5/month.',
       cta_primary: 'Download Free',
-      cta_secondary: 'How it works',
-      cta_minecraft: 'Looking to run a Minecraft server? That\'s still possible →',
+      cta_secondary: 'Minecraft Server',
+      cta_minecraft: '',
       stats: [
         { value: '1 Click', label: 'Public link' },
         { value: 'No limit', label: 'Per file' },
@@ -605,7 +605,7 @@ export const translations: Record<Lang, Translation> = {
       ],
     },
     plugins: {
-      badge: 'USE CASE · MINECRAFT',
+      badge: 'Minecraft Plugin',
       title: 'One-Click Minecraft Server',
       subtitle: 'Add the Minecraft plugin to a room, hit Start — the server boots and world files sync automatically. Manage everything from the app. More plugins on the way.',
       cta: 'Start your Minecraft server now',
@@ -882,8 +882,8 @@ export const translations: Record<Lang, Translation> = {
       headline: '发送大文件，生成公开链接，无需账号，无大小限制',
       subheadline: '创建房间，拖入文件，分享链接 — 对方直接在浏览器下载。任何人无需账号，包括你自己，只需输入名字即可开始。可选端到端加密。需要始终在线？设为永久房间，每月仅需 €5。',
       cta_primary: '免费下载',
-      cta_secondary: '了解如何使用',
-      cta_minecraft: '想搭建 Minecraft 服务器？这里也可以 →',
+      cta_secondary: 'Minecraft 服务器',
+      cta_minecraft: '',
       stats: [
         { value: '1 键', label: '公开链接' },
         { value: '无限制', label: '文件大小' },
@@ -975,7 +975,7 @@ export const translations: Record<Lang, Translation> = {
       ],
     },
     plugins: {
-      badge: '应用场景 · MINECRAFT',
+      badge: 'Minecraft 插件',
       title: '一键启动 Minecraft 服务器',
       subtitle: '为房间添加 Minecraft 插件，点击启动 — 服务器自动运行，存档文件自动同步。一切在 app 内管理。更多插件即将推出。',
       cta: '立即启动你的 Minecraft 服务器',

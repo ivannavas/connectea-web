@@ -5,11 +5,20 @@ export interface Translation {
   nav: { features: string; security: string; plugins: string; pricing: string; download: string };
   hero: {
     badge: string;
+    badge2: string;
     headline: string;
     subheadline: string;
     cta_primary: string;
     cta_secondary: string;
+    cta_minecraft: string;
     stats: Array<{ value: string; label: string }>;
+  };
+  permanentRoom: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    bullets: string[];
+    cta: string;
   };
   features: {
     title: string;
@@ -37,6 +46,7 @@ export interface Translation {
   pricing: {
     title: string;
     subtitle: string;
+    cancelNote: string;
     free: { title: string; price: string; period: string; cta: string; features: string[] };
     pro: { title: string; badge: string; price: string; period: string; cta: string; features: string[] };
   };
@@ -47,12 +57,12 @@ export interface Translation {
     card1: { icon: string; title: string; desc: string };
     card2: { icon: string; title: string; desc: string };
   };
-  download: { title: string; subtitle: string; cta: string; note: string; smartscreenNote: string };
+  download: { title: string; subtitle: string; cta: string; note: string; smartscreenNote: string; trustNote: string };
   footer: {
     tagline: string;
     product: string;
     legal: string;
-    links: { features: string; security: string; pricing: string; download: string; privacy: string; terms: string; contact: string };
+    links: { features: string; security: string; pricing: string; download: string; privacy: string; terms: string; contact: string; privacyPolicy: string; about: string };
     copyright: string;
   };
   termsPage: {
@@ -95,14 +105,29 @@ export interface Translation {
     invalidLink: string;
     invalidLinkDesc: string;
   };
+  privacyPage: {
+    pageTitle: string;
+    metaDescription: string;
+    heading: string;
+    lastUpdated: string;
+    backHome: string;
+    sections: Array<{ title: string; paragraphs: string[]; items?: string[] }>;
+  };
+  aboutPage: {
+    pageTitle: string;
+    metaDescription: string;
+    heading: string;
+    backHome: string;
+    sections: Array<{ title: string; paragraphs: string[] }>;
+  };
 }
 
 export const translations: Record<Lang, Translation> = {
   es: {
     meta: {
-      title: 'Connectea · Enviar archivos grandes y servidor Minecraft gratis',
-      description: 'Transfiere archivos de cualquier tamaño y comparte con enlace público. Servidor Minecraft gratis en un clic. Sin cuenta, cifrado E2E, sin límite de tamaño. Windows 10/11.',
-      keywords: 'enviar archivos grandes gratis, transferencia archivos grandes, compartir archivos enlace público, compartir archivos sin cuenta, subir archivos grandes sin límite, servidor minecraft gratis, crear servidor minecraft fácil, servidor minecraft un clic, alternativa wetransfer, compartir archivos grandes online',
+      title: 'Connectea · Envía archivos grandes con enlace público — gratis, cifrado, sin cuenta',
+      description: 'Envía archivos grandes con enlace permanente. Cifrado de extremo a extremo opcional. Sin cuenta, sin límites. ¿Servidor de Minecraft? También es posible.',
+      keywords: 'enviar archivos grandes gratis, transferencia archivos grandes, compartir archivos enlace público, enlace permanente para compartir archivos, compartir archivos sin cuenta, subir archivos grandes sin límite, alternativa wetransfer, alternativa google drive, sala permanente archivos, servidor minecraft gratis',
     },
     nav: {
       features: 'Funciones',
@@ -113,15 +138,30 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: 'Disponible para Windows 10 / 11',
-      headline: 'Envía archivos grandes. Comparte con enlace. Levanta tu servidor Minecraft.',
-      subheadline: 'Sin límite de tamaño por archivo. Haz público cualquier archivo con un clic y comparte el enlace — sin cuenta para descargar. Crea una sala, suelta los archivos y listo. Cifrado E2E opcional. Servidor de Minecraft en un clic.',
+      badge2: 'Cifrado AES-256-GCM',
+      headline: 'Envía archivos grandes. Comparte con un enlace público. Sin cuenta, sin límites.',
+      subheadline: 'Crea una sala, suelta tus archivos y comparte el enlace — quien lo reciba descarga directo desde el navegador. Cifrado opcional de extremo a extremo. ¿Lo necesitas siempre online? Convierte la sala en permanente por 5 €/mes.',
       cta_primary: 'Descargar Gratis',
-      cta_secondary: 'Servidor de Minecraft',
+      cta_secondary: 'Cómo funciona',
+      cta_minecraft: '¿Buscas levantar un servidor de Minecraft? Sigue siendo posible →',
       stats: [
-        { value: '1 Clic', label: 'Servidor Minecraft' },
+        { value: '1 Clic', label: 'Enlace público' },
         { value: 'Sin límite', label: 'Por archivo' },
-        { value: 'Ampliable', label: 'Almacenamiento' },
+        { value: '5 €/mes', label: 'Sala permanente' },
       ],
+    },
+    permanentRoom: {
+      badge: 'SALA PERMANENTE',
+      title: 'Tu nube personal sin cuotas absurdas',
+      subtitle: 'Una sala permanente es tu espacio siempre disponible: el enlace no caduca, no hace falta cuenta para descargar y solo tú controlas quién entra.',
+      bullets: [
+        'Sin caducidad — el enlace funciona mientras la sala esté activa',
+        'Sin cuenta para quien descarga — abre el enlace, descarga directo',
+        'Contraseña de propietario — solo tú reclamas la sala al volver',
+        'Plugins opcionales: servidor de Minecraft, proyectos colaborativos y más',
+        'WeTransfer: enlaces caducan en 7 días · Drive requiere cuenta Google · Smash borra archivos automáticamente',
+      ],
+      cta: 'Ver precios',
     },
     features: {
       title: 'Todo lo que necesitas para compartir archivos, nada más',
@@ -191,10 +231,11 @@ export const translations: Record<Lang, Translation> = {
         'El hash SHA-256 del contenido en claro se verifica tras descargar',
         'Los cambios de permisos revocan el acceso en tiempo real',
         'Sin base de datos de usuarios — la identidad es solo un token de sesión ligado al nombre',
+        'Sin adware, sin bundles, sin minería ni telemetría publicitaria. El instalador solo contiene Connectea.',
       ],
     },
     plugins: {
-      badge: 'Nuestro plugin de servidor de Minecraft',
+      badge: 'CASO DE USO · MINECRAFT',
       title: 'Servidor de Minecraft en un clic',
       subtitle: 'Añade el plugin de Minecraft a una sala, pulsa Iniciar — el servidor arranca y los archivos del mundo se sincronizan automáticamente. Gestiona todo desde la app. Más plugins en camino.',
       cta: 'Inicia ya tu servidor de Minecraft',
@@ -208,6 +249,7 @@ export const translations: Record<Lang, Translation> = {
     pricing: {
       title: 'Gratis para salas temporales. Solo pagas si necesitas que duren.',
       subtitle: 'La mayoría no necesitará pagar. El plan gratuito incluye cifrado, lista de acceso, plugins y almacenamiento ampliable.',
+      cancelNote: 'Cancelable en cualquier momento desde la app. Sin tarjeta para el plan gratuito.',
       free: {
         title: 'Gratis',
         price: '0 €',
@@ -224,15 +266,16 @@ export const translations: Record<Lang, Translation> = {
       },
       pro: {
         title: 'Sala Permanente',
-        badge: 'Suscripción',
+        badge: 'Recomendado',
         price: '5 €',
         period: 'sala / mes',
-        cta: 'Hacer Permanente',
+        cta: 'Activar sala permanente',
         features: [
           'Todo lo del plan gratuito',
           'La sala sigue activa aunque te desconectes',
           'Contraseña de propiedad — puedes reclamar la sala cuando vuelvas',
           'Perfecto para salas con plugin (servidores de Minecraft, proyectos colaborativos, etc.)',
+          'Ideal como reemplazo permanente de WeTransfer / Drive para freelancers y equipos pequeños',
           'Cancelable desde la app cuando quieras',
         ],
       },
@@ -243,6 +286,7 @@ export const translations: Record<Lang, Translation> = {
       cta: 'Descargar para Windows',
       note: 'Windows 10 / 11 · Gratis · Sin cuenta · Doble clic en el instalador y listo',
       smartscreenNote: 'Windows puede mostrar un aviso de seguridad al abrir el instalador. Esto es completamente normal en aplicaciones nuevas de desarrolladores independientes — Connectea es seguro. Haz clic en «Más información» → «Ejecutar de todas formas» para continuar.',
+      trustNote: 'Software desarrollado por Connectea. Sin bundles, sin software adicional, sin tracking publicitario.',
     },
     shareHighlight: {
       eyebrow: 'Archivos grandes · Enlace público',
@@ -260,7 +304,7 @@ export const translations: Record<Lang, Translation> = {
       },
     },
     footer: {
-      tagline: 'Envía archivos de cualquier tamaño, comparte con enlace público. Sin cuenta. Plugin de servidor Minecraft incluido.',
+      tagline: 'Envía archivos grandes con enlace público permanente. Sin cuenta. Cifrado E2E opcional. Sala permanente desde 5 €/mes.',
       product: 'Producto',
       legal: 'Legal',
       links: {
@@ -271,6 +315,8 @@ export const translations: Record<Lang, Translation> = {
         privacy: 'Reportar un bug',
         terms: 'Términos y condiciones',
         contact: 'Escríbenos',
+        privacyPolicy: 'Política de privacidad',
+        about: 'Quién somos',
       },
       copyright: '© 2026 Connectea. Todos los derechos reservados.',
     },
@@ -370,13 +416,88 @@ export const translations: Record<Lang, Translation> = {
       invalidLink: 'Enlace no válido o caducado',
       invalidLinkDesc: 'Este enlace de recuperación no es válido o ha caducado. Vuelve a la app y solicita uno nuevo.',
     },
+    privacyPage: {
+      pageTitle: 'Política de privacidad | Connectea',
+      metaDescription: 'Información sobre qué datos recoge Connectea, cómo los utiliza y cómo ejercer tus derechos.',
+      heading: 'Política de privacidad',
+      lastUpdated: 'Última actualización: mayo de 2026',
+      backHome: 'Volver al inicio',
+      sections: [
+        {
+          title: '1. Información que recopilamos',
+          paragraphs: [
+            'Connectea recoge la mínima información posible para funcionar. A continuación se detalla qué datos pueden recogerse según el uso que hagas del servicio.',
+          ],
+          items: [
+            'Analítica de uso anónima: utilizamos Vercel Web Analytics para medir visitas a la web. No recoge información personal identificable.',
+            'TikTok Pixel y Google Ads: utilizamos estos píxeles para medir el rendimiento de nuestra publicidad. Recogen datos de navegación según sus respectivas políticas.',
+            'Email (opcional): si introduces tu dirección de correo en el formulario de notificación de descarga (solo visible en dispositivos móviles), la usamos únicamente para enviarte el enlace de descarga.',
+            'NO recopilamos: el contenido de tus archivos, tus contraseñas de cifrado ni ningún dato personal más allá de lo indicado.',
+          ],
+        },
+        {
+          title: '2. Uso de los datos',
+          paragraphs: [
+            'Los datos de analítica se usan para mejorar el producto y medir el rendimiento de los anuncios. Los emails de descarga se usan exclusivamente para enviarte el enlace y se eliminan una vez cumplida esa función.',
+          ],
+        },
+        {
+          title: '3. Retención de datos',
+          paragraphs: [
+            'Los tokens de sesión de Connectea expiran cuando se cierra la sala. Los emails de descarga se eliminan tras el envío del enlace. Los datos de analítica se retienen según las políticas de Vercel, TikTok y Google.',
+          ],
+        },
+        {
+          title: '4. Tus derechos',
+          paragraphs: [
+            'Puedes solicitar la eliminación de cualquier dato personal que hayamos podido recoger escribiéndonos a legal@connectea.net.',
+          ],
+        },
+        {
+          title: '5. Contacto',
+          paragraphs: [
+            'Para cualquier consulta sobre privacidad: legal@connectea.net.',
+          ],
+        },
+      ],
+    },
+    aboutPage: {
+      pageTitle: 'Quiénes somos | Connectea',
+      metaDescription: 'Conoce al equipo detrás de Connectea, la herramienta de transferencia de archivos grandes con enlace público y servidor Minecraft en un clic.',
+      heading: 'Quiénes somos',
+      backHome: 'Volver al inicio',
+      sections: [
+        {
+          title: 'El equipo detrás de Connectea',
+          paragraphs: [
+            'Connectea es un proyecto desarrollado de forma independiente por Iván Navas, desarrollador de software con sede en España.',
+            'El objetivo es simple: una herramienta de transferencia de archivos que funcione sin fricciones — sin cuentas obligatorias, sin límites de tamaño artificiales y con cifrado de extremo a extremo cuando se necesita.',
+          ],
+        },
+        {
+          title: 'Por qué existe Connectea',
+          paragraphs: [
+            'La mayoría de herramientas de transferencia de archivos te obligan a registrarte, caducan los enlaces o limitan el tamaño. Connectea nació para eliminar esas fricciones.',
+            'El plugin de Minecraft fue el primer caso de uso — una sala permanente con el servidor sincronizado. Pero el corazón del producto es el file sharing: rápido, cifrado y accesible desde cualquier navegador sin instalar nada.',
+          ],
+        },
+        {
+          title: 'Contacto',
+          paragraphs: [
+            'Consultas generales: contact@connectea.net',
+            'Asuntos legales o privacidad: legal@connectea.net',
+            'Reporte de bugs: bug-report@connectea.net',
+          ],
+        },
+      ],
+    },
   },
 
   en: {
     meta: {
-      title: 'Connectea — Send large files free & one-click Minecraft server',
-      description: 'Transfer files of any size and share with a public link — no account to download. Free one-click Minecraft server. No file size limit, end-to-end encrypted. Windows 10 / 11.',
-      keywords: 'send large files free, transfer large files no limit, share large files public link, file sharing no account, unlimited file transfer, public file sharing link, free minecraft server, one-click minecraft server, free minecraft hosting, wetransfer alternative large files',
+      title: 'Connectea · Send large files with a public link — free, encrypted, no account',
+      description: 'Send big files with a permanent link. End-to-end encryption optional. No account, no limits. Run a Minecraft server too if you want.',
+      keywords: 'send large files free, transfer large files no limit, share large files public link, permanent file sharing link, file sharing no account, unlimited file transfer, wetransfer alternative, google drive alternative, permanent file room, free minecraft server',
     },
     nav: {
       features: 'Features',
@@ -387,15 +508,30 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: 'Available for Windows 10 / 11',
-      headline: 'Send large files. Share with a link. Run your Minecraft server.',
-      subheadline: 'No per-file size limit. Make any file public with one click and share the link — anyone can download it, no account needed. Create a room, drop your files, done in seconds. Optional E2E encryption. One-click Minecraft server.',
+      badge2: 'AES-256-GCM Encrypted',
+      headline: 'Send big files. Share them with a public link. No account, no limits.',
+      subheadline: 'Create a room, drop your files and share the link — recipients download straight from their browser. Optional end-to-end encryption. Need it always online? Make the room permanent for €5/month.',
       cta_primary: 'Download Free',
-      cta_secondary: 'Minecraft Server',
+      cta_secondary: 'How it works',
+      cta_minecraft: 'Looking to run a Minecraft server? That\'s still possible →',
       stats: [
-        { value: '1 Click', label: 'Minecraft Server' },
+        { value: '1 Click', label: 'Public link' },
         { value: 'No limit', label: 'Per file' },
-        { value: 'Scalable', label: 'Storage' },
+        { value: '€5/mo', label: 'Permanent room' },
       ],
+    },
+    permanentRoom: {
+      badge: 'PERMANENT ROOM',
+      title: 'Your personal cloud, without the absurd fees',
+      subtitle: 'A permanent room is your always-on space: links never expire, recipients need no account, and only you control who gets in.',
+      bullets: [
+        'No expiry — link works as long as the room is active',
+        'No account for recipients — they open the link, download direct',
+        'Ownership password — only you can reclaim the room when you return',
+        'Optional plugins: Minecraft server, collaborative projects, and more',
+        'WeTransfer links expire in 7 days · Drive requires a Google account · Smash auto-deletes files',
+      ],
+      cta: 'See pricing',
     },
     features: {
       title: 'Everything you need to share files — nothing you don\'t',
@@ -465,10 +601,11 @@ export const translations: Record<Lang, Translation> = {
         'SHA-256 hash of plaintext content verified after download',
         'Permission changes revoke access in real time',
         'No account database — identity is just a session token tied to a name',
+        'No adware, no bundles, no mining, no ad telemetry. The installer contains only Connectea.',
       ],
     },
     plugins: {
-      badge: 'Our Minecraft server plugin',
+      badge: 'USE CASE · MINECRAFT',
       title: 'One-Click Minecraft Server',
       subtitle: 'Add the Minecraft plugin to a room, hit Start — the server boots and world files sync automatically. Manage everything from the app. More plugins on the way.',
       cta: 'Start your Minecraft server now',
@@ -482,6 +619,7 @@ export const translations: Record<Lang, Translation> = {
     pricing: {
       title: 'Free for temporary rooms. Only pay if you need them to last.',
       subtitle: 'Most people won\'t need to pay. The free plan includes encryption, allowlist, plugins, and expandable storage.',
+      cancelNote: 'Cancel anytime from the app. No credit card required for the free plan.',
       free: {
         title: 'Free',
         price: '€0',
@@ -498,16 +636,16 @@ export const translations: Record<Lang, Translation> = {
       },
       pro: {
         title: 'Permanent Room',
-        badge: 'Subscription',
+        badge: 'Recommended',
         price: '€5',
         period: 'room / month',
-        cta: 'Make it Permanent',
+        cta: 'Activate permanent room',
         features: [
           'Everything in the free plan',
           'Room stays alive when you disconnect',
           'Ownership password — reclaim ownership anytime',
           'Expandable storage: +10 GB for €1 per expansion',
-          'Great for plugin rooms (Minecraft servers, collaborative projects)',
+          'Ideal permanent replacement for WeTransfer / Drive for freelancers and small teams',
           'Cancel from the app whenever you want',
         ],
       },
@@ -518,6 +656,7 @@ export const translations: Record<Lang, Translation> = {
       cta: 'Download for Windows',
       note: 'Windows 10 / 11 · Free · No account · Double-click the installer and you\'re done',
       smartscreenNote: 'Windows may show a security warning when opening the installer. This is completely normal for new apps from independent developers — Connectea is safe. Click «More info» → «Run anyway» to continue.',
+      trustNote: 'Software developed by Connectea. No bundles, no extra software, no ad tracking.',
     },
     shareHighlight: {
       eyebrow: 'Large files · Public links',
@@ -535,7 +674,7 @@ export const translations: Record<Lang, Translation> = {
       },
     },
     footer: {
-      tagline: 'Send files of any size, share with a public link, no account needed. Minecraft server plugin included.',
+      tagline: 'Send large files with a permanent public link. No account. Optional E2E encryption. Permanent room from €5/month.',
       product: 'Product',
       legal: 'Legal',
       links: {
@@ -546,6 +685,8 @@ export const translations: Record<Lang, Translation> = {
         privacy: 'Report a bug',
         terms: 'Terms & Conditions',
         contact: 'Write to us',
+        privacyPolicy: 'Privacy Policy',
+        about: 'About Connectea',
       },
       copyright: '© 2026 Connectea. All rights reserved.',
     },
@@ -645,13 +786,88 @@ export const translations: Record<Lang, Translation> = {
       invalidLink: 'Invalid or expired link',
       invalidLinkDesc: 'This recovery link is invalid or has expired. Go back to the app and request a new one.',
     },
+    privacyPage: {
+      pageTitle: 'Privacy Policy | Connectea',
+      metaDescription: 'Information about what data Connectea collects, how it is used, and how to exercise your rights.',
+      heading: 'Privacy Policy',
+      lastUpdated: 'Last updated: May 2026',
+      backHome: 'Back to home',
+      sections: [
+        {
+          title: '1. Information We Collect',
+          paragraphs: [
+            'Connectea collects the minimum information necessary to operate. Below is a breakdown of what may be collected depending on how you use the service.',
+          ],
+          items: [
+            'Anonymous usage analytics: we use Vercel Web Analytics to measure site visits. No personally identifiable information is collected.',
+            'TikTok Pixel and Google Ads: we use these pixels to measure the performance of our advertising. They collect browsing data according to their respective policies.',
+            'Email (optional): if you enter your email address in the download notification form (shown only to mobile visitors), we use it solely to send you the download link.',
+            'We do NOT collect: your file contents, encryption passwords, or any personal data beyond what is listed above.',
+          ],
+        },
+        {
+          title: '2. How We Use Your Data',
+          paragraphs: [
+            'Analytics data is used to improve the product and measure ad performance. Download emails are used exclusively to send you the link and are deleted once that is done.',
+          ],
+        },
+        {
+          title: '3. Data Retention',
+          paragraphs: [
+            'Connectea session tokens expire when a room closes. Download emails are deleted after the link is sent. Analytics data is retained according to the policies of Vercel, TikTok, and Google.',
+          ],
+        },
+        {
+          title: '4. Your Rights',
+          paragraphs: [
+            'You may request deletion of any personal data we may hold by writing to legal@connectea.net.',
+          ],
+        },
+        {
+          title: '5. Contact',
+          paragraphs: [
+            'For any privacy-related questions: legal@connectea.net.',
+          ],
+        },
+      ],
+    },
+    aboutPage: {
+      pageTitle: 'About Connectea',
+      metaDescription: 'Learn about the team behind Connectea — the large-file sharing tool with public links, optional E2E encryption, and one-click Minecraft servers.',
+      heading: 'About Connectea',
+      backHome: 'Back to home',
+      sections: [
+        {
+          title: 'The team behind Connectea',
+          paragraphs: [
+            'Connectea is an independent project developed by Iván Navas, a software developer based in Spain.',
+            'The goal is simple: a file-sharing tool that works without friction — no mandatory accounts, no artificial size limits, and end-to-end encryption when you need it.',
+          ],
+        },
+        {
+          title: 'Why Connectea exists',
+          paragraphs: [
+            'Most file-sharing tools require sign-up, expire links, or cap file sizes. Connectea was built to eliminate that friction.',
+            'The Minecraft plugin was the first use case — a permanent room with a synced server. But the heart of the product is file sharing: fast, encrypted, and accessible from any browser without installing anything.',
+          ],
+        },
+        {
+          title: 'Contact',
+          paragraphs: [
+            'General inquiries: contact@connectea.net',
+            'Legal or privacy matters: legal@connectea.net',
+            'Bug reports: bug-report@connectea.net',
+          ],
+        },
+      ],
+    },
   },
 
   zh: {
     meta: {
-      title: 'Connectea · 传输大文件·公开链接分享·免费 Minecraft 服务器',
-      description: '无文件大小限制，一键生成公开分享链接，无需账号即可下载。免费一键搭建 Minecraft 服务器。端到端加密。支持 Windows 10/11。',
-      keywords: '大文件传输免费, 传输大文件无限制, 公开链接分享文件, 文件分享链接, 大文件分享, 免费 Minecraft 服务器, 一键搭建 Minecraft 服务器, 我的世界服务器搭建, 免费文件传输, 大文件传输工具',
+      title: 'Connectea · 大文件传输·公开链接分享·免费，加密，无需账号',
+      description: '生成永久公开链接，发送大文件。可选端到端加密。无需账号，无大小限制。也可搭建 Minecraft 服务器。',
+      keywords: '大文件传输免费, 传输大文件无限制, 公开链接分享文件, 永久文件分享链接, 文件分享无需账号, WeTransfer 替代, Google Drive 替代, 永久文件房间, 免费 Minecraft 服务器, 一键搭建 Minecraft 服务器',
     },
     nav: {
       features: '功能',
@@ -662,15 +878,30 @@ export const translations: Record<Lang, Translation> = {
     },
     hero: {
       badge: '支持 Windows 10 / 11',
-      headline: '传输大文件，公开链接分享，一键 Minecraft 服务器',
-      subheadline: '无文件大小限制。一键将任意文件设为公开，分享链接 — 对方无需账号即可直接下载。创建房间，拖入文件，几秒搞定。可选端到端加密。一键启动 Minecraft 服务器。',
+      badge2: 'AES-256-GCM 加密',
+      headline: '发送大文件，生成公开链接，无需账号，无大小限制',
+      subheadline: '创建房间，拖入文件，分享链接 — 对方直接在浏览器下载，无需账号。可选端到端加密。需要始终在线？设为永久房间，每月仅需 €5。',
       cta_primary: '免费下载',
-      cta_secondary: 'Minecraft 服务器',
+      cta_secondary: '了解如何使用',
+      cta_minecraft: '想搭建 Minecraft 服务器？这里也可以 →',
       stats: [
-        { value: '1 键', label: 'Minecraft 服务器' },
+        { value: '1 键', label: '公开链接' },
         { value: '无限制', label: '文件大小' },
-        { value: '可扩容', label: '存储空间' },
+        { value: '€5/月', label: '永久房间' },
       ],
+    },
+    permanentRoom: {
+      badge: '永久房间',
+      title: '你的个人云端空间，告别荒谬收费',
+      subtitle: '永久房间让你的空间始终在线：链接永不过期，下载方无需账号，只有你掌控访问权限。',
+      bullets: [
+        '永不过期 — 房间活跃期间链接始终有效',
+        '下载方无需账号 — 打开链接，直接下载',
+        '所有权密码 — 只有你能在回来后重新认领房间',
+        '可选插件：Minecraft 服务器、协作项目等',
+        'WeTransfer 链接 7 天后过期 · Drive 需要 Google 账号 · Smash 自动删除文件',
+      ],
+      cta: '查看定价',
     },
     features: {
       title: '文件分享所需的一切，没有多余',
@@ -740,10 +971,11 @@ export const translations: Record<Lang, Translation> = {
         '下载后在本地验证明文内容的 SHA-256 哈希',
         '权限变更实时撤销访问',
         '无账号数据库 — 身份只是一个与名字绑定的会话令牌',
+        '无广告软件，无捆绑包，无挖矿，无广告遥测。安装包只含 Connectea。',
       ],
     },
     plugins: {
-      badge: '我们的 Minecraft 服务器插件',
+      badge: '应用场景 · MINECRAFT',
       title: '一键启动 Minecraft 服务器',
       subtitle: '为房间添加 Minecraft 插件，点击启动 — 服务器自动运行，存档文件自动同步。一切在 app 内管理。更多插件即将推出。',
       cta: '立即启动你的 Minecraft 服务器',
@@ -757,6 +989,7 @@ export const translations: Record<Lang, Translation> = {
     pricing: {
       title: '临时房间完全免费。只有需要长期保留时才付费。',
       subtitle: '大多数人无需付费。免费版包含加密、访问白名单、插件，并支持按需扩容。',
+      cancelNote: '可随时在应用内取消。免费版无需银行卡。',
       free: {
         title: '免费',
         price: '€0',
@@ -773,16 +1006,16 @@ export const translations: Record<Lang, Translation> = {
       },
       pro: {
         title: '永久房间',
-        badge: '订阅',
+        badge: '推荐',
         price: '€5',
         period: '房间 / 月',
-        cta: '设为永久',
+        cta: '激活永久房间',
         features: [
           '包含免费版全部功能',
           '断线后房间仍然保持开放',
           '所有权密码 — 随时回来重新认领房间',
           '扩容存储：+10 GB / €1（同样适用）',
-          '适合插件房间（Minecraft 服务器、协作项目等）',
+          '适合自由职业者和小团队替代 WeTransfer / Drive 的永久方案',
           '随时可在 app 内取消订阅',
         ],
       },
@@ -793,6 +1026,7 @@ export const translations: Record<Lang, Translation> = {
       cta: '下载 Windows 版',
       note: 'Windows 10 / 11 · 免费 · 无需账号 · 双击安装包即可完成',
       smartscreenNote: '打开安装包时 Windows 可能会显示安全提示。这对独立开发者发布的新应用来说完全正常——Connectea 安全可靠，请放心使用。点击「更多信息」→「仍然运行」即可继续安装。',
+      trustNote: 'Connectea 自主开发。无捆绑软件，无附加程序，无广告追踪。',
     },
     shareHighlight: {
       eyebrow: '大文件 · 公开链接',
@@ -810,7 +1044,7 @@ export const translations: Record<Lang, Translation> = {
       },
     },
     footer: {
-      tagline: '传输任意大小文件，公开链接分享，无需账号。内置 Minecraft 服务器插件。',
+      tagline: '大文件公开链接传输，永不过期，无需账号，可选加密。永久房间 €5/月起。',
       product: '产品',
       legal: '法律',
       links: {
@@ -821,6 +1055,8 @@ export const translations: Record<Lang, Translation> = {
         privacy: '报告问题',
         terms: '服务条款',
         contact: '联系我们',
+        privacyPolicy: '隐私政策',
+        about: '关于我们',
       },
       copyright: '© 2026 Connectea. 保留所有权利。',
     },
@@ -919,6 +1155,81 @@ export const translations: Record<Lang, Translation> = {
       backHome: '返回首页',
       invalidLink: '链接无效或已过期',
       invalidLinkDesc: '此找回链接无效或已过期，请返回应用并重新申请。',
+    },
+    privacyPage: {
+      pageTitle: '隐私政策 | Connectea',
+      metaDescription: '了解 Connectea 收集哪些数据、如何使用以及如何行使你的权利。',
+      heading: '隐私政策',
+      lastUpdated: '最后更新：2026 年 5 月',
+      backHome: '返回首页',
+      sections: [
+        {
+          title: '1. 我们收集的信息',
+          paragraphs: [
+            'Connectea 只收集运营所需的最少信息。以下是根据你的使用方式可能收集的数据详情。',
+          ],
+          items: [
+            '匿名使用分析：我们使用 Vercel Web Analytics 统计网站访问量，不收集个人身份信息。',
+            'TikTok Pixel 和 Google Ads：我们使用这些像素衡量广告效果，按各自隐私政策收集浏览数据。',
+            '邮箱（可选）：如果你在下载通知表单中填写邮箱（仅在移动端显示），我们只用于发送下载链接。',
+            '我们不收集：你的文件内容、加密密码，以及上述以外的任何个人数据。',
+          ],
+        },
+        {
+          title: '2. 数据使用方式',
+          paragraphs: [
+            '分析数据用于改进产品和衡量广告效果。下载邮箱仅用于发送链接，发送后即删除。',
+          ],
+        },
+        {
+          title: '3. 数据保留',
+          paragraphs: [
+            'Connectea 会话令牌在房间关闭时过期。下载邮箱在链接发送后删除。分析数据按 Vercel、TikTok 和 Google 各自的政策保留。',
+          ],
+        },
+        {
+          title: '4. 你的权利',
+          paragraphs: [
+            '如需删除我们可能持有的个人数据，请发邮件至 legal@connectea.net。',
+          ],
+        },
+        {
+          title: '5. 联系方式',
+          paragraphs: [
+            '隐私相关问题：legal@connectea.net。',
+          ],
+        },
+      ],
+    },
+    aboutPage: {
+      pageTitle: '关于我们 | Connectea',
+      metaDescription: '了解 Connectea 背后的团队——这款支持公开链接、可选端到端加密和一键 Minecraft 服务器的大文件传输工具。',
+      heading: '关于我们',
+      backHome: '返回首页',
+      sections: [
+        {
+          title: 'Connectea 背后的团队',
+          paragraphs: [
+            'Connectea 是由西班牙独立开发者 Iván Navas 开发的项目。',
+            '目标很简单：打造一款无摩擦的文件传输工具 — 无需强制注册，无人为大小限制，需要时支持端到端加密。',
+          ],
+        },
+        {
+          title: 'Connectea 存在的原因',
+          paragraphs: [
+            '大多数文件传输工具要求注册、链接会过期或限制文件大小。Connectea 就是为消除这些摩擦而生。',
+            'Minecraft 插件是第一个应用场景——一个带同步服务器的永久房间。但产品的核心是文件分享：快速、加密，无需安装任何东西，直接在浏览器访问。',
+          ],
+        },
+        {
+          title: '联系方式',
+          paragraphs: [
+            '一般咨询：contact@connectea.net',
+            '法律或隐私事务：legal@connectea.net',
+            '问题报告：bug-report@connectea.net',
+          ],
+        },
+      ],
     },
   },
 };

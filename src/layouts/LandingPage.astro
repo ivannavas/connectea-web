@@ -43,7 +43,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta property="og:description" content={t.meta.description} />
   <meta property="og:image" content="https://connectea.net/icon.png" />
   <meta property="og:image:secure_url" content="https://connectea.net/icon.png" />
-  <meta property="og:image:alt" content={lang === 'zh' ? 'Connectea — 传输任意大小文件，公开链接分享，一键 Minecraft 服务器。无需账号。' : lang === 'es' ? 'Connectea — Envía archivos grandes, comparte con enlace público. Servidor Minecraft en un clic. Sin cuenta.' : 'Connectea — Send large files, share with a public link. One-click Minecraft server. No account needed.'} />
+  <meta property="og:image:alt" content={lang === 'zh' ? 'Connectea — 大文件公开链接传输，永不过期，可选加密，无需账号。' : lang === 'es' ? 'Connectea — Envía archivos grandes con enlace público permanente. Cifrado E2E opcional. Sin cuenta.' : 'Connectea — Send large files with a permanent public link. Optional E2E encryption. No account needed.'} />
   <meta property="og:image:width" content="1080" />
   <meta property="og:image:height" content="1080" />
   <meta property="og:image:type" content="image/png" />
@@ -58,7 +58,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <meta name="twitter:title" content={t.meta.title} />
   <meta name="twitter:description" content={t.meta.description} />
   <meta name="twitter:image" content="https://connectea.net/icon.png" />
-  <meta name="twitter:image:alt" content={lang === 'zh' ? 'Connectea — 传输任意大小文件，公开链接分享，一键 Minecraft 服务器。无需账号。' : lang === 'es' ? 'Connectea — Envía archivos grandes, comparte con enlace público. Servidor Minecraft en un clic. Sin cuenta.' : 'Connectea — Send large files, share with a public link. One-click Minecraft server. No account needed.'} />
+  <meta name="twitter:image:alt" content={lang === 'zh' ? 'Connectea — 大文件公开链接传输，永不过期，可选加密，无需账号。' : lang === 'es' ? 'Connectea — Envía archivos grandes con enlace público permanente. Cifrado E2E opcional. Sin cuenta.' : 'Connectea — Send large files with a permanent public link. Optional E2E encryption. No account needed.'} />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -280,23 +280,32 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   <section id="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-content" data-reveal>
-        <div class="badge badge-primary"><span class="badge-dot" aria-hidden="true"></span>{t.hero.badge}</div>
+        <div class="hero-badges">
+          <div class="badge badge-primary"><span class="badge-dot" aria-hidden="true"></span>{t.hero.badge}</div>
+          <div class="badge badge-green">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            {t.hero.badge2}
+          </div>
+        </div>
         <h1 id="hero-title" class="hero-title">
           {lang === 'zh'
-            ? <><span>{t.hero.headline.slice(0, -4)}</span><span class="gradient-text">{t.hero.headline.slice(-4)}</span></>
-            : <><span>{t.hero.headline.split(' ').slice(0, -2).join(' ')}</span>{' '}<span class="gradient-text">{t.hero.headline.split(' ').slice(-2).join(' ')}</span></>
+            ? <><span>{t.hero.headline.slice(0, -5)}</span><span class="gradient-text">{t.hero.headline.slice(-5)}</span></>
+            : <><span>{t.hero.headline.split('.').slice(0, 2).join('.')+'.'}</span>{' '}<span class="gradient-text">{t.hero.headline.split('.').slice(2).join('.').trim()}</span></>
           }
         </h1>
         <p class="hero-subtitle">{t.hero.subheadline}</p>
         <div class="hero-actions">
-          <a href="#download" class="btn btn-primary btn-lg">
+          <a href="#download" class="btn btn-primary btn-lg" onclick="gtag('event','download_intent')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             {t.hero.cta_primary}
           </a>
-          <a href="#plugins" class="btn btn-outline btn-lg">
+          <a href="#how" class="btn btn-outline btn-lg">
             {t.hero.cta_secondary}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
+        </div>
+        <div class="hero-minecraft-link">
+          <a href="#plugins">{t.hero.cta_minecraft}</a>
         </div>
         <div class="hero-stats" role="list">
           {t.hero.stats.map(stat => (
@@ -397,6 +406,31 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     </div>
   </section>
 
+  <!-- ============ PERMANENT ROOM ============ -->
+  <section id="permanent-room" aria-labelledby="permanent-room-title">
+    <div class="container">
+      <div class="proom-inner" data-reveal>
+        <div class="proom-content">
+          <div class="badge badge-amber" style="margin-bottom:1.2rem">{t.permanentRoom.badge}</div>
+          <h2 id="permanent-room-title" class="section-title">{t.permanentRoom.title}</h2>
+          <p class="section-subtitle">{t.permanentRoom.subtitle}</p>
+          <ul class="proom-bullets" role="list">
+            {t.permanentRoom.bullets.map((b, i) => (
+              <li role="listitem" class={i === t.permanentRoom.bullets.length - 1 ? 'proom-compare' : ''}>
+                {i < t.permanentRoom.bullets.length - 1
+                  ? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                }
+                {b}
+              </li>
+            ))}
+          </ul>
+          <a href="#pricing" class="btn btn-primary" style="margin-top:32px">{t.permanentRoom.cta}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SHARE HIGHLIGHT ============ -->
   <section id="share" aria-labelledby="share-title">
     <div class="container">
@@ -435,50 +469,6 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
             <p class="feature-desc">{item.desc}</p>
           </article>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PLUGINS ============ -->
-  <section id="plugins" aria-labelledby="plugins-title">
-    <div class="container">
-      <div class="plugins-grid">
-        <div class="plugins-content" data-reveal>
-          <div class="badge badge-amber">{t.plugins.badge}</div>
-          <h2 id="plugins-title" class="section-title">{t.plugins.title}</h2>
-          <p class="section-subtitle">{t.plugins.subtitle}</p>
-          <ul class="plugins-features" role="list">
-            {t.plugins.features.map(feat => (
-              <li role="listitem">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-                {feat}
-              </li>
-            ))}
-          </ul>
-          <a href="#download" class="btn btn-primary" style="margin-top: 32px;">{t.plugins.cta}</a>
-        </div>
-        <div class="plugin-terminal" data-reveal aria-hidden="true">
-          <div class="terminal-header">
-            <div class="titlebar-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <span class="terminal-title">Minecraft Server</span>
-            <div style="width:52px"></div>
-          </div>
-          <div class="terminal-body">
-            <div><span class="t-muted">$</span> <span class="t-blue">connectea</span> plugin start minecraft-server</div>
-            <div><span class="t-green">✓</span> World files loaded from room</div>
-            <div><span class="t-amber">→</span> Starting server on :25565...</div>
-            <div class="t-muted">&nbsp;&nbsp;[████████████████] 100%</div>
-            <div><span class="t-green">✓</span> Server online · 0/20 players</div>
-            <div><span class="t-amber">→</span> Player <span class="t-blue">Alex</span> joined the game</div>
-            <div><span class="t-amber">→</span> Player <span class="t-blue">Steve</span> joined the game</div>
-            <div><span class="t-green">✓</span> 2/20 players online</div>
-            <div><span class="t-muted">$</span> <span class="cursor"></span></div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -539,6 +529,50 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     </div>
   </section>
 
+  <!-- ============ PLUGINS ============ -->
+  <section id="plugins" aria-labelledby="plugins-title">
+    <div class="container">
+      <div class="plugins-grid">
+        <div class="plugins-content" data-reveal>
+          <div class="badge badge-amber">{t.plugins.badge}</div>
+          <h2 id="plugins-title" class="section-title">{t.plugins.title}</h2>
+          <p class="section-subtitle">{t.plugins.subtitle}</p>
+          <ul class="plugins-features" role="list">
+            {t.plugins.features.map(feat => (
+              <li role="listitem">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                {feat}
+              </li>
+            ))}
+          </ul>
+          <a href="#download" class="btn btn-primary" style="margin-top: 32px;">{t.plugins.cta}</a>
+        </div>
+        <div class="plugin-terminal" data-reveal aria-hidden="true">
+          <div class="terminal-header">
+            <div class="titlebar-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">Minecraft Server</span>
+            <div style="width:52px"></div>
+          </div>
+          <div class="terminal-body">
+            <div><span class="t-muted">$</span> <span class="t-blue">connectea</span> plugin start minecraft-server</div>
+            <div><span class="t-green">✓</span> World files loaded from room</div>
+            <div><span class="t-amber">→</span> Starting server on :25565...</div>
+            <div class="t-muted">&nbsp;&nbsp;[████████████████] 100%</div>
+            <div><span class="t-green">✓</span> Server online · 0/20 players</div>
+            <div><span class="t-amber">→</span> Player <span class="t-blue">Alex</span> joined the game</div>
+            <div><span class="t-amber">→</span> Player <span class="t-blue">Steve</span> joined the game</div>
+            <div><span class="t-green">✓</span> 2/20 players online</div>
+            <div><span class="t-muted">$</span> <span class="cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ PRICING ============ -->
   <section id="pricing" aria-labelledby="pricing-title">
     <div class="container">
@@ -560,7 +594,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
               </li>
             ))}
           </ul>
-          <a href="#download" class="btn btn-outline btn-full pricing-cta">{t.download.cta}</a>
+          <a href="#download" class="btn btn-outline btn-full pricing-cta">{t.pricing.free.cta}</a>
         </article>
 
         <article class="pricing-card pricing-card-featured" data-reveal style="--delay: 0.1s">
@@ -579,9 +613,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
               </li>
             ))}
           </ul>
-          <a href="#download" class="btn btn-primary btn-full pricing-cta">{t.download.cta}</a>
+          <a href="#download" class="btn btn-primary btn-full pricing-cta" onclick="gtag('event','subscription_started',{'value':5,'currency':'EUR'})">{t.pricing.pro.cta}</a>
         </article>
       </div>
+      <p class="pricing-cancel-note">{t.pricing.cancelNote}</p>
     </div>
   </section>
 
@@ -599,6 +634,10 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <span>{t.download.smartscreenNote}</span>
       </div>
+      <p class="download-trust-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        {t.download.trustNote}
+      </p>
     </div>
   </section>
 
@@ -735,9 +774,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
         <div class="footer-links-col">
           <h4 class="footer-links-title">{t.footer.legal}</h4>
           <ul class="footer-links" role="list">
-            <li><a href="mailto:bug-report@connectea.net?subject=Bug%20Report%20-%20Connectea">{t.footer.links.privacy}</a></li>
+            <li><a href={`/${lang}/privacy/`}>{t.footer.links.privacyPolicy}</a></li>
             <li><a href={`/${lang}/terms/`}>{t.footer.links.terms}</a></li>
+            <li><a href={`/${lang}/about/`}>{t.footer.links.about}</a></li>
             <li><a href="mailto:contact@connectea.net">{t.footer.links.contact}</a></li>
+            <li><a href="mailto:bug-report@connectea.net?subject=Bug%20Report%20-%20Connectea">{t.footer.links.privacy}</a></li>
           </ul>
         </div>
       </div>
@@ -927,7 +968,11 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .hero-content { position: relative; }
   .hero-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; font-family: var(--font-display); }
   .hero-subtitle { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 52px; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+  .hero-minecraft-link { margin-bottom: 36px; }
+  .hero-minecraft-link a { font-size: 0.875rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .hero-minecraft-link a:hover { color: var(--text-secondary); }
   .hero-stats { display: flex; gap: 36px; }
   .stat { position: relative; }
   .stat:not(:last-child)::after { content: ''; position: absolute; right: -18px; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: rgba(255,255,255,0.12); }
@@ -1027,6 +1072,17 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   .tool-btn-ghost { background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.06); }
   .tool-btn-ghost:hover { background: rgba(255,255,255,0.07); }
   .tool-btn-active { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+
+  /* ===== PERMANENT ROOM ===== */
+  #permanent-room { padding: 80px 0; position: relative; z-index: 1; }
+  .proom-inner { max-width: 720px; margin: 0 auto; }
+  .proom-content { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; }
+  .proom-bullets { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-direction: column; gap: 14px; }
+  .proom-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: var(--text-secondary); }
+  .proom-bullets li svg { flex-shrink: 0; margin-top: 3px; color: var(--green); }
+  .proom-compare { border-top: 1px solid var(--border-subtle); padding-top: 14px; margin-top: 4px; font-size: 0.85rem !important; color: var(--text-muted) !important; }
+  .proom-compare svg { color: var(--text-muted) !important; }
+  @media (max-width: 640px) { .proom-content { padding: 28px 20px; } }
 
   /* ===== SHARE HIGHLIGHT ===== */
   #share { padding: 80px 0; position: relative; z-index: 1; }
@@ -1298,6 +1354,8 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     line-height: 1.5;
   }
   .smartscreen-note svg { flex-shrink: 0; margin-top: 1px; color: #818cf8; }
+  .download-trust-note { display: flex; align-items: center; gap: 6px; justify-content: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 14px; }
+  .download-trust-note svg { flex-shrink: 0; color: var(--green); }
 
   /* ===== FOOTER ===== */
   footer { padding: 64px 0 32px; border-top: 1px solid var(--border-subtle); position: relative; z-index: 1; }
@@ -1478,6 +1536,7 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
 
   /* ===== PRICING CTA ===== */
   .pricing-cta { margin-top: 24px; }
+  .pricing-cancel-note { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin-top: 20px; }
 
   /* ===== FLOATING HERO BADGES ===== */
   .float-badge {

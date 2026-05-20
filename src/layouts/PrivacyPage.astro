@@ -1,0 +1,210 @@
+---
+import type { Translation, Lang } from '../i18n/translations';
+
+interface Props {
+  t: Translation;
+  lang: Lang;
+}
+
+const { t, lang } = Astro.props;
+const pp = t.privacyPage;
+const langLabels: Record<Lang, string> = { en: 'EN', es: 'ES', zh: '中文' };
+---
+
+<!DOCTYPE html>
+<html lang={lang} dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pp.pageTitle}</title>
+  <meta name="description" content={pp.metaDescription} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`https://connectea.net/${lang}/privacy/`} />
+  <link rel="alternate" hreflang="en" href="https://connectea.net/en/privacy/" />
+  <link rel="alternate" hreflang="es" href="https://connectea.net/es/privacy/" />
+  <link rel="alternate" hreflang="zh" href="https://connectea.net/zh/privacy/" />
+  <link rel="alternate" hreflang="x-default" href="https://connectea.net/en/privacy/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18149030492" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18149030492');
+  </script>
+  <!-- Google Ads End -->
+</head>
+<body>
+
+  <div class="bg-deco" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href={`/${lang}/`} class="logo" aria-label="Connectea home">
+        <div class="logo-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+            <circle cx="10" cy="16" r="4" fill="white"/>
+            <circle cx="24" cy="9" r="3" fill="white" opacity="0.85"/>
+            <circle cx="24" cy="23" r="3" fill="white" opacity="0.85"/>
+            <line x1="10" y1="16" x2="24" y2="9" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <line x1="10" y1="16" x2="24" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+        </div>
+        <span>Connectea</span>
+      </a>
+      <div style="flex:1"></div>
+      <div class="lang-switcher" role="group" aria-label="Language selector">
+        {(['en', 'es', 'zh'] as Lang[]).map(l => (
+          <a href={`/${l}/privacy/`} class={`lang-btn${l === lang ? ' active' : ''}`} lang={l}>{langLabels[l]}</a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="container">
+        <a href={`/${lang}/`} class="back-link">← {pp.backHome}</a>
+        <h1 class="page-title">{pp.heading}</h1>
+        <p class="page-date">{pp.lastUpdated}</p>
+      </div>
+    </header>
+
+    <div class="terms-body">
+      <div class="container">
+        <div class="terms-inner">
+          {pp.sections.map((section) => (
+            <section class="terms-section">
+              <h2>{section.title}</h2>
+              {section.paragraphs.map(p => <p>{p}</p>)}
+              {section.items && (
+                <ul>
+                  {section.items.map(item => <li>{item}</li>)}
+                </ul>
+              )}
+            </section>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-row">
+        <p class="footer-copy">{t.footer.copyright}</p>
+        <div class="lang-switcher" role="group" aria-label="Language selector">
+          {(['en', 'es', 'zh'] as Lang[]).map(l => (
+            <a href={`/${l}/privacy/`} class={`lang-btn${l === lang ? ' active' : ''}`} lang={l}>{langLabels[l]}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #09090f;
+    --bg-card: rgba(255, 255, 255, 0.035);
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --gradient-text: linear-gradient(135deg, #a5b4fc 0%, #c084fc 100%);
+    --text: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
+    --radius-sm: 8px;
+    --radius: 12px;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    --container: 760px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+  .bg-deco { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.08; }
+  .blob-1 { width: 600px; height: 600px; background: #6366f1; top: -200px; left: -150px; }
+  .blob-2 { width: 500px; height: 500px; background: #8b5cf6; bottom: 0; right: -200px; }
+
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    padding: 14px 0;
+    backdrop-filter: blur(24px) saturate(1.5);
+    background: rgba(9, 9, 15, 0.85);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .nav-inner { display: flex; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
+  .logo-icon { width: 34px; height: 34px; background: var(--gradient); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .lang-switcher { display: flex; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); overflow: hidden; }
+  .lang-btn { padding: 6px 11px; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); transition: all 0.2s; }
+  .lang-btn:hover { color: var(--text); }
+  .lang-btn.active { background: var(--primary); color: white; }
+
+  .page-header { padding: 116px 0 48px; position: relative; z-index: 1; border-bottom: 1px solid var(--border-subtle); margin-bottom: 64px; }
+  .back-link { display: inline-flex; align-items: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 28px; transition: color 0.2s; }
+  .back-link:hover { color: var(--primary-light); }
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .page-date { color: var(--text-muted); font-size: 0.9rem; }
+
+  .terms-body { position: relative; z-index: 1; padding-bottom: 96px; }
+  .terms-inner { display: flex; flex-direction: column; gap: 52px; }
+
+  .terms-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .terms-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.97rem;
+    margin-bottom: 16px;
+  }
+  .terms-section p:last-child { margin-bottom: 0; }
+  .terms-section ul { margin-top: 8px; display: flex; flex-direction: column; gap: 10px; padding-left: 4px; }
+  .terms-section ul li { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 18px; position: relative; }
+  .terms-section ul li::before { content: '—'; position: absolute; left: 0; color: var(--primary-light); }
+
+  footer { padding: 40px 0 32px; border-top: 1px solid var(--border-subtle); position: relative; z-index: 1; }
+  .footer-row { display: flex; align-items: center; justify-content: space-between; }
+  .footer-copy { font-size: 0.82rem; color: var(--text-muted); }
+</style>

@@ -153,10 +153,10 @@ export const translations: Record<Lang, Translation> = {
     permanentRoom: {
       badge: 'SALA PERMANENTE',
       title: 'Tu nube personal sin cuotas absurdas',
-      subtitle: 'Una sala permanente es tu espacio siempre disponible: el enlace no caduca, no hace falta cuenta para descargar y solo tú controlas quién entra.',
+      subtitle: 'Una sala permanente es tu espacio siempre disponible: el enlace no caduca, nadie necesita cuenta — ni para subir ni para descargar — y solo tú controlas quién entra.',
       bullets: [
         'Sin caducidad — el enlace funciona mientras la sala esté activa',
-        'Sin cuenta para quien descarga — abre el enlace, descarga directo',
+        'Sin cuentas para nadie — ni quien comparte ni quien descarga, solo un nombre',
         'Contraseña de propietario — solo tú reclamas la sala al volver',
         'Plugins opcionales: servidor de Minecraft, proyectos colaborativos y más',
         'WeTransfer: enlaces caducan en 7 días · Drive requiere cuenta Google · Smash borra archivos automáticamente',
@@ -170,7 +170,7 @@ export const translations: Record<Lang, Translation> = {
         {
           icon: '🔗',
           title: 'Enlace público — un clic',
-          desc: 'Haz público cualquier archivo con un clic y copia el enlace. Cualquiera puede descargarlo directamente desde el navegador, sin cuenta ni app.',
+          desc: 'Haz público cualquier archivo con un clic y copia el enlace. Quien lo reciba descarga directo desde el navegador — sin instalar nada, sin registrarse. Tú tampoco tienes cuenta: solo un nombre de sesión.',
         },
         {
           icon: '📦',
@@ -300,7 +300,7 @@ export const translations: Record<Lang, Translation> = {
       card2: {
         icon: '🔗',
         title: 'Enlace público en un clic',
-        desc: 'Como propietario de la sala, haz público cualquier archivo y copia el enlace. Quien lo reciba puede descargarlo directamente desde el navegador — sin cuenta, sin app.',
+        desc: 'Como propietario de la sala, haz público cualquier archivo y copia el enlace. Quien lo reciba descarga directo desde el navegador — nadie necesita cuenta, ni tú ni ellos.',
       },
     },
     footer: {
@@ -523,10 +523,10 @@ export const translations: Record<Lang, Translation> = {
     permanentRoom: {
       badge: 'PERMANENT ROOM',
       title: 'Your personal cloud, without the absurd fees',
-      subtitle: 'A permanent room is your always-on space: links never expire, recipients need no account, and only you control who gets in.',
+      subtitle: 'A permanent room is your always-on space: links never expire, nobody needs an account — not you, not your recipients — and only you control who gets in.',
       bullets: [
         'No expiry — link works as long as the room is active',
-        'No account for recipients — they open the link, download direct',
+        'No accounts for anyone — sharing and downloading both work with just a name',
         'Ownership password — only you can reclaim the room when you return',
         'Optional plugins: Minecraft server, collaborative projects, and more',
         'WeTransfer links expire in 7 days · Drive requires a Google account · Smash auto-deletes files',
@@ -540,7 +540,7 @@ export const translations: Record<Lang, Translation> = {
         {
           icon: '🔗',
           title: 'Public link — one click',
-          desc: 'Make any file public with one click and copy the link. Anyone can download it straight from their browser — no account, no app required.',
+          desc: 'Make any file public with one click and copy the link. Recipients download straight from their browser — no install, no sign-up. You don\'t have an account either: just a session name.',
         },
         {
           icon: '📦',
@@ -661,7 +661,7 @@ export const translations: Record<Lang, Translation> = {
     shareHighlight: {
       eyebrow: 'Large files · Public links',
       title: 'Transfer anything. Share instantly.',
-      subtitle: 'No per-file size limit. Make any file public with one click and share the link — anyone can download it straight from their browser, no account or app needed.',
+      subtitle: 'No per-file size limit. Make any file public with one click and share the link — anyone can download straight from their browser. No accounts on either end: Connectea runs on name-based sessions.',
       card1: {
         icon: '📦',
         title: 'No file size limit',
@@ -670,7 +670,7 @@ export const translations: Record<Lang, Translation> = {
       card2: {
         icon: '🔗',
         title: 'Public link in one click',
-        desc: 'As room owner, mark any file as public and copy the link. Recipients download it directly from their browser — no Connectea account, no app required.',
+        desc: 'As room owner, mark any file as public and copy the link. Recipients download straight from their browser — no account for anyone, no app required.',
       },
     },
     footer: {
@@ -880,7 +880,7 @@ export const translations: Record<Lang, Translation> = {
       badge: '支持 Windows 10 / 11',
       badge2: 'AES-256-GCM 加密',
       headline: '发送大文件，生成公开链接，无需账号，无大小限制',
-      subheadline: '创建房间，拖入文件，分享链接 — 对方直接在浏览器下载，无需账号。可选端到端加密。需要始终在线？设为永久房间，每月仅需 €5。',
+      subheadline: '创建房间，拖入文件，分享链接 — 对方直接在浏览器下载。任何人无需账号，包括你自己，只需输入名字即可开始。可选端到端加密。需要始终在线？设为永久房间，每月仅需 €5。',
       cta_primary: '免费下载',
       cta_secondary: '了解如何使用',
       cta_minecraft: '想搭建 Minecraft 服务器？这里也可以 →',
@@ -893,10 +893,10 @@ export const translations: Record<Lang, Translation> = {
     permanentRoom: {
       badge: '永久房间',
       title: '你的个人云端空间，告别荒谬收费',
-      subtitle: '永久房间让你的空间始终在线：链接永不过期，下载方无需账号，只有你掌控访问权限。',
+      subtitle: '永久房间让你的空间始终在线：链接永不过期，任何人无需账号（上传下载均如此），只有你掌控访问权限。',
       bullets: [
         '永不过期 — 房间活跃期间链接始终有效',
-        '下载方无需账号 — 打开链接，直接下载',
+        '任何人无需账号 — 上传和下载都只需一个名字，无需注册',
         '所有权密码 — 只有你能在回来后重新认领房间',
         '可选插件：Minecraft 服务器、协作项目等',
         'WeTransfer 链接 7 天后过期 · Drive 需要 Google 账号 · Smash 自动删除文件',
@@ -910,7 +910,7 @@ export const translations: Record<Lang, Translation> = {
         {
           icon: '🔗',
           title: '公开链接 — 一键搞定',
-          desc: '一键将任意文件设为公开，复制链接。对方直接在浏览器下载 — 无需 Connectea 账号，无需安装任何软件。',
+          desc: '一键将任意文件设为公开，复制链接。对方直接在浏览器下载。任何人无需账号，包括你自己 — Connectea 用名字会话运行，无需注册。',
         },
         {
           icon: '📦',
@@ -1031,7 +1031,7 @@ export const translations: Record<Lang, Translation> = {
     shareHighlight: {
       eyebrow: '大文件 · 公开链接',
       title: '传输任意文件，即刻分享。',
-      subtitle: '无单文件大小限制。一键设为公开，分享链接 — 对方无需账号，直接在浏览器下载。',
+      subtitle: '无单文件大小限制。一键设为公开，分享链接 — 任何人无需账号（上传下载皆然），对方直接在浏览器下载。',
       card1: {
         icon: '📦',
         title: '无文件大小限制',
@@ -1040,7 +1040,7 @@ export const translations: Record<Lang, Translation> = {
       card2: {
         icon: '🔗',
         title: '一键生成公开链接',
-        desc: '作为房主，将任意文件设为公开并复制链接。对方直接在浏览器下载 — 无需 Connectea 账号，无需安装任何软件。',
+        desc: '作为房主，将任意文件设为公开并复制链接。对方直接在浏览器下载 — 任何人无需账号，无需安装任何软件。',
       },
     },
     footer: {

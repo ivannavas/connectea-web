@@ -11,6 +11,46 @@ const { t, lang } = Astro.props;
 // DO Spaces URL — update bucket/region to match your Space configuration
 const DOWNLOAD_URL = 'https://connectea-releases.lon1.cdn.digitaloceanspaces.com/connectea-setup-latest.exe';
 
+// ── Open source ────────────────────────────────────────────
+const GH_PROFILE = 'https://github.com/ivannavas';
+const GH_REPOS = {
+  app: 'https://github.com/ivannavas/connectea',
+  backend: 'https://github.com/ivannavas/connectea-backend',
+  velocity: 'https://github.com/ivannavas/connectea-velocity',
+  web: 'https://github.com/ivannavas/connectea-web',
+};
+
+const ossCopy = {
+  en: {
+    nav: 'GitHub',
+    badge: 'Open Source',
+    title: 'Connectea is now open source',
+    subtitle: 'The Connectea project — desktop app, backend, Velocity proxy and this website — has been fully released as open source. Explore the code, self-host it, or contribute on GitHub.',
+    viewAll: 'View on GitHub',
+    footerCol: 'Open Source',
+    repos: { app: 'Desktop app', backend: 'Backend', velocity: 'Velocity proxy', web: 'Website' },
+  },
+  es: {
+    nav: 'GitHub',
+    badge: 'Código abierto',
+    title: 'Connectea ahora es de código abierto',
+    subtitle: 'El proyecto Connectea —app de escritorio, backend, proxy Velocity y esta web— se ha liberado por completo como código abierto. Explora el código, hospédalo tú mismo o contribuye en GitHub.',
+    viewAll: 'Ver en GitHub',
+    footerCol: 'Código abierto',
+    repos: { app: 'App de escritorio', backend: 'Backend', velocity: 'Proxy Velocity', web: 'Web' },
+  },
+  zh: {
+    nav: 'GitHub',
+    badge: '开源',
+    title: 'Connectea 现已开源',
+    subtitle: 'Connectea 项目——桌面应用、后端、Velocity 代理以及本网站——已完全开源。欢迎在 GitHub 上浏览代码、自行部署或参与贡献。',
+    viewAll: '在 GitHub 上查看',
+    footerCol: '开源',
+    repos: { app: '桌面应用', backend: '后端', velocity: 'Velocity 代理', web: '网站' },
+  },
+} as const;
+const oss = ossCopy[lang];
+
 const langLabels: Record<Lang, string> = { en: 'EN', es: 'ES', zh: '中文' };
 const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
 ---
@@ -251,6 +291,9 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
             </a>
           ))}
         </div>
+        <a href={GH_PROFILE} class="nav-github" target="_blank" rel="noopener" aria-label="Connectea on GitHub" title={oss.nav}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+        </a>
         <a href="#download" class="btn btn-primary nav-cta">{t.nav.download}</a>
         <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -617,6 +660,31 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     </div>
   </section>
 
+  <!-- ============ OPEN SOURCE ============ -->
+  <section id="opensource" aria-labelledby="opensource-title">
+    <div class="container">
+      <div class="os-inner" data-reveal>
+        <div class="os-glow" aria-hidden="true"></div>
+        <div class="badge badge-primary os-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+          {oss.badge}
+        </div>
+        <h2 id="opensource-title" class="section-title os-title">{oss.title}</h2>
+        <p class="section-subtitle os-subtitle">{oss.subtitle}</p>
+        <div class="os-repos">
+          <a href={GH_REPOS.app} class="os-repo" target="_blank" rel="noopener"><span class="os-repo-icon" aria-hidden="true">🖥️</span><span>connectea</span><small>{oss.repos.app}</small></a>
+          <a href={GH_REPOS.backend} class="os-repo" target="_blank" rel="noopener"><span class="os-repo-icon" aria-hidden="true">⚙️</span><span>connectea-backend</span><small>{oss.repos.backend}</small></a>
+          <a href={GH_REPOS.velocity} class="os-repo" target="_blank" rel="noopener"><span class="os-repo-icon" aria-hidden="true">🔀</span><span>connectea-velocity</span><small>{oss.repos.velocity}</small></a>
+          <a href={GH_REPOS.web} class="os-repo" target="_blank" rel="noopener"><span class="os-repo-icon" aria-hidden="true">🌐</span><span>connectea-web</span><small>{oss.repos.web}</small></a>
+        </div>
+        <a href={GH_PROFILE} class="btn btn-primary os-cta" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+          {oss.viewAll}
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ DOWNLOAD CTA ============ -->
   <section id="download" aria-labelledby="download-title">
     <div class="container download-inner" data-reveal>
@@ -639,6 +707,42 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
   </section>
 
   </main>
+
+  <!-- ============ DOMAIN FOR SALE OVERLAY ============ -->
+  <!-- Shown once per session on entry — connectea.net domain is for sale -->
+  <div id="for-sale-overlay" class="rjo-backdrop" hidden aria-modal="true" role="dialog" aria-labelledby="fs-title">
+    <div class="rjo-card">
+      <div class="rjo-glow" aria-hidden="true"></div>
+
+      <div class="rjo-logo" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+      </div>
+
+      <p class="rjo-eyebrow" id="fs-eyebrow"></p>
+      <h2 class="rjo-title" id="fs-title"></h2>
+      <p class="fs-body" id="fs-body"></p>
+
+      <div class="rjo-room-badge" style="font-family:var(--font)">connectea.net</div>
+
+      <a id="fs-contact-btn" class="rjo-btn rjo-btn-primary" href="mailto:contact@connectea.net">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span id="fs-contact-text"></span>
+      </a>
+
+      <button id="fs-dismiss-btn" class="rjo-btn rjo-btn-secondary" type="button"><span id="fs-dismiss-text"></span></button>
+
+      <button class="rjo-dismiss" id="fs-close-btn" aria-label="Dismiss">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <!-- ============ ROOM JOIN OVERLAY ============ -->
   <!-- Shown when the URL contains #download?room-id=xxx (deep link from the app's Share button) -->
@@ -776,6 +880,16 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
             <li><a href={`/${lang}/about/`}>{t.footer.links.about}</a></li>
             <li><a href="mailto:contact@connectea.net">{t.footer.links.contact}</a></li>
             <li><a href="mailto:bug-report@connectea.net?subject=Bug%20Report%20-%20Connectea">{t.footer.links.privacy}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-links-title">{oss.footerCol}</h4>
+          <ul class="footer-links" role="list">
+            <li><a href={GH_REPOS.app} target="_blank" rel="noopener">connectea</a></li>
+            <li><a href={GH_REPOS.backend} target="_blank" rel="noopener">connectea-backend</a></li>
+            <li><a href={GH_REPOS.velocity} target="_blank" rel="noopener">connectea-velocity</a></li>
+            <li><a href={GH_REPOS.web} target="_blank" rel="noopener">connectea-web</a></li>
           </ul>
         </div>
       </div>
@@ -1416,6 +1530,59 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     .pricing-card { padding: 24px; }
   }
 
+  /* ===== NAV GITHUB ===== */
+  .nav-github {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: var(--radius-sm);
+    color: var(--text-secondary); border: 1px solid var(--border-subtle);
+    transition: all 0.2s ease;
+  }
+  .nav-github:hover { color: var(--text); background: var(--bg-card-hover); border-color: var(--border); transform: translateY(-1px); }
+
+  /* ===== OPEN SOURCE ===== */
+  #opensource { padding: 96px 0; }
+  .os-inner {
+    position: relative; overflow: hidden;
+    text-align: center; max-width: 880px; margin: 0 auto;
+    padding: 56px 40px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); box-shadow: var(--shadow-glow);
+  }
+  .os-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.16) 0%, transparent 60%);
+  }
+  .os-badge { margin: 0 auto 20px; }
+  .os-title { position: relative; }
+  .os-title::after { margin: 12px auto 0; }
+  .os-subtitle { position: relative; max-width: 620px; margin: 0 auto 36px; color: var(--text-secondary); }
+  .os-repos {
+    position: relative;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    max-width: 600px; margin: 0 auto 32px; text-align: left;
+  }
+  .os-repo {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 14px 16px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle);
+    font-weight: 600; font-size: 0.92rem; transition: all 0.2s ease;
+  }
+  .os-repo:hover { background: var(--bg-card-hover); border-color: var(--border); transform: translateY(-2px); }
+  .os-repo-icon { font-size: 1.05rem; }
+  .os-repo small { width: 100%; color: var(--text-muted); font-weight: 500; font-size: 0.78rem; }
+  .os-cta { position: relative; margin-top: 4px; }
+  @media (max-width: 600px) {
+    .os-inner { padding: 40px 22px; }
+    .os-repos { grid-template-columns: 1fr; }
+    #opensource { padding: 64px 0; }
+  }
+
+  /* ===== FOR SALE OVERLAY ===== */
+  .fs-body {
+    font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
   /* ===== ROOM JOIN OVERLAY ===== */
   .rjo-backdrop {
     position: fixed; inset: 0; z-index: 500;
@@ -1710,5 +1877,67 @@ const otherLangs = (['en', 'es', 'zh'] as Lang[]).filter(l => l !== lang);
     dismissBtn?.addEventListener('click', () => { if (overlay) overlay.hidden = true; });
 
     if (overlay) overlay.hidden = false;
+  })();
+
+  // ── Domain-for-sale popup ──────────────────────────────────
+  // Shown once per session on entry. connectea.net is for sale.
+  (() => {
+    try { if (sessionStorage.getItem('fs-dismissed') === '1') return; } catch (_) {}
+
+    // Don't stack on top of the room-join or mobile-gate overlays
+    const roomJoin = document.getElementById('room-join-overlay');
+    const mobileGate = document.getElementById('mobile-gate');
+    if ((roomJoin && !roomJoin.hidden) || (mobileGate && !mobileGate.hidden)) return;
+
+    const lang = document.documentElement.lang || 'en';
+    const i18n = {
+      en: {
+        eyebrow: 'Domain for sale',
+        title: 'connectea.net is for sale',
+        body: 'This domain is available for purchase. If you are interested in buying it, get in touch and we will be happy to talk.',
+        contact: 'Contact contact@connectea.net',
+        dismiss: 'Maybe later',
+        subject: 'Interested in buying connectea.net',
+      },
+      es: {
+        eyebrow: 'Dominio en venta',
+        title: 'connectea.net está en venta',
+        body: 'Este dominio está disponible para su compra. Si te interesa adquirirlo, ponte en contacto y hablamos.',
+        contact: 'Contactar contact@connectea.net',
+        dismiss: 'Quizás más tarde',
+        subject: 'Interesado en comprar connectea.net',
+      },
+      zh: {
+        eyebrow: '域名出售',
+        title: 'connectea.net 域名出售',
+        body: '此域名现可出售。如果您有意购买，请与我们联系，我们很乐意洽谈。',
+        contact: '联系 contact@connectea.net',
+        dismiss: '以后再说',
+        subject: '有意购买 connectea.net',
+      },
+    };
+    const tx = i18n[lang] || i18n.en;
+
+    const overlay   = document.getElementById('for-sale-overlay');
+    if (!overlay) return;
+    const contactBtn = document.getElementById('fs-contact-btn');
+
+    document.getElementById('fs-eyebrow').textContent = tx.eyebrow;
+    document.getElementById('fs-title').textContent = tx.title;
+    document.getElementById('fs-body').textContent = tx.body;
+    document.getElementById('fs-contact-text').textContent = tx.contact;
+    document.getElementById('fs-dismiss-text').textContent = tx.dismiss;
+    contactBtn.setAttribute('href', 'mailto:contact@connectea.net?subject=' + encodeURIComponent(tx.subject));
+
+    const close = () => {
+      overlay.hidden = true;
+      try { sessionStorage.setItem('fs-dismissed', '1'); } catch (_) {}
+    };
+    document.getElementById('fs-dismiss-btn').addEventListener('click', close);
+    document.getElementById('fs-close-btn').addEventListener('click', close);
+    contactBtn.addEventListener('click', () => { try { sessionStorage.setItem('fs-dismissed', '1'); } catch (_) {} });
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+    overlay.hidden = false;
   })();
 </script>
